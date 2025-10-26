@@ -1,0 +1,425 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@450&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 450;
+  font-style: normal;
+  font-size: 30px;
+}
+
+
+
+input {
+  border-radius: 20px;
+  border-color: var(--border);
+  width: 100%;
+  height: auto;
+  background-color: var(--input-bg);
+  padding-left: 20px;
+  border-width: 1px solid;
+  outline: var(--bg);
+  display: flex;
+  flex: 1;
+  border-width: 1px;
+}
+
+h1 {
+  color: var(--text);
+  white-space: nowrap;
+  font-size: 70px;
+}
+
+h2 {
+  color: var(--text-secondary);
+  font-size: 50px;
+}
+
+button {
+  width: 5em;
+  height: 2em;
+  border-radius: 5px;
+  cursor: pointer;
+  border-width: 1px;
+  transition: ease 0.5s;
+}
+
+.Themebtn:hover {
+  background-color: #e55c5c;
+  color: white;
+  border-color: #e55c5c;
+
+  /* 🌟 HIỆU ỨNG ĐỘ SÂU (Shadow) 🌟 */
+  /* Tạo bóng đổ mềm mại xung quanh nút */
+  box-shadow: 0 4px 12px rgba(229, 92, 92, 0.4);
+
+  /* (Tùy chọn: Nhấc nút lên một chút) */
+  transform: translateY(-2px);
+}
+
+.Themebtn.active {
+  background-color: #e55c5c;
+  color: white;
+  border-color: #e55c5c;
+
+  /* 🌟 HIỆU ỨNG ĐỘ SÂU (Shadow) 🌟 */
+  /* Tạo bóng đổ mềm mại xung quanh nút */
+  box-shadow: 0 4px 12px rgba(229, 92, 92, 0.4);
+
+  /* (Tùy chọn: Nhấc nút lên một chút) */
+  transform: translateY(-2px);
+
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  height: auto;
+}
+
+.theme-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+
+.send-btn {
+  white-space: nowrap;
+  background: linear-gradient(145deg, #6a7cff, #4758e5);
+  font-weight: bold;
+  color: white;
+  border: none;
+}
+
+.send-btn:hover {
+  /* Màu nền tối hơn một chút */
+  background: linear-gradient(145deg, #6a7cff, #4758e5);
+
+  /* Thêm hiệu ứng bóng nổi (elevation) */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+
+  /* Nhấc nút lên một chút */
+  transform: translateY(-2px);
+}
+
+.send-btn:active {
+  /* Màu nền tối hơn nữa */
+  background-color: #303F9F;
+
+  /* Xóa bóng nổi và thay bằng bóng đổ vào trong hoặc thu nhỏ nút */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+
+  /* Đẩy nút xuống vị trí cũ hoặc thu nhỏ một chút */
+  transform: translateY(0) scale(0.98);
+}
+
+body {
+  box-sizing: border-box;
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  min-height: 100vh;
+  transition: background-color 1s, color 1s;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.comment {
+  display: flex;
+  gap: 20px;
+  width: 70%;
+}
+
+
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 45px;
+    white-space: initial;
+    text-align: center;
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  body {
+    width: 90%;
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  input {
+    font-size: 25px;
+    margin: 0;
+    height: auto;
+  }
+
+  input::placeholder {
+    font-size: 20px;
+  }
+
+  .comment {
+    gap: px;
+    width: 100%;
+    height: 2em;
+  }
+
+  .send-btn {
+    font-size: 25px;
+    height: auto;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 90px;
+    white-space: initial;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 80px;
+  }
+
+  p {
+    text-align: center;
+    font-size: 55px;
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  body {
+    width: 90%;
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  input {
+    margin: 0;
+    height: auto;
+  }
+
+  input::placeholder {
+    font-size: 35px;
+  }
+
+  .comment {
+    gap: px;
+    width: 100%;
+    height: 3em;
+  }
+
+  .send-btn {
+    font-size: 25px;
+    height: auto;
+  }
+
+
+
+}
+
+
+@media screen and (min-width: 992px) {
+
+  h1 {
+    font-size: 90px;
+    white-space: initial;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 80px;
+  }
+
+  p {
+    text-align: center;
+    font-size: 55px;
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  body {
+    width: 90%;
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  input {
+    margin: 0;
+    height: auto;
+  }
+
+  input::placeholder {
+    font-size: 30px;
+  }
+
+  .comment {
+    gap: px;
+    width: 100%;
+    height: 3em;
+  }
+
+  .send-btn {
+    font-size: 25px;
+    height: auto;
+  }
+
+
+
+
+}
+
+@media screen and (min-width: 1200px) {
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+
+  }
+
+  button {
+    height: 100px;
+    width: 200px;
+  }
+  input::placeholder {
+    font-size: 34px;
+  }
+}
+
+
+
+/* 🌞 LIGHT THEME */
+.theme-light {
+  --bg: #f9fafc;
+  --card: #ffffff;
+  --text: #1a202c;
+  --text-secondary: #4a5568;
+  --input-bg: #ffffff;
+  --border: #e2e8f0;
+  --btn-bg: #facc15;
+  --btn-text: #1a202c;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* 🌙 DARK THEME */
+.theme-dark {
+  --bg: #1a202c;
+  --card: #2d3748;
+  --text: #edf2f7;
+  --text-secondary: #a0aec0;
+  --input-bg: #4a5568;
+  --border: #4a5568;
+  --btn-bg: #8b7cff;
+  --btn-text: white;
+  --shadow: rgba(0, 0, 0, 0.4);
+}
+
+/* 💙 OCEAN THEME */
+.theme-ocean {
+  --bg: #e6f6ff;
+  --card: #ffffff;
+  --text: #003554;
+  --text-secondary: #0077b6;
+  --input-bg: #e0f4ff;
+  --border: #90e0ef;
+  --btn-bg: #0096c7;
+  --btn-text: white;
+  --shadow: rgba(0, 150, 199, 0.3);
+}
+
+/* 💜 LAVENDER THEME */
+.theme-lavender {
+  --bg: #f4f0ff;
+  --card: #ffffff;
+  --text: #2d1b69;
+  --text-secondary: #5e4b9a;
+  --input-bg: #efe9ff;
+  --border: #c9b6ff;
+  --btn-bg: #8b5cf6;
+  --btn-text: white;
+  --shadow: rgba(139, 92, 246, 0.3);
+}
+
+.theme-green {
+  /* Màu nền chính (Xanh lá cây rất nhạt) */
+  --bg: #f4fff0;
+
+  /* Màu nền của các thành phần như thẻ (card) */
+  --card: #ffffff;
+
+  /* Màu chữ chính (Xanh lá cây đậm, gần như đen) */
+  --text: #1d3300;
+
+  /* Màu chữ phụ, liên kết (Xanh lá cây trung bình) */
+  --text-secondary: #4d9900;
+
+  /* Màu nền ô nhập liệu */
+  --input-bg: #e5ffe5;
+
+  /* Màu đường viền */
+  --border: #a8d58d;
+
+  /* Màu nền nút bấm (Xanh lá cây nổi bật) */
+  --btn-bg: #6aa84f;
+
+  /* Màu chữ nút bấm */
+  --btn-text: white;
+
+  /* Màu đổ bóng */
+  --shadow: rgba(106, 168, 79, 0.4);
+}
+
+.theme-slate {
+  /* Màu nền chính (Xám trung tính, hơi tối) */
+  --bg: #e0e0e0;
+
+  /* Màu nền của các thành phần như thẻ (card) - Trắng tinh khiết */
+  --card: #ffffff;
+
+  /* Màu chữ chính (Xám đậm/Gần đen) */
+  --text: #212121;
+
+  /* Màu chữ phụ, liên kết (Xám trung bình) */
+  --text-secondary: #757575;
+
+  /* Màu nền ô nhập liệu (Xám rất nhạt) */
+  --input-bg: #f5f5f5;
+
+  /* Màu đường viền (Xám nhạt) */
+  --border: #bdbdbd;
+
+  /* Màu nền nút bấm (Màu Xanh Đậm/Navy để tạo điểm nhấn chuyên nghiệp) */
+  --btn-bg: #455a64;
+
+  /* Màu chữ nút bấm */
+  --btn-text: white;
+
+  /* Màu đổ bóng (Bóng xám nhẹ, chuyên nghiệp) */
+  --shadow: rgba(0, 0, 0, 0.15);
+}
