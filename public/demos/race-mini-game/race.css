@@ -1,0 +1,139 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgb(161, 222, 161);
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.main-game {
+  background-color: red;
+}
+
+.title {
+  font-size: 70px;
+}
+
+.race-track {
+  background-color: black;
+  width: 1200px;
+  height: 700px;
+  position: relative;
+  z-index: 0;
+}
+
+.finish-line {
+  height: 100%;
+  width: 10px;
+  position: absolute;
+  background-color: red;
+  right: 20px;
+}
+
+.player {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  bottom: 10%;
+  left: 10px;
+  transition: 0.3s ease;
+  z-index: 1;
+}
+
+.enemy1 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  bottom: 67%;
+  left: 10px;
+  transition: 0.3s ease;
+  z-index: 1;
+}
+.enemy2 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  bottom: 35%;
+  left: 10px;
+  transition: 0.3s ease;
+  z-index: 1;
+}
+.player img {
+  width:100%;
+}
+.enemy1 img {
+  width:100%;
+}
+.enemy2 img {
+  width:100%;
+}
+
+
+
+
+
+
+
+
+
+
+.race-button {
+  font-size: 30px;
+  width: 200px;
+  height: 100px;
+  background-color: rgb(39, 191, 251);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.race-button:active {
+  transform: scale(0.9);
+}
+
+.race-button.disable {
+  cursor: not-allowed;
+  background-color: gray;
+  pointer-events: none;
+}
+
+.message {
+  font-size: 40px;
+  color: green;
+
+}
+
+.center-line1 {
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  background: repeating-linear-gradient(to right, white 0 40px, transparent 20px 80px);
+  text-decoration: dotted;
+
+  z-index: -1;
+  bottom: 25%;
+  text-decoration: dashed;
+}
+.center-line2 {
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  background: repeating-linear-gradient(to right, white 0 40px, transparent 20px 80px);
+  text-decoration: dotted;
+
+  z-index: -1;
+  bottom: 60%;
+  text-decoration: dashed;
+}
