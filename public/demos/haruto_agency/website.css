@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth,wght@0,18..144,103,700;1,18..144,103,700&display=swap');
+
 html {
   scroll-behavior: smooth;
 }
+
 body {
   margin: 0 auto;
   padding: 0;
@@ -314,6 +316,7 @@ footer {
 
 .footer__link a {
   cursor: pointer;
+  color: white;
 }
 
 .footer__item ul {
@@ -321,4 +324,99 @@ footer {
   flex-direction: column;
   gap: 20px;
   font-size: 18px;
+}
+
+
+@media screen and (min-width: 768px) {
+
+  /* Điều chỉnh Body padding */
+  body {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* Thay đổi button */
+  button {
+    width: 40%;
+    /* Giảm độ rộng nút */
+  }
+
+  /* Dịch vụ (Main Services) - Chuyển sang 2 cột */
+  .main-services-section {
+    grid-template-columns: repeat(2, 1fr);
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .main-services__item {
+    width: 100%;
+    /* Đảm bảo item chiếm hết cột */
+  }
+
+  /* Portfolio - Chuyển sang 2 cột */
+  .portfolio-section__list {
+    grid-template-columns: repeat(2, 1fr);
+    width: 90%;
+    gap: 30px;
+  }
+
+  /* Blog - Chuyển sang 2 cột */
+  .blog-section__list {
+    grid-template-columns: repeat(2, 1fr);
+    width: 90%;
+  }
+
+  /* Footer - Chuyển sang bố cục ngang (ít nhất 2 cột/flex) */
+  .footer__list {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 30px;
+    padding: 10px 0;
+  }
+
+  .footer__item {
+    flex: 1;
+    /* Cho các item footer chiếm không gian bằng nhau */
+  }
+}
+
+@media screen and (min-width: 1024px) {
+
+  /* Điều chỉnh Body padding và giới hạn chiều rộng tổng thể */
+  body {
+    max-width: 1200px;
+    /* Giới hạn chiều rộng tối đa cho màn hình lớn */
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Căn chỉnh button */
+  button {
+    width: 30%;
+    /* Giảm độ rộng nút hơn nữa */
+  }
+
+  /* Dịch vụ (Main Services) - Chuyển sang 3 cột */
+  .main-services-section {
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    /* Tận dụng tối đa max-width của body */
+  }
+
+  /* Portfolio - Chuyển sang 4 cột */
+  .portfolio-section__list {
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+  }
+
+  /* Blog - Chuyển sang 3 cột */
+  .blog-section__list {
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+  }
+
+  /* Footer - Tăng khoảng cách nếu cần */
+  .footer__list {
+    justify-content: space-between;
+  }
 }
