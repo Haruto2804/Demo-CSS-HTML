@@ -9,9 +9,9 @@ body {
   padding: 0;
   padding-left: 10px;
   padding-right: 10px;
+  padding-top: 50px;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  box-sizing: border-box;
 }
 
 label {
@@ -78,12 +78,18 @@ p {
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
-
-.hero-section {
   text-align: center;
+  /* Đảm bảo chữ trắng nổi bật trên nền tối */
+  position: relative;
 }
 
+.hero-section h1 {
+  color: black;
+}
+
+.hero-section h2 {
+  color: black;
+}
 button {
   background: linear-gradient(to right, #fc6767, #ec008c);
   color: none;
@@ -419,4 +425,26 @@ footer {
   .footer__list {
     justify-content: space-between;
   }
+}
+
+
+
+.main-services__item,
+.portfolio-section__project-card {
+  animation: scrolling 2s ease-in;
+  animation-timeline: view();
+  animation-range: entry 0% cover 50%;
+}
+
+@keyframes scrolling {
+  from {
+    opacity: 0.3;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
 }
