@@ -1,0 +1,21 @@
+.profile-info {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.profile-info__views {
+  color: white;
+}
+.profile-info__views-icon {
+  width:30px;
+  height:30px;
+  object-position: cover;
+}
+.profile-info__user-location {
+  display: flex;
+  align-items: center;
+}
+.profile-info__user-location img {
+  width: 30px;
+  height: 30px;
+}

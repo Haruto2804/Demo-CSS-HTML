@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Parkinsans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p {
+  margin: 0;
+  color: white;
+}
+
+.page-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  z-index: 0;
+  box-sizing: border-box;
+  width:95%;
+  z-index: 2;
+}
+
+.background-blur {
+  background-color: rgba(255, 252, 252, 0.1);
+  /* Áp dụng hiệu ứng làm mờ lên nền phía sau phần tử này */
+  backdrop-filter: blur(3px);
+  /* Hỗ trợ trình duyệt Safari */
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 20px;
+}
+
+.myVideo {
+  position: fixed;
+  ;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+}
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* 50% độ mờ */
+  position: fixed;
+  top:0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+.user-grid {
+  width:95%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px 10px;
+}

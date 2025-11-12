@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to my bio!</title>
+  <link rel="stylesheet" href="./components/youtube-preview.css">
+  <link rel="stylesheet" href="./components/profile-info.css">
+  <link rel="stylesheet" href="./components/progress-bar.css">
+  <link rel="stylesheet" href="./components/general.css">
+  <link rel="stylesheet" href="./components/active-status.css">
+  <link rel="stylesheet" href="./components/social-links.css">
+  <link rel="stylesheet" href="./components/music-footer.css">
+  <link rel="stylesheet" href="./components/user-header.css">
+  <link rel="stylesheet" href="components/auto-type.css">
+  <link rel="stylesheet" href="./components/volumeSlider.css">
+  <link rel="stylesheet" href="./responsiev.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+  <div class="volume-container">
+    <button class="volume-control">
+      <i class="fa-solid fa-volume-high fa-xl" style="color: #f8f8f8;"></i>
+    </button>
+    <input class="volumeSlider" type="range" min=0; max="1" step="0.01" value="0.5">
+  </div>
+
+  <div class="overlay"></div>
+  <div class="page-profile">
+    <div class="user-header">
+      <img class="user-header__picture" src="./images/user-pictures/haruto.jpg" alt="">
+      <div class="user-header__info">
+        <p class="user-header__name"></p>
+        <p class="user-header__description"></p>
+        <p class="user-header__join-date">Joined about 1 year ago</p>
+      </div>
+    </div>
+    <div class="user-grid">
+      <div class="active-status background-blur">
+        <img class="active-status__picture " src="images/user-pictures/haruto.jpg" alt="">
+        <div class="active-status__details">
+          <p class="active-status__id">.haruto_2804</p>
+          <p class="active-status__last-active">last seen 13 hours ago</p>
+        </div>
+
+      </div>
+      <div class="youtube-preview background-blur">
+        <img class="youtube-preview__picture" src="./images/user-pictures/haruto.jpg" alt="">
+        <div class="youtube-preview__details">
+          <p class="youtube-preview__name">Haruto</p>
+          <div class="youtube-preview__subscribers-container">
+            <i class="fa-solid fa-users fa-lg" style="color: #e1cfcf;"></i>
+            <p class="youtube-preview__subscribers">1M Subscribes</p>
+          </div>
+
+          <p class="youtube-preview__view-channel">View Channel</p>
+          <img class="youtube-preview__logo " src="./images/social-logos/youtube.png" alt="">
+        </div>
+
+      </div>
+    </div>
+
+    <div class="social-links">
+      <a href="https://open.spotify.com/user/31lkybvj2h6ywfsuv766kupstrli">
+        <img src="./images/social-logos/spotify.png" alt="">
+      </a>
+
+      <a href="https://www.facebook.com/baodaydunglo">
+        <img src="./images/social-logos/facebook.png" alt="">
+      </a>
+
+      <a href="https://www.tiktok.com/@haruto_2804">
+        <img src="./images/social-logos/tiktok.png" alt="">
+      </a>
+
+      <a href="https://github.com/Haruto2804">
+        <img src="./images/social-logos/github.png" alt="">
+      </a>
+      <a href="https://www.instagram.com/baodaydunglo">
+        <img src="./images//social-logos/instagram.png" alt="">
+      </a>
+      <a href="https://www.threads.com/@baodaydunglo">
+        <img src="./images//social-logos/threads.png" alt="">
+      </a>
+
+    </div>
+    <div class="profile-info">
+      <img class="profile-info__views-icon" src="./images/icons/views.png" alt="">
+      <div class="profile-info__views">
+        159
+      </div>
+      <div class="profile-info__user-location">
+        <img src="./images/icons/location.png" alt="">
+        <p>Ho Chi Minh City, VietNam</p>
+      </div>
+    </div>
+    <div class="music-footer background-blur">
+      <img class="music-footer__picture" src="./images/music-pictures/the-sacred-torch.jpg" alt="">
+      <div class="music-footer__details">
+        <p class="music-footer__name">The Sacred Torch [H-el-ical]</p>
+        <div class="progress-bar-container">
+          <span class="time current-time">0:00</span>
+          <input type="range" class="progress-bar" value="0" min="0" max="100">
+          <span class="time total-time"></span>
+          <div class="music-footer__controls">
+            <i class="fa-solid fa-backward" style="color: #fafbff;"></i>
+            <button class="play-button" data-btnID="2">
+              <i class="fa-solid fa-play" style="color: #ffffff;"></i>
+            </button>
+            <i class="fa-solid fa-backward fa-rotate-180" style="color: #ffffff;"></i>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <video autoplay mute loop class="myVideo">
+    <source src="./video/background-video/nikke.mp4" type="video/mp4">
+  </video>
+  <audio class="audioElement" src="./music/the-sacred-torch.mp3"></audio>
+  <script src="logics/play-audio.js" type="module"></script>
+  <script src="logics/musics.js" type="module"></script>
+  <script src="logics/utils.js"></script>
+  <script src="logics/auto-type.js" type="module"></script>
+  <script src="logics/type-writer.js" type="module"></script>
+
+</html>

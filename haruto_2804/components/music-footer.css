@@ -1,0 +1,45 @@
+.music-footer {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
+  gap: 10px;
+  box-sizing: border-box;
+  width:100%;
+
+}
+.music-footer__name {
+  font-size: 20px;
+}
+.music-footer__details {
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+}
+.music-footer__picture {
+  width:60px;
+  height:60px;
+  object-fit: cover;
+  border-radius: 50%;
+
+}
+.music-footer__controls img {
+  width:30px;
+  object-fit: cover;
+}
+.music-footer__controls i {
+  cursor: pointer;
+}
+.music-footer__controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.play-button {
+  background-color: transparent;
+  border: none;
+}
+.time {
+  font-size: 15px;
+  color: white;
+  font-weight: 500  ;
+}
