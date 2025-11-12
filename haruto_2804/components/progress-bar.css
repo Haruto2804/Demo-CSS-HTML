@@ -1,5 +1,8 @@
 .progress-bar {
+  display: flex;
+  flex: 1;
   -webkit-appearance: none;
+  appearance: none;
   border-radius: 10px;
   height: 4px;
   cursor: pointer;
@@ -32,7 +35,7 @@
 .progress-bar-container {
   display: flex;
   align-items: center;
-  gap: 10px;
+  width:100%;
 }
 
 .time {
@@ -45,4 +48,14 @@
 
 .progress-bar {
   display: flex;
+}
+.music-footer__controls {
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+}
+.progress-bar__timeline {
+  display: flex;
+  align-items: center;
+  flex:1;
 }

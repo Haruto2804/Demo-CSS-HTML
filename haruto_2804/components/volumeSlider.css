@@ -2,25 +2,31 @@
   display: flex;
   gap: 10px;
   position: fixed;
-  top:20px;
-  left:20px;
+  top: 20px;
+  left: 20px;
   align-items: center;
   z-index: 2;
 }
+
 .volume-control {
   display: flex;
   align-items: center;
   justify-content: center;
-  width:50px;
-  height:50px;
+  width: 50px;
+  height: 50px;
   border-radius: 10px;
   border: none;
   background-color: rgb(75, 74, 74);
 
 }
+
 .volume-control i {
   cursor: pointer;
   display: flex;
   z-index: 200;
-  sha
 }
+
+.volumeSlider {
+  cursor: pointer;
+}
+

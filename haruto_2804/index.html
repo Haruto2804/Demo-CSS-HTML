@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="./components/user-header.css">
   <link rel="stylesheet" href="components/auto-type.css">
   <link rel="stylesheet" href="./components/volumeSlider.css">
-  <link rel="stylesheet" href="./responsiev.css">
+  <link rel="stylesheet" href="./responsive.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 
@@ -52,10 +52,13 @@
           <p class="youtube-preview__name">Haruto</p>
           <div class="youtube-preview__subscribers-container">
             <i class="fa-solid fa-users fa-lg" style="color: #e1cfcf;"></i>
-            <p class="youtube-preview__subscribers">1M Subscribes</p>
+            <p class="youtube-preview__subscribers">1M Subscribers</p>
           </div>
 
-          <p class="youtube-preview__view-channel">View Channel</p>
+          <a href="https://www.youtube.com/@haruto2804">
+            <p class="youtube-preview__view-channel">View Channel</p>
+          </a>
+
           <img class="youtube-preview__logo " src="./images/social-logos/youtube.png" alt="">
         </div>
 
@@ -101,12 +104,15 @@
       <div class="music-footer__details">
         <p class="music-footer__name">The Sacred Torch [H-el-ical]</p>
         <div class="progress-bar-container">
-          <span class="time current-time">0:00</span>
-          <input type="range" class="progress-bar" value="0" min="0" max="100">
-          <span class="time total-time"></span>
+          <div class = "progress-bar__timeline">
+            <span class="time current-time">0:00</span>
+            <input type="range" class="progress-bar" value="0" min="0" max="100">
+            <span class="time total-time"></span>
+          </div>
+
           <div class="music-footer__controls">
             <i class="fa-solid fa-backward" style="color: #fafbff;"></i>
-            <button class="play-button" data-btnID="2">
+            <button class="play-button">
               <i class="fa-solid fa-play" style="color: #ffffff;"></i>
             </button>
             <i class="fa-solid fa-backward fa-rotate-180" style="color: #ffffff;"></i>
@@ -118,8 +124,9 @@
       </div>
     </div>
   </div>
-  <video autoplay mute loop class="myVideo">
-    <source src="./video/background-video/nikke.mp4" type="video/mp4">
+  <video autoplay muted loop playsinline preload="auto" poster="./images/background/featured_StarseedAsniaTrigger1.jpg"
+    class="myVideo">
+    <source src="../video/background-video/nikke.mp4" type="video/mp4">
   </video>
   <audio class="audioElement" src="./music/the-sacred-torch.mp3"></audio>
   <script src="logics/play-audio.js" type="module"></script>
@@ -127,5 +134,6 @@
   <script src="logics/utils.js"></script>
   <script src="logics/auto-type.js" type="module"></script>
   <script src="logics/type-writer.js" type="module"></script>
+  <script src="logics/volume-slider.js"></script>
 
 </html>
