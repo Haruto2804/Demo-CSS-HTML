@@ -1,0 +1,61 @@
+/* ================================================= */
+/* MEDIA QUERIES START HERE              */
+/* ================================================= */
+
+/* 1. Cho màn hình máy tính bảng và điện thoại ngang (dưới 1200px) */
+@media (max-width: 1250px) {
+    .race-track {
+        /* Cho phép đường đua co lại để vừa màn hình */
+        width: 90vw; /* 90% chiều rộng viewport */
+        height: 60vw; /* Chiều cao tự động co lại theo tỷ lệ (60% của chiều rộng viewport) */
+        max-width: 1200px;
+        max-height: 700px;
+    }
+
+    /* Điều chỉnh font chữ tiêu đề nhỏ lại */
+    .title {
+        font-size: 50px;
+    }
+}
+
+/* 2. Cho màn hình điện thoại (dưới 768px) */
+@media (max-width: 768px) {
+    /* Điều chỉnh font chữ và nút trên điện thoại */
+    .title {
+        font-size: 40px;
+    }
+    .message {
+        font-size: 30px;
+    }
+    .race-button {
+        width: 150px;
+        height: 75px;
+        font-size: 20px;
+    }
+
+    /* Co giãn các xe (player/enemy) để chúng không chiếm quá nhiều không gian */
+    .player, .enemy1, .enemy2 {
+        /* Giảm kích thước xe từ 20% xuống 15% của đường đua */
+        width: 15%; 
+        height: 15%;
+    }
+}
+
+/* 3. Cho màn hình điện thoại rất nhỏ (dưới 480px) */
+@media (max-width: 480px) {
+    .title {
+        font-size: 30px;
+    }
+    .message {
+        font-size: 25px;
+    }
+    .race-button {
+        width: 120px;
+        height: 60px;
+        font-size: 18px;
+    }
+}
+
+/* ================================================= */
+/* MEDIA QUERIES END HERE                */
+/* ================================================= */
