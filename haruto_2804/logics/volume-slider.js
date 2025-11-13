@@ -4,22 +4,6 @@ const volumeSliderElement = document.querySelector('.volumeSlider');
 
 let isMuted = videoElement.muted;
 
-document.addEventListener('DOMContentLoaded', () => {
-  
-  if (videoElement) {
-    isMuted = true; // Bắt đầu muted
-    videoElement.play().then(() => {
-      console.log('Video đang chạy');
-      
-      // Unmute khi user click vào đâu đó
-      document.addEventListener('click', () => {
-        isMuted = false;
-      }, { once: true });
-    }).catch(error => {
-      console.log('Autoplay bị chặn:', error);
-    });
-  }
-});
 
 
 // --- HÀM CẬP NHẬT BIỂU TƯỢNG (Ổn định) ---
