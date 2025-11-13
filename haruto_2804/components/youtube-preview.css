@@ -46,3 +46,6 @@
   gap:5px;
   align-items: center;
 }
+.youtube-preview__view-channel-link {
+  text-decoration: none;
+}
