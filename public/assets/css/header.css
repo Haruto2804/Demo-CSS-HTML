@@ -1,0 +1,102 @@
+header {
+  position: absolute;
+  top: 3%;
+  left: 5%;
+  right: 5%;
+
+  /* Đảm bảo luôn nằm trên cùng mọi phần tử khác của trang web */
+  z-index: 100;
+
+  padding: 15px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+
+  /* Đổi transparent thành màu trắng đục nhẹ (0.15) để hiệu ứng kính mờ lên rõ và đẹp nhất */
+  background-color: rgba(255, 255, 255, 0.1);
+
+  /* Hiệu ứng mờ hậu cảnh */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  /* === THÊM BO GÓC VÀ ĐỔ BÓNG CHO ĐẸP HƠN === */
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+  /* Đường viền mỏng bao quanh toàn bộ header thay vì chỉ ở dưới đáy để tạo cảm giác nổi khối */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#nav-menu {
+  display: flex;
+  gap: 15px; /* Tăng khoảng cách giữa các nút một chút */
+  align-items: center;
+  /* Màu nền tối chủ đạo của dân Tech */
+
+  /* Tạo hiệu ứng dải màu xanh dương và xanh lá ẩn hiện ở background */
+  background-image:
+    radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(74, 222, 128, 0.1) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(15, 23, 42, 1) 0px, transparent 100%);
+
+  background-attachment: fixed; /* Giữ nền cố định khi cuộn trang */
+  font-family: "Inter", sans-serif; /* Font chữ clean phù hợp với ngành */
+  color: #f8fafc;
+}
+
+header a,
+nav a {
+  text-decoration: none;
+  color: #f8fafc;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 8px 16px; /* Thêm padding nội dung để khi có nền trông giống một cái nút */
+  border-radius: 8px; /* Bo góc nhẹ cho các nút bên trong */
+  transition: all 0.3s ease; /* Đổi thành 'all' để mượt mà cả phần background */
+}
+
+/* === HIỆU ỨNG HOVER & ACTIVE (TÔ XANH GRADIENT, CHỮ ĐEN) === */
+header a:hover,
+nav a:hover,
+header a.active,
+nav a.active {
+  color: #000000; /* Chữ biến thành màu đen */
+
+  /* Gradient từ Xanh lá (Green) sang Xanh dương (Blue) */
+  background: linear-gradient(135deg, #4ade80, #3b82f6);
+
+  /* Thêm chút đổ bóng nhẹ cho nút đang active nổi bật lên */
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+#left-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#left-header label {
+  font-weight: 800;
+  letter-spacing: 1px;
+
+  /* Gradient giống màu chủ đạo */
+  background: linear-gradient(135deg, #00ff87, #00d9ff);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+/* Hover glow */
+#left-header label:hover {
+  filter: drop-shadow(0 0 10px rgba(0, 255, 135, 0.5));
+  transform: scale(1.03);
+}
+#left-header i {
+  transition: all 1s ease;
+}
+#left-header i:hover {
+  color: green;
+  cursor: pointer;
+}

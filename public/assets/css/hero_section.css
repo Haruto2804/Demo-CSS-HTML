@@ -1,0 +1,168 @@
+/* Tổng thể nền và layout (Nên để background tối để màu neon nổi bật) */
+body {
+  background-color: #0b0f19;
+  color: #f3f4f6;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh; /* Chiều cao gần toàn màn hình */
+  padding: 40px 20px;
+  gap: 35px;
+  text-align: center;
+  position: relative;
+}
+
+/* Phần giới thiệu tên */
+#hero-section-intro {
+  font-size: 56px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+#hero-section-intro span {
+  font-weight: 800;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #00ff87, #00d9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  position: relative;
+}
+
+/* Thông tin trường lớp */
+#hero-section-info {
+  color: #00d9ff;
+  font-size: 22px;
+  font-weight: 600;
+  background: rgba(0, 217, 255, 0.1);
+  padding: 8px 20px;
+  border-radius: 50px;
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  margin: 0;
+}
+
+/* Đoạn mô tả bản thân */
+#hero-section-subinfo {
+  max-width: 700px; /* Giới hạn chiều rộng để chữ không bị dàn trải quá dài */
+  line-height: 1.8;
+  font-size: 18px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+#hero-section-subinfo1 {
+  color: #38bdf8; /* Màu xanh cyan sáng cho Front-end */
+  font-weight: 600;
+}
+
+#hero-section-subinfo2 {
+  color: #4ade80; /* Màu xanh lá sáng cho Back-end */
+  font-weight: 600;
+}
+
+/* Khu vực hiển thị số liệu (Dự án, Công nghệ, Kinh nghiệm) */
+#exp_year {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 20px;
+  flex-wrap: wrap; /* Tự động xuống dòng trên điện thoại */
+}
+
+#exp_year > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  transition: transform 0.3s ease;
+}
+
+#exp_year > div:hover {
+  transform: translateY(-5px); /* Hiệu ứng nhấc lên khi hover */
+}
+
+.exp_year-amount {
+  font-size: 36px;
+  font-weight: 800;
+  background: linear-gradient(180deg, #ffffff, #9ca3af);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Highlight riêng cho số năm kinh nghiệm hoặc dự án */
+#exp_year > div:last-child .exp_year-amount {
+  background: linear-gradient(135deg, #00ff87, #00d9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.exp_year-text {
+  font-size: 14px;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+/* Nút Cuộn xuống (Scroll Down) */
+#hero-section > div:last-child {
+  margin-top: 40px;
+  font-size: 14px;
+  color: #9ca3af;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: bounce 2s infinite; /* Tạo hiệu ứng nhấp nháy chuyển động */
+}
+
+/* Bạn có thể thêm một icon mũi tên xuống ở file HTML trong thẻ này, ví dụ: <i class="fa-solid fa-chevron-down"></i> */
+#hero-section > div:last-child::after {
+  content: "↓";
+  font-size: 18px;
+  color: #00ff87;
+}
+
+/* Hiệu ứng mượt mà nhấp nhô cho nút cuộn xuống */
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Tối ưu hiển thị trên Mobile */
+@media (max-width: 768px) {
+  #hero-section-intro {
+    font-size: 38px;
+  }
+  #hero-section-info {
+    font-size: 18px;
+  }
+  #exp_year {
+    gap: 30px;
+  }
+  .exp_year-amount {
+    font-size: 28px;
+  }
+}
