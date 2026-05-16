@@ -21,9 +21,11 @@
     <link rel="stylesheet" href="./public/assets/css/projects_section.css" />
     <link rel="stylesheet" href="./public/assets/css/contact_section.css" />
     <link rel="stylesheet" href="./public/assets/css/footer.css" />
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
   </head>
 
   <body>
+    <div id="scroll-progress"></div>
     <!-- HEADER SECTION -->
     <header>
       <div id="left-header">
@@ -43,40 +45,39 @@
         </div>
       </nav>
     </header>
-
+    <div id="first-section"></div>
     <main>
       <!-- HERO SECTION -->
-      <section id="hero-section">
-        <p id="hero-section-intro">Hi, I'm <span>Haruto</span></p>
-        <p id="hero-section-info">Third-year IT Student • STU</p>
-        <p id="hero-section-subinfo">
-          I am passionate about building complete web applications:
-          <span id="hero-section-subinfo1">
-            from smooth, UI/UX-focused front-end interfaces
-          </span>
-          to
-          <span id="hero-section-subinfo2">
-            optimized and secure back-end systems.
-          </span>
-        </p>
+      <section id="hero-section" class="overlay">
+        <div id="hero-section-left">
+          <p id="hero-section-intro">
+            <span class="hero-section-title"> </span>
+          </p>
+          <p id="hero-section-info">Third-year IT Student • STU</p>
+          <p id="hero-section-subinfo">
+            I am passionate about building complete web applications:
+            <span id="hero-section-subinfo1">
+              from smooth, UI/UX-focused front-end interfaces
+            </span>
+            to
+            <span id="hero-section-subinfo2">
+              optimized and secure back-end systems.
+            </span>
+          </p>
 
-        <div id="exp_year">
-          <div class="exp-item">
-            <span class="exp_year-amount">1+</span>
-            <span class="exp_year-text">Projects</span>
+          <div id="exp_year">
+            <div class="exp-item">
+              <span class="exp_year-amount">1+</span>
+              <span class="exp_year-text">Projects</span>
+            </div>
+            <div class="exp-item">
+              <span class="exp_year-amount">8+</span>
+              <span class="exp_year-text">Technologies</span>
+            </div>
           </div>
-          <div class="exp-item">
-            <span class="exp_year-amount">6+</span>
-            <span class="exp_year-text">Technologies</span>
+          <div id="scroll-down">
+            <i class="fa-solid fa-chevron-down"></i> Scroll Down
           </div>
-          <div class="exp-item">
-            <span class="exp_year-amount">2 Years</span>
-            <span class="exp_year-text">Experience</span>
-          </div>
-        </div>
-
-        <div id="scroll-down">
-          <i class="fa-solid fa-chevron-down"></i> Scroll Down
         </div>
       </section>
 
@@ -91,7 +92,7 @@
 
           <div class="tech-stats">
             <div class="tech-stats__item">
-              <span class="tech-stats__number">15+</span>
+              <span class="tech-stats__number">8+</span>
               <span class="tech-stats__label">Technologies</span>
             </div>
             <div class="tech-stats__item">
@@ -333,7 +334,7 @@
 
             <h2 class="contact-title">
               Let's build something
-              <span>amazing</span>
+              <span class="contact-title-sub"></span>
               together
             </h2>
 
@@ -447,7 +448,11 @@
         <p>&copy; 2026 Haruto. All rights reserved.</p>
       </div>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/motion@latest/dist/motion.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="./public/assets/js/motionJS/motion.js"></script>
+    <script src="./public/assets/js/motionJS/scoll.js"></script>
+
+    <script type="module" src="./public/assets/js/typing-writer.js"></script>
   </body>
 </html>

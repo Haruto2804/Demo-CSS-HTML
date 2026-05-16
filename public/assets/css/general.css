@@ -5,6 +5,8 @@
 
 body {
   font-family: "Inter", sans-serif;
+  scroll-behavior: auto;
+  overflow-x: hidden;
 }
 p {
   margin: 0;
@@ -56,7 +58,25 @@ section {
   height: auto;
 }
 #hero-section {
+  width: 100%;
+  min-height: 100vh;
+
+  /* Background */
   background-color: rgb(2, 14, 7);
+  background-image: url("../images/background/hero-section.png");
+
+  /* Responsive background */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Content */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* Tránh bị dính sát mép trên mobile */
+  padding: 80px 5%;
+  overflow: hidden;
 }
 #skill-section {
   background-color: pink;
@@ -68,4 +88,43 @@ section {
 
 #contact-section {
   background-color: goldenrod;
+}
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 9999;
+}
+.overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.overlay > * {
+  position: relative;
+  z-index: 2;
+}
+.skill-card__progress-fill {
+  transform-origin: left;
+}
+
+#hero-section-left > *,
+.skill-section__left > *,
+.skills-group,
+.skill-card {
+  opacity: 0;
 }
