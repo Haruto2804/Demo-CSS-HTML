@@ -18,7 +18,11 @@
     <link rel="stylesheet" href="./public/assets/css/header.css" />
     <link rel="stylesheet" href="./public/assets/css/hero_section.css" />
     <link rel="stylesheet" href="./public/assets/css/skills_section.css" />
+    <link rel="stylesheet" href="./public/assets/css/projects_section.css" />
+    <link rel="stylesheet" href="./public/assets/css/contact_section.css" />
+    <link rel="stylesheet" href="./public/assets/css/footer.css" />
   </head>
+
   <!-- ĐÃ BỔ SUNG THẺ ĐÓNG HEAD Ở ĐÂY -->
   <body>
     <!-- HEADER SECTION -->
@@ -48,7 +52,7 @@
         <p id="hero-section-intro">Xin chào, tôi là <span>Haruto</span></p>
         <p id="hero-section-info">Sinh viên năm 3 • CNTT • STU</p>
         <p id="hero-section-subinfo">
-          Mình có niềm đam mê mãnh liệt trong việc xây dựng các ứng dụng Web
+          Tôi có niềm đam mê mãnh liệt trong việc xây dựng các ứng dụng Web
           toàn diện:
           <span id="hero-section-subinfo1"
             >từ giao diện Front-end mượt mà chuẩn UI/UX</span
@@ -267,27 +271,186 @@
       <!-- PROJECTS SECTION -->
       <section id="project-section">
         <h2 class="section-title">DỰ ÁN NỔI BẬT</h2>
-        <!-- Bạn có thể phát triển phần này tương tự như phần skill -->
-        <p>Đang cập nhật các dự án cá nhân và nhóm...</p>
+
+        <div class="project-card">
+          <div class="project-card__content">
+            <span class="project-card__tag">Featured Project</span>
+
+            <h3 class="project-card__title">CINE STREAM</h3>
+
+            <p class="project-card__desc">
+              Ứng dụng Single Page Application (SPA) hiệu suất cao, hỗ trợ người
+              dùng tìm kiếm, khám phá thông tin và xem trailer các tác phẩm điện
+              ảnh toàn cầu theo thời gian thực.
+            </p>
+
+            <div class="project-card__tech">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>TailwindCSS</span>
+              <span>JavaScript</span>
+              <span>Responsive</span>
+              <span>React</span>
+            </div>
+
+            <div class="project-card__buttons">
+              <a
+                href="https://movie-website-n5bv.vercel.app"
+                class="project-btn project-btn--demo"
+                target="_blank"
+              >
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                Live Demo
+              </a>
+
+              <a
+                href="https://github.com/Haruto2804/MovieWebsite"
+                class="project-btn project-btn--code"
+                target="_blank"
+              >
+                <i class="fa-brands fa-github"></i>
+                Source Code
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card__image">
+            <div class="project-preview">
+              <div class="project-preview__top">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <div class="project-preview__body"></div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- CONTACT SECTION -->
       <section id="contact-section">
-        <h2 class="section-title">LIÊN HỆ</h2>
-        <p>Kết nối với mình qua các kênh bên dưới:</p>
-        <div class="contact-links">
-          <a href="#"><i class="fa-brands fa-github"></i> GitHub</a>
-          <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-          <a href="mailto:your-email@gmail.com"
-            ><i class="fa-solid fa-envelope"></i> Email</a
-          >
+        <div class="contact-container">
+          <div class="contact-content">
+            <span class="contact-subtitle">Get In Touch</span>
+
+            <h2 class="contact-title">
+              Let's build something
+              <span>amazing</span>
+              together
+            </h2>
+
+            <p class="contact-desc">
+              Luôn sẵn sàng lắng nghe ý tưởng mới và cơ hội hợp tác. Hãy kết nối
+              với tôi để cùng nhau tạo ra những sản phẩm web hiện đại, sáng tạo
+              và có giá trị thực tế.
+            </p>
+
+            <div class="contact-links">
+              <a href="https://github.com/Haruto2804" target="_blank">
+                <i class="fa-brands fa-github"></i>
+                GitHub
+              </a>
+
+              <a href="https://www.facebook.com/baodaydunglo" target="_blank">
+                <i class="fa-brands fa-facebook"></i>
+                Facebook
+              </a>
+
+              <a href="mailto:ngobao.software@gmail.com">
+                <i class="fa-solid fa-envelope"></i>
+                Email
+              </a>
+            </div>
+
+            <div class="contact-actions">
+              <a
+                href="./assets/cv.pdf"
+                download="Haruto-CV.pdf"
+                class="contact-btn contact-btn--primary"
+              >
+                <i class="fa-solid fa-download"></i>
+                Tải bản CV PDF
+              </a>
+
+              <a
+                href="mailto:your-email@gmail.com"
+                class="contact-btn contact-btn--outline"
+              >
+                <i class="fa-solid fa-paper-plane"></i>
+                Liên hệ hợp tác
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card__icon">
+              <i class="fa-solid fa-code"></i>
+            </div>
+
+            <h3>Available for Work</h3>
+
+            <p>
+              Tôi đang mở cơ hội cho các dự án website cá nhân, landing page,
+              portfolio, frontend UI và các sản phẩm web sáng tạo.
+            </p>
+
+            <div class="contact-info">
+              <div>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Viet Nam</span>
+              </div>
+
+              <div>
+                <i class="fa-solid fa-envelope"></i>
+                <span>ngobao.software@gmail.com</span>
+              </div>
+
+              <div>
+                <i class="fa-solid fa-clock"></i>
+                <span>Reply within 24 hours</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
     <!-- FOOTER -->
-    <footer>
-      <p>&copy; 2026 Haruto. All rights reserved.</p>
+    <!-- FOOTER -->
+    <footer id="footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <h3>Haruto</h3>
+          <p>Frontend Developer • Creative Coder • Web Designer</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#hero-section"">About</a>
+          <a href="#skill-section">Skills</a>
+          <a href="#project-section">Projects</a>
+          <a href="#contact-section">Contact</a>
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://github.com/your-username" target="_blank">
+            <i class="fa-brands fa-github"></i>
+          </a>
+
+          <a href="https://www.facebook.com/your-profile" target="_blank">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+
+          <a href="mailto:your-email@gmail.com">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Haruto. All rights reserved.</p>
+      </div>
     </footer>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
 </html>

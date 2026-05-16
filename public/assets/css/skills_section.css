@@ -10,6 +10,7 @@
   padding: 60px 10%;
   background-color: rgb(15, 37, 79);
   color: #ffffff;
+  align-items: center;
 }
 
 .skill-section__left,
