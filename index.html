@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="vi">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <!-- Font Awesome (Icons) -->
+    <!-- Font Awesome Icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="./public/assets/css/footer.css" />
   </head>
 
-  <!-- ĐÃ BỔ SUNG THẺ ĐÓNG HEAD Ở ĐÂY -->
   <body>
     <!-- HEADER SECTION -->
     <header>
@@ -31,17 +30,16 @@
         <i class="fa-solid fa-code"></i>
         <label>HARUTO</label>
       </div>
+
       <nav id="nav-menu">
-        <!-- Đổi thành thẻ nav cho chuẩn ngữ nghĩa (Semantic HTML) -->
         <div>
-          <a href="#skill-section">Kỹ năng</a>
-          <!-- Sửa ID cho khớp với section bên dưới -->
+          <a href="#skill-section">Skills</a>
         </div>
         <div>
-          <a href="#project-section">Dự án</a>
+          <a href="#project-section">Projects</a>
         </div>
         <div>
-          <a href="#contact-section">Liên hệ</a>
+          <a href="#contact-section">Contact</a>
         </div>
       </nav>
     </header>
@@ -49,37 +47,36 @@
     <main>
       <!-- HERO SECTION -->
       <section id="hero-section">
-        <p id="hero-section-intro">Xin chào, tôi là <span>Haruto</span></p>
-        <p id="hero-section-info">Sinh viên năm 3 • CNTT • STU</p>
+        <p id="hero-section-intro">Hi, I'm <span>Haruto</span></p>
+        <p id="hero-section-info">Third-year IT Student • STU</p>
         <p id="hero-section-subinfo">
-          Tôi có niềm đam mê mãnh liệt trong việc xây dựng các ứng dụng Web
-          toàn diện:
-          <span id="hero-section-subinfo1"
-            >từ giao diện Front-end mượt mà chuẩn UI/UX</span
-          >
-          cho đến
-          <span id="hero-section-subinfo2"
-            >hệ thống Back-end tối ưu và bảo mật.</span
-          >
+          I am passionate about building complete web applications:
+          <span id="hero-section-subinfo1">
+            from smooth, UI/UX-focused front-end interfaces
+          </span>
+          to
+          <span id="hero-section-subinfo2">
+            optimized and secure back-end systems.
+          </span>
         </p>
 
         <div id="exp_year">
           <div class="exp-item">
             <span class="exp_year-amount">1+</span>
-            <span class="exp_year-text">Dự án</span>
+            <span class="exp_year-text">Projects</span>
           </div>
           <div class="exp-item">
             <span class="exp_year-amount">6+</span>
-            <span class="exp_year-text">Công nghệ</span>
+            <span class="exp_year-text">Technologies</span>
           </div>
           <div class="exp-item">
-            <span class="exp_year-amount">2 năm</span>
-            <span class="exp_year-text">Kinh nghiệm</span>
+            <span class="exp_year-amount">2 Years</span>
+            <span class="exp_year-text">Experience</span>
           </div>
         </div>
 
         <div id="scroll-down">
-          <i class="fa-solid fa-chevron-down"></i> Cuộn xuống
+          <i class="fa-solid fa-chevron-down"></i> Scroll Down
         </div>
       </section>
 
@@ -88,8 +85,8 @@
         <div class="skill-section__left">
           <h2 class="skill-section__title">TECHNICAL SKILLS</h2>
           <p class="skill-section__desc">
-            Các kỹ thuật công nghệ và kỹ năng cốt lõi được mài giũa qua các dự
-            án thực tế.
+            Core technical skills and technologies refined through real-world
+            projects.
           </p>
 
           <div class="tech-stats">
@@ -105,7 +102,7 @@
         </div>
 
         <div class="skill-section__right">
-          <!-- NHÓM 1: FRONT-END DEVELOPMENT -->
+          <!-- GROUP 1: FRONT-END DEVELOPMENT -->
           <div class="skills-group">
             <h3 class="skills-group__title">
               <i class="fa-solid fa-laptop-code"></i> Front-end Development
@@ -178,7 +175,7 @@
             </div>
           </div>
 
-          <!-- NHÓM 2: BACK-END & TOOLS -->
+          <!-- GROUP 2: BACK-END & TOOLS -->
           <div class="skills-group">
             <h3 class="skills-group__title">
               <i class="fa-solid fa-server"></i> Back-end & Tools
@@ -199,9 +196,9 @@
 
               <div class="skill-card">
                 <div class="skill-card__info">
-                  <span
-                    ><i class="fa-solid fa-database"></i> SQL / MongoDB</span
-                  >
+                  <span>
+                    <i class="fa-solid fa-database"></i> SQL / MongoDB
+                  </span>
                   <span class="skill-card__percent">80%</span>
                 </div>
                 <div class="skill-card__progress-bar">
@@ -270,7 +267,7 @@
 
       <!-- PROJECTS SECTION -->
       <section id="project-section">
-        <h2 class="section-title">DỰ ÁN NỔI BẬT</h2>
+        <h2 class="section-title">FEATURED PROJECTS</h2>
 
         <div class="project-card">
           <div class="project-card__content">
@@ -279,9 +276,9 @@
             <h3 class="project-card__title">CINE STREAM</h3>
 
             <p class="project-card__desc">
-              Ứng dụng Single Page Application (SPA) hiệu suất cao, hỗ trợ người
-              dùng tìm kiếm, khám phá thông tin và xem trailer các tác phẩm điện
-              ảnh toàn cầu theo thời gian thực.
+              A high-performance Single Page Application (SPA) that allows users
+              to search, explore information, and watch trailers for global
+              movies in real time.
             </p>
 
             <div class="project-card__tech">
@@ -341,9 +338,9 @@
             </h2>
 
             <p class="contact-desc">
-              Luôn sẵn sàng lắng nghe ý tưởng mới và cơ hội hợp tác. Hãy kết nối
-              với tôi để cùng nhau tạo ra những sản phẩm web hiện đại, sáng tạo
-              và có giá trị thực tế.
+              I am always open to new ideas and collaboration opportunities.
+              Let's connect and build modern, creative, and practical web
+              products together.
             </p>
 
             <div class="contact-links">
@@ -370,7 +367,7 @@
                 class="contact-btn contact-btn--primary"
               >
                 <i class="fa-solid fa-download"></i>
-                Tải bản CV PDF
+                Download CV PDF
               </a>
 
               <a
@@ -378,7 +375,7 @@
                 class="contact-btn contact-btn--outline"
               >
                 <i class="fa-solid fa-paper-plane"></i>
-                Liên hệ hợp tác
+                Contact for Collaboration
               </a>
             </div>
           </div>
@@ -391,8 +388,8 @@
             <h3>Available for Work</h3>
 
             <p>
-              Tôi đang mở cơ hội cho các dự án website cá nhân, landing page,
-              portfolio, frontend UI và các sản phẩm web sáng tạo.
+              I am open to opportunities for personal websites, landing pages,
+              portfolios, front-end UI, and creative web products.
             </p>
 
             <div class="contact-info">
@@ -417,7 +414,6 @@
     </main>
 
     <!-- FOOTER -->
-    <!-- FOOTER -->
     <footer id="footer">
       <div class="footer-container">
         <div class="footer-brand">
@@ -426,22 +422,22 @@
         </div>
 
         <div class="footer-links">
-          <a href="#hero-section"">About</a>
+          <a href="#hero-section">About</a>
           <a href="#skill-section">Skills</a>
           <a href="#project-section">Projects</a>
           <a href="#contact-section">Contact</a>
         </div>
 
         <div class="footer-socials">
-          <a href="https://github.com/your-username" target="_blank">
+          <a href="https://github.com/Haruto2804" target="_blank">
             <i class="fa-brands fa-github"></i>
           </a>
 
-          <a href="https://www.facebook.com/your-profile" target="_blank">
+          <a href="https://www.facebook.com/baodaydunglo" target="_blank">
             <i class="fa-brands fa-facebook"></i>
           </a>
 
-          <a href="mailto:your-email@gmail.com">
+          <a href="mailto:ngobao.software@gmail.com">
             <i class="fa-solid fa-envelope"></i>
           </a>
         </div>
@@ -451,6 +447,7 @@
         <p>&copy; 2026 Haruto. All rights reserved.</p>
       </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
   </body>
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
 </html>
