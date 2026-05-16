@@ -1,3 +1,11 @@
+/* Áp dụng font cho toàn bộ website */
+* {
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
 p {
   margin: 0;
 }
@@ -5,7 +13,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
+  font-size: 12px;
   /* Đảm bảo nền luôn phủ kín toàn bộ chiều cao màn hình */
   min-height: 100vh;
 

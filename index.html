@@ -1,62 +1,293 @@
 <!doctype html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <title>Haruto | Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome (Icons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <!-- CSS Files -->
     <link rel="stylesheet" href="./public/assets/css/general.css" />
-    <link rel="stylesheet" href="./public/assets/css/header.css">
-    <link rel="stylesheet" href="./public/assets/css/hero_section.css">
+    <link rel="stylesheet" href="./public/assets/css/header.css" />
+    <link rel="stylesheet" href="./public/assets/css/hero_section.css" />
+    <link rel="stylesheet" href="./public/assets/css/skills_section.css" />
+  </head>
+  <!-- ĐÃ BỔ SUNG THẺ ĐÓNG HEAD Ở ĐÂY -->
   <body>
+    <!-- HEADER SECTION -->
     <header>
       <div id="left-header">
         <i class="fa-solid fa-code"></i>
         <label>HARUTO</label>
       </div>
-      <div id="nav-menu">
+      <nav id="nav-menu">
+        <!-- Đổi thành thẻ nav cho chuẩn ngữ nghĩa (Semantic HTML) -->
         <div>
-          <a href="#kynang">Kỹ năng</a>
-        </div>
-       <div>
-          <a href="#duan">Dự án</a>
+          <a href="#skill-section">Kỹ năng</a>
+          <!-- Sửa ID cho khớp với section bên dưới -->
         </div>
         <div>
-          <a href="#lienhe">Liên hệ</a>
+          <a href="#project-section">Dự án</a>
         </div>
-      </div>
+        <div>
+          <a href="#contact-section">Liên hệ</a>
+        </div>
+      </nav>
     </header>
+
     <main>
+      <!-- HERO SECTION -->
       <section id="hero-section">
-        <p id="hero-section-intro">Xin chào, tôi là <span >Haruto</span></p>
+        <p id="hero-section-intro">Xin chào, tôi là <span>Haruto</span></p>
         <p id="hero-section-info">Sinh viên năm 3 • CNTT • STU</p>
-        <p id ="hero-section-subinfo">Mình có niềm đam mê mãnh liệt trong việc xây dựng các ứng dụng Web toàn diện:
-          <span id="hero-section-subinfo1">từ giao diện Front-end mượt mà chuẩn UI/UX</span> cho đến 
-          <span id = "hero-section-subinfo2"> hệ thống Back-end tối ưu và bảo mật.</span>
+        <p id="hero-section-subinfo">
+          Mình có niềm đam mê mãnh liệt trong việc xây dựng các ứng dụng Web
+          toàn diện:
+          <span id="hero-section-subinfo1"
+            >từ giao diện Front-end mượt mà chuẩn UI/UX</span
+          >
+          cho đến
+          <span id="hero-section-subinfo2"
+            >hệ thống Back-end tối ưu và bảo mật.</span
+          >
         </p>
+
         <div id="exp_year">
-          <div>
+          <div class="exp-item">
             <span class="exp_year-amount">1+</span>
             <span class="exp_year-text">Dự án</span>
           </div>
-            <div>
-            <span class="exp_year-amount">15+</span>
+          <div class="exp-item">
+            <span class="exp_year-amount">6+</span>
             <span class="exp_year-text">Công nghệ</span>
           </div>
-            <div>
+          <div class="exp-item">
             <span class="exp_year-amount">2 năm</span>
             <span class="exp_year-text">Kinh nghiệm</span>
           </div>
         </div>
-        <div>
-          Cuộn xuống
+
+        <div id="scroll-down">
+          <i class="fa-solid fa-chevron-down"></i> Cuộn xuống
         </div>
       </section>
-      <section id="skill-section">Skill Section</section>
-      <section id="project-section">Project Section</section>
-      <section id="contact-section">Contact Section</section>
+
+      <!-- SKILLS SECTION -->
+      <section id="skill-section">
+        <div class="skill-section__left">
+          <h2 class="skill-section__title">TECHNICAL SKILLS</h2>
+          <p class="skill-section__desc">
+            Các kỹ thuật công nghệ và kỹ năng cốt lõi được mài giũa qua các dự
+            án thực tế.
+          </p>
+
+          <div class="tech-stats">
+            <div class="tech-stats__item">
+              <span class="tech-stats__number">15+</span>
+              <span class="tech-stats__label">Technologies</span>
+            </div>
+            <div class="tech-stats__item">
+              <span class="tech-stats__number">1+</span>
+              <span class="tech-stats__label">Project</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-section__right">
+          <!-- NHÓM 1: FRONT-END DEVELOPMENT -->
+          <div class="skills-group">
+            <h3 class="skills-group__title">
+              <i class="fa-solid fa-laptop-code"></i> Front-end Development
+            </h3>
+            <div class="skills-grid">
+              <div class="skill-card">
+                <div class="skill-card__info">
+                  <span><i class="fa-brands fa-html5"></i> HTML5</span>
+                  <span class="skill-card__percent">90%</span>
+                </div>
+                <div class="skill-card__progress-bar">
+                  <div
+                    class="skill-card__progress-fill"
+                    style="width: 90%"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-card__info">
+                  <span><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+                  <span class="skill-card__percent">85%</span>
+                </div>
+                <div class="skill-card__progress-bar">
+                  <div
+                    class="skill-card__progress-fill"
+                    style="width: 85%"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-card__info">
+                  <span><i class="fa-brands fa-js"></i> JavaScript</span>
+                  <span class="skill-card__percent">80%</span>
+                </div>
+                <div class="skill-card__progress-bar">
+                  <div
+                    class="skill-card__progress-fill"
+                    style="width: 80%"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-card__info">
+                  <span><i class="fa-brands fa-react"></i> React</span>
+                  <span class="skill-card__percent">75%</span>
+                </div>
+                <div class="skill-card__progress-bar">
+                  <div
+                    class="skill-card__progress-fill"
+                    style="width: 75%"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-card__info">
+                  <span><i class="fa-solid fa-cloud"></i> Vercel</span>
+                  <span class="skill-card__percent">80%</span>
+                </div>
+                <div class="skill-card__progress-bar">
+                  <div
+                    class="skill-card__progress-fill"
+                    style="width: 80%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- NHÓM 2: BACK-END & TOOLS -->
+          <div class="skills-group">
+            <h3 class="skills-group__title">
+              <i class="fa-solid fa-server"></i> Back-end & Tools
+            </h3>
+            <div class="skills-grid">
+              <div class="skill-card">
+                <div class="skill-card__info">
+                  <span><i class="fa-brands fa-node-js"></i> Node.js</span>
+                  <span class="skill-card__percent">65%</span>
+                </div>
+                <div class="skill-card__progress-bar">
+                  <div
+                    class="skill-card__progress-fill"
+                    style="width: 65%"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-card__info">
+                  <span
+                    ><i class="fa-solid fa-database"></i> SQL / MongoDB</span
+                  >
+                  <span class="skill-card__percent">80%</span>
+                </div>
+                <div class="skill-card__progress-bar">
+                  <div
+                    class="skill-card__progress-fill"
+                    style="width: 80%"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-card__info">
+                  <span><i class="fa-solid fa-gears"></i> RESTful API</span>
+                  <span class="skill-card__percent">85%</span>
+                </div>
+                <div class="skill-card__progress-bar">
+                  <div
+                    class="skill-card__progress-fill"
+                    style="width: 85%"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-card__info">
+                  <span><i class="fa-solid fa-rocket"></i> Postman</span>
+                  <span class="skill-card__percent">60%</span>
+                </div>
+                <div class="skill-card__progress-bar">
+                  <div
+                    class="skill-card__progress-fill"
+                    style="width: 60%"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-card__info">
+                  <span><i class="fa-solid fa-layer-group"></i> Render</span>
+                  <span class="skill-card__percent">70%</span>
+                </div>
+                <div class="skill-card__progress-bar">
+                  <div
+                    class="skill-card__progress-fill"
+                    style="width: 70%"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-card__info">
+                  <span><i class="fa-brands fa-git-alt"></i> Git</span>
+                  <span class="skill-card__percent">50%</span>
+                </div>
+                <div class="skill-card__progress-bar">
+                  <div
+                    class="skill-card__progress-fill"
+                    style="width: 50%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS SECTION -->
+      <section id="project-section">
+        <h2 class="section-title">DỰ ÁN NỔI BẬT</h2>
+        <!-- Bạn có thể phát triển phần này tương tự như phần skill -->
+        <p>Đang cập nhật các dự án cá nhân và nhóm...</p>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section id="contact-section">
+        <h2 class="section-title">LIÊN HỆ</h2>
+        <p>Kết nối với mình qua các kênh bên dưới:</p>
+        <div class="contact-links">
+          <a href="#"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="mailto:your-email@gmail.com"
+            ><i class="fa-solid fa-envelope"></i> Email</a
+          >
+        </div>
+      </section>
     </main>
-    <footer></footer>
-    
+
+    <!-- FOOTER -->
+    <footer>
+      <p>&copy; 2026 Haruto. All rights reserved.</p>
+    </footer>
   </body>
 </html>

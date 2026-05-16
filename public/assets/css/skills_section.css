@@ -1,0 +1,328 @@
+/* ===================================================
+   LAYOUT CHUNG CHO SKILL SECTION
+   =================================================== */
+
+#skill-section {
+  display: flex;
+  flex-direction: row; /* Đảm bảo chia đôi trái phải trên PC */
+  justify-content: space-between;
+  gap: 50px;
+  padding: 60px 10%;
+  background-color: rgb(15, 37, 79);
+  color: #ffffff;
+}
+
+.skill-section__left,
+.skill-section__right {
+  flex: 1;
+}
+
+/* ===================================================
+   BÊN TRÁI: TITLE, DESC & STATS
+   =================================================== */
+
+.skill-section__title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #09a9d1 0%, #00c314 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+}
+
+.skill-section__desc {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.tech-stats {
+  display: flex;
+  gap: 15px;
+}
+
+.tech-stats__item {
+  padding: 15px 25px;
+  background-color: rgb(5, 32, 58);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  min-width: 120px;
+}
+
+.tech-stats__number {
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.tech-stats__label {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+/* ===================================================
+   BÊN PHẢI: LƯỚI CÔNG NGHỆ (DARK THEME)
+   =================================================== */
+
+.skills-group {
+  margin-bottom: 35px;
+}
+
+.skills-group:last-child {
+  margin-bottom: 0;
+}
+
+.skills-group__title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skills-group__title i {
+  color: #09a9d1;
+  font-size: 1.1rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+/* Thẻ kỹ năng chuyển thành cột để chứa cả text và progress bar */
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Khoảng cách giữa dòng chữ và thanh bar bên dưới */
+
+  background-color: rgba(5, 32, 58, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  padding: 16px;
+  border-radius: 12px;
+  color: #e2e8f0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+/* Khung chứa tên công nghệ và số % nằm ngang nhau */
+.skill-card__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* Style chữ phần trăm nhỏ gọn bên phải */
+.skill-card__percent {
+  font-size: 0.85rem;
+  color: #00c314; /* Màu xanh lá mặc định, trùng tone gradient */
+  font-weight: 600;
+}
+
+/* Thang nền xám tối của thanh tiến độ */
+.skill-card__progress-bar {
+  width: 100%;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden; /* Cắt góc thanh fill bên trong */
+}
+
+/* Thanh chạy hiển thị phần trăm - Đổ Gradient Xanh biển sang Xanh lá */
+.skill-card__progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #09a9d1 0%, #00c314 100%);
+  border-radius: 10px;
+  transition: width 1s ease-in-out; /* Tạo hiệu ứng mượt khi tải trang */
+}
+
+/* Định dạng Icon bên trong thẻ */
+.skill-card i {
+  font-size: 1.2rem;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* Hiệu ứng Hover tăng tương phản */
+.skill-card:hover {
+  background-color: rgb(5, 32, 58);
+  border-color: rgba(9, 169, 209, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(9, 169, 209, 0.15);
+}
+
+/* Khi hover thì tăng độ sáng cho thanh progress bar */
+.skill-card:hover .skill-card__progress-fill {
+  filter: brightness(1.2);
+}
+/* ===================================================
+   RESPONSIVE + TĂNG SIZE CHỮ FRONTEND / BACKEND
+   DÁN CUỐI FILE CSS
+   =================================================== */
+
+/* Tăng size tiêu đề nhóm: Frontend Dev, Backend */
+.skills-group__title {
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  margin-bottom: 18px;
+}
+
+.skills-group__title i {
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+}
+
+/* Tăng chữ trong card kỹ năng */
+.skill-card__info {
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  font-weight: 600;
+}
+
+.skill-card__percent {
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+}
+
+/* Làm card thoáng hơn trên màn hình lớn */
+.skill-card {
+  padding: 18px;
+}
+
+.skill-card i {
+  font-size: 1.35rem;
+}
+
+/* ===================================================
+   TABLET
+   =================================================== */
+
+@media (max-width: 1024px) {
+  #skill-section {
+    padding: 50px 6%;
+    gap: 35px;
+  }
+
+  .skill-section__title {
+    font-size: 2.2rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(130px, 1fr));
+    gap: 14px;
+  }
+
+  .skills-group__title {
+    font-size: 1.45rem;
+  }
+}
+
+/* ===================================================
+   MOBILE
+   =================================================== */
+
+@media (max-width: 768px) {
+  #skill-section {
+    flex-direction: column;
+    padding: 45px 6%;
+    gap: 45px;
+  }
+
+  .skill-section__left,
+  .skill-section__right {
+    width: 100%;
+  }
+
+  .skill-section__title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .skill-section__desc {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .tech-stats {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .tech-stats__item {
+    flex: 1;
+    min-width: 140px;
+    text-align: center;
+  }
+
+  .skills-group__title {
+    justify-content: center;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-card {
+    padding: 18px;
+  }
+
+  .skill-card__info {
+    font-size: 1.08rem;
+  }
+
+  .skill-card__percent {
+    font-size: 0.95rem;
+  }
+}
+
+/* ===================================================
+   SMALL MOBILE
+   =================================================== */
+
+@media (max-width: 480px) {
+  #skill-section {
+    padding: 40px 5%;
+  }
+
+  .skill-section__title {
+    font-size: 1.7rem;
+  }
+
+  .skill-section__desc {
+    font-size: 0.95rem;
+  }
+
+  .tech-stats {
+    flex-direction: column;
+  }
+
+  .tech-stats__item {
+    width: 100%;
+  }
+
+  .skills-group__title {
+    font-size: 1.35rem;
+  }
+
+  .skill-card__info {
+    font-size: 1rem;
+  }
+
+  .skill-card {
+    border-radius: 14px;
+  }
+}
