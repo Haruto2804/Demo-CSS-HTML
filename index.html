@@ -17,8 +17,10 @@
     <link rel="stylesheet" href="./public/assets/css/general.css" />
     <link rel="stylesheet" href="./public/assets/css/header.css" />
     <link rel="stylesheet" href="./public/assets/css/hero_section.css" />
+    <link rel="stylesheet" href="./public/assets/css/about_section.css" />
     <link rel="stylesheet" href="./public/assets/css/skills_section.css" />
     <link rel="stylesheet" href="./public/assets/css/projects_section.css" />
+    <link rel="stylesheet" href="./public/assets/css/testimonial_section.css" />
     <link rel="stylesheet" href="./public/assets/css/contact_section.css" />
     <link rel="stylesheet" href="./public/assets/css/footer.css" />
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
@@ -27,23 +29,58 @@
   <body>
     <div id="scroll-progress"></div>
     <!-- HEADER SECTION -->
-    <header>
+    <header id="header">
       <div id="left-header">
-        <i class="fa-solid fa-code"></i>
-        <label>HARUTO</label>
+        <div class="header-logo">
+          <i class="fa-solid fa-code"></i>
+        </div>
+
+        <div class="header-brand">
+          <label>HARUTO</label>
+          <span>Fullstack Developer</span>
+        </div>
       </div>
 
       <nav id="nav-menu">
         <div>
+          <a href="#hero-section">Home</a>
+        </div>
+
+        <div>
+          <a href="#about-section">About</a>
+        </div>
+
+        <div>
           <a href="#skill-section">Skills</a>
         </div>
+
         <div>
           <a href="#project-section">Projects</a>
         </div>
+
+        <div>
+          <a href="#testimonial-section">Services</a>
+        </div>
+
         <div>
           <a href="#contact-section">Contact</a>
         </div>
       </nav>
+
+      <div class="header-actions">
+        <a
+          href="./public/assets/cv.pdf"
+          download="Haruto-CV.pdf"
+          class="header-btn"
+        >
+          <i class="fa-solid fa-download"></i>
+          Resume
+        </a>
+      </div>
+
+      <button id="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </header>
     <div id="first-section"></div>
     <main>
@@ -80,7 +117,43 @@
           </div>
         </div>
       </section>
+      <!-- ABOUT SECTION -->
+      <section id="about-section" class="overlay">
+        <div class="about-container">
+          <span class="about-subtitle">About Me</span>
 
+          <h2 class="about-title">FULL-STACK WEB DEVELOPER IN PROGRESS</h2>
+
+          <p class="about-desc">
+            I am a third-year IT student at STU, focusing on full-stack web
+            development. I enjoy building responsive interfaces, smooth user
+            experiences, and practical web applications that solve real
+            problems.
+          </p>
+
+          <div class="about-grid">
+            <div class="about-card">
+              <i class="fa-solid fa-code"></i>
+              <h3>Clean Code</h3>
+              <p>Writing readable, organized, and maintainable code.</p>
+            </div>
+
+            <div class="about-card">
+              <i class="fa-solid fa-layer-group"></i>
+              <h3>Modern UI</h3>
+              <p>Creating responsive layouts with smooth visual experience.</p>
+            </div>
+
+            <div class="about-card">
+              <i class="fa-solid fa-rocket"></i>
+              <h3>Real Projects</h3>
+              <p>
+                Learning through practical projects and continuous improvement.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- SKILLS SECTION -->
       <section id="skill-section">
         <div class="skill-section__left">
@@ -325,7 +398,42 @@
           </div>
         </div>
       </section>
+      <!-- TESTIMONIAL SECTION -->
+      <section id="testimonial-section">
+        <div class="testimonial-container">
+          <span class="testimonial-subtitle">Why Work With Me</span>
 
+          <h2 class="testimonial-title">
+            I BUILD CLEAN, MODERN AND PRACTICAL WEBSITES
+          </h2>
+
+          <p class="testimonial-desc">
+            I focus on responsive design, smooth animation, clean layout, and
+            practical user experience. My goal is to build web products that
+            look good, work well, and are easy to use.
+          </p>
+
+          <div class="testimonial-grid">
+            <div class="testimonial-card">
+              <i class="fa-solid fa-mobile-screen-button"></i>
+              <h3>Responsive Design</h3>
+              <p>Websites that look good on desktop, tablet, and mobile.</p>
+            </div>
+
+            <div class="testimonial-card">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              <h3>Smooth Animation</h3>
+              <p>Modern motion effects that make the website feel alive.</p>
+            </div>
+
+            <div class="testimonial-card">
+              <i class="fa-solid fa-user-check"></i>
+              <h3>User Friendly</h3>
+              <p>Simple, clear, and easy-to-use interfaces for real users.</p>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- CONTACT SECTION -->
       <section id="contact-section">
         <div class="contact-container">
