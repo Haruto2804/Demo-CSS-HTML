@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Haruto | Personal Bio & Mood Space</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="page-texture"></div>
+
+    <main class="page-shell">
+      <header class="hero">
+        <div class="polaroid-card">
+          <div class="avatar-frame">
+            <img
+              src="./assets/images/avatar.jpeg"
+              alt="Avatar"
+              class="avatar-img"
+            />
+          </div>
+          <span class="avatar-handle">@HARUTO_2804</span>
+        </div>
+
+        <div class="hero-text">
+          <h1>Harusama</h1>
+          <p>[ THE ARCHIVE SPACE ]</p>
+        </div>
+      </header>
+
+      <section class="section playlist-section" id="playlist">
+        <div class="playlist-ambient"></div>
+
+        <div class="section-content">
+          <div class="section-heading">
+            <p class="chapter chapter-gold">chương 01</p>
+            <h2>Playlist Tâm Trạng</h2>
+            <p>
+              Không phải playlist nào cũng cần phát ra âm thanh. Có những “bài
+              nhạc” chỉ tồn tại trong đầu, được bật lên vào những lúc mình cần
+              yên tĩnh.
+            </p>
+            <blockquote>
+              “Có những cảm xúc không cần nói ra, chỉ cần để chúng phát thật
+              khẽ.”
+            </blockquote>
+          </div>
+
+          <div class="playlist-player">
+            <article class="now-playing-card">
+              <div class="vinyl-wrap">
+                <div class="vinyl-disc">
+                  <div class="vinyl-center"></div>
+                </div>
+              </div>
+
+              <div class="track-info">
+                <p class="now-label">now playing</p>
+                <h3 id="currentTrackTitle">Track 01 — Một chút yên lặng</h3>
+                <p id="currentTrackDesc">
+                  Dành cho những lúc mình không muốn nói nhiều.
+                </p>
+
+                <div class="seek-row">
+                  <span id="playerCurrentTime">00:42</span>
+                  <input
+                    id="playlistSeek"
+                    class="playlist-seek"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="28"
+                  />
+                  <span id="playerDuration">03:15</span>
+                </div>
+              </div>
+            </article>
+            <audio id="playlistAudio" preload="metadata"></audio>
+            <div class="track-list">
+              <button
+                class="mood-track is-active"
+                type="button"
+                data-src="./assets/music/BaoTienMotMoBinhYen.mp3"
+                data-title="Track 01 — Bao tiền một mớ bình yên"
+                data-desc="Một bài nhạc cho những lúc chỉ muốn bình yên, không cần giải thích với ai."
+              >
+                <span>01</span>
+                <strong>Bao tiền một mớ bình yên</strong>
+              </button>
+
+              <button
+                class="mood-track"
+                type="button"
+                data-src="./assets/music/GIoThi.mp3"
+                data-title="Track 02 — Giờ thì"
+                data-desc="Nhẹ như gió đi qua, nhưng vẫn để lại một khoảng trống rất lâu."
+              >
+                <span>02</span>
+                <strong>Giờ thì</strong>
+              </button>
+
+              <button
+                class="mood-track"
+                type="button"
+                data-src="./assets/music/MotDemSay.mp3"
+                data-title="Track 03 — Một đêm say"
+                data-desc="Có những đêm người ta không say vì rượu, mà say vì một ký ức cũ."
+              >
+                <span>03</span>
+                <strong>Một đêm say</strong>
+              </button>
+
+              <button
+                class="mood-track"
+                type="button"
+                data-src="./assets/music/MotDoi.mp3"
+                data-title="Track 04 — Một đời"
+                data-desc="Một đời nghe có vẻ dài, nhưng đôi khi chỉ gói gọn trong một người."
+              >
+                <span>04</span>
+                <strong>Một đời</strong>
+              </button>
+
+              <button
+                class="mood-track"
+                type="button"
+                data-src="./assets/music/QuaKhungCuaSo.mp3"
+                data-title="Track 05 — Qua khung cửa sổ"
+                data-desc="Nhìn ra ngoài cửa sổ, thấy thế giới vẫn chạy, còn mình thì đứng yên."
+              >
+                <span>05</span>
+                <strong>Qua khung cửa sổ</strong>
+              </button>
+
+              <button
+                class="mood-track"
+                type="button"
+                data-src="./assets/music/ViAnhDauCoBiet.mp3"
+                data-title="Track 06 — Vì anh đâu có biết"
+                data-desc="Có những điều người ta không nói ra, không phải vì hết thương."
+              >
+                <span>06</span>
+                <strong>Vì anh đâu có biết</strong>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section tiktok-section tiktok-anime" id="tiktok-anime">
+        <div class="section-glow section-glow-indigo"></div>
+
+        <div class="tiktok-panel tiktok-panel-left">
+          <div class="section-heading">
+            <div class="section-topline">
+              <p class="chapter chapter-indigo">chương 02</p>
+              <span class="tag tag-indigo">VISUAL // AMV</span>
+            </div>
+
+            <h2>Góc Nhỏ Khiến Mình Mỉm Cười</h2>
+            <p>
+              Một góc lưu lại những thước phim mình từng thích, những nhân vật
+              từng khiến mình dừng lại lâu hơn một chút. Không cần quá sâu xa,
+              chỉ là vài khoảnh khắc nhìn thôi cũng thấy vui.
+            </p>
+
+            <button class="pause-all-tiktok" type="button">
+              Tạm dừng tất cả video
+            </button>
+          </div>
+
+          <div class="video-row">
+            <div class="video-card video-card-indigo">
+              <div
+                class="video-thumb tiktok-frame tiktok-lazy"
+                data-video-id="7618096499624348946"
+              >
+                <button class="tiktok-load-btn" type="button">
+                  <span>▶</span>
+                  <strong>Bấm để tải video</strong>
+                  <small>Video đang tạm dừng</small>
+                </button>
+              </div>
+
+              <div class="video-meta">
+                <h4>VIDEO - MÀ TÔI TÂM ĐẮC NHẤT</h4>
+                <p>#best #waifu</p>
+              </div>
+            </div>
+
+            <div class="video-card video-card-indigo">
+              <div
+                class="video-thumb tiktok-frame tiktok-lazy"
+                data-video-id="7625288435330338066"
+              >
+                <button class="tiktok-load-btn" type="button">
+                  <span>▶</span>
+                  <strong>Bấm để tải video</strong>
+                  <small>Video đang tạm dừng</small>
+                </button>
+              </div>
+
+              <div class="video-meta">
+                <h4>KAWAII - TOP 1 HỐC TRƯỞNG</h4>
+                <p>#retro #mecha</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section tiktok-section tiktok-ai" id="tiktok-ai">
+        <div class="section-glow section-glow-amber"></div>
+
+        <div class="tiktok-panel tiktok-panel-right">
+          <div class="section-heading section-heading-right">
+            <div class="section-topline">
+              <span class="tag tag-stone">SENTIMENT // AI</span>
+              <p class="chapter chapter-stone">chương 03</p>
+            </div>
+
+            <h2>Nơi Trí Tưởng Tượng Thành Sự Thật</h2>
+            <p>
+              Có những điều mình chưa từng sống qua, nhưng lại từng tưởng tượng
+              rất rõ. AI biến những mảnh cảm xúc ấy thành hình ảnh, thành câu
+              chuyện, thành một thế giới mà trước đây chỉ tồn tại trong đầu
+              mình.
+            </p>
+
+            <button class="pause-all-tiktok" type="button">
+              Tạm dừng tất cả video
+            </button>
+          </div>
+
+          <div class="video-row video-row-reverse">
+            <div class="video-card video-card-stone">
+              <div
+                class="video-thumb video-thumb-dark tiktok-frame tiktok-lazy"
+                data-video-id="7638663116787567890"
+              >
+                <button class="tiktok-load-btn" type="button">
+                  <span>▶</span>
+                  <strong>Bấm để tải video</strong>
+                  <small>Video đang tạm dừng</small>
+                </button>
+              </div>
+
+              <div class="video-meta video-meta-left">
+                <h4>XUYÊN KHÔNG...</h4>
+                <p>#xuyenkhong #codai</p>
+              </div>
+            </div>
+
+            <div class="video-card video-card-stone">
+              <div
+                class="video-thumb video-thumb-dark tiktok-frame tiktok-lazy"
+                data-video-id="7641028573440003346"
+              >
+                <button class="tiktok-load-btn" type="button">
+                  <span>▶</span>
+                  <strong>Bấm để tải video</strong>
+                  <small>Video đang tạm dừng</small>
+                </button>
+              </div>
+
+              <div class="video-meta video-meta-left">
+                <h4>LẦN CUỐI TA NHÌN NHAU</h4>
+                <p>#broken #silence</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section memories-section" id="memories">
+        <div class="section-content">
+          <div class="section-heading">
+            <p class="chapter chapter-gold">chương 04</p>
+            <h2>Mảnh Ghép Ký Ức</h2>
+            <p>
+              Bộ sưu tập những khoảnh khắc đời thường, những góc nhìn tĩnh lặng
+              được đóng khung qua lăng kính cá nhân.
+            </p>
+          </div>
+
+          <div class="memory-grid">
+            <a href="#gallery1" class="memory-card memory-card-wide">
+              <img
+                src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=600"
+                alt="Memory 1"
+              />
+              <div class="memory-overlay">
+                <h3>Góc Phố Năm Ấy</h3>
+                <p>Phim 35mm • 2024</p>
+              </div>
+            </a>
+
+            <a href="#gallery2" class="memory-card memory-card-square">
+              <div class="memory-image-box">
+                <img
+                  src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?q=80&w=400"
+                  alt="Memory 2"
+                />
+              </div>
+              <div class="memory-caption">MẶT TRỜI LẶN</div>
+            </a>
+
+            <div class="quote-card">
+              <span>"</span>
+              <p>Mọi thứ rồi sẽ trở thành kỷ niệm, chỉ là sớm hay muộn.</p>
+            </div>
+
+            <a href="#full-gallery" class="album-link">
+              <span>Xem toàn bộ Album</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section final-message-section" id="final-message">
+        <div class="final-glow"></div>
+
+        <div class="final-message-card">
+          <div class="final-window-bar">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <p>unsent-message.txt</p>
+          </div>
+
+          <div class="final-message-body">
+            <p class="final-label">before you leave</p>
+
+            <div class="typing-line line-1">
+              <span>Mình không cố trở thành ai đặc biệt cả.</span>
+            </div>
+
+            <div class="typing-line line-2">
+              <span
+                >Chỉ là đang học cách tồn tại đúng với cảm xúc của mình.</span
+              >
+            </div>
+
+            <p class="final-subtext">thanks for staying until the end.</p>
+
+            <span class="final-cursor">_</span>
+          </div>
+        </div>
+      </section>
+      <footer class="page-footer">
+        <p>EST. 2026 — DESIGNED FOR THE SILENT SOUL</p>
+      </footer>
+    </main>
+
+    <script src="main.js"></script>
+    <script src="music.js"></script>
+
+    <!-- SCRIPT CHÍNH THỨC CỦA TIKTOK -->
+    <script async src="https://www.tiktok.com/embed.js"></script>
+  </body>
+</html>
