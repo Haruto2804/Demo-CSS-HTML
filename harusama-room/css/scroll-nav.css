@@ -1,0 +1,301 @@
+/* ===============================
+   RESPONSIVE SCROLL NAV
+================================ */
+
+.scroll-nav-shell {
+  position: fixed;
+  right: clamp(16px, 2.2vw, 34px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 99970;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.scroll-nav-toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid rgba(216, 181, 109, 0.42);
+  background: rgba(18, 15, 12, 0.78);
+  color: #d8b56d;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.36);
+  transition: 0.25s ease;
+}
+
+.scroll-nav-toggle i {
+  font-size: 16px;
+}
+
+.scroll-nav-toggle:hover {
+  transform: scale(1.08);
+  border-color: rgba(216, 181, 109, 0.85);
+  box-shadow: 0 0 22px rgba(216, 181, 109, 0.28);
+}
+
+.scroll-nav {
+  width: clamp(48px, 3.4vw, 62px);
+  padding: clamp(18px, 2vw, 26px) 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(18px, 2vw, 26px);
+
+  border-radius: 999px;
+  border: 1px solid rgba(216, 181, 109, 0.3);
+  background: rgba(18, 15, 12, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.42);
+
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  pointer-events: auto;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.scroll-nav-item {
+  position: relative;
+  width: clamp(22px, 1.8vw, 30px);
+  height: clamp(22px, 1.8vw, 30px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+}
+
+.scroll-dot {
+  width: clamp(9px, 0.8vw, 12px);
+  height: clamp(9px, 0.8vw, 12px);
+  border-radius: 999px;
+  border: 1px solid rgba(216, 181, 109, 0.62);
+  background: rgba(216, 181, 109, 0.12);
+  transition: 0.25s ease;
+}
+
+.scroll-label {
+  position: absolute;
+  right: 42px;
+  top: 50%;
+  transform: translateY(-50%) translateX(8px);
+
+  padding: 7px 13px;
+  border-radius: 999px;
+  border: 1px solid rgba(216, 181, 109, 0.3);
+  background: rgba(18, 15, 12, 0.9);
+  color: rgba(244, 225, 185, 0.94);
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s ease;
+}
+
+.scroll-nav-item:hover .scroll-label,
+.scroll-nav-item.is-active .scroll-label {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.scroll-nav-item:hover .scroll-dot,
+.scroll-nav-item.is-active .scroll-dot {
+  width: clamp(14px, 1.1vw, 17px);
+  height: clamp(14px, 1.1vw, 17px);
+  background: #d8b56d;
+  border-color: #d8b56d;
+  box-shadow: 0 0 22px rgba(216, 181, 109, 0.85);
+}
+
+/* Desktop / laptop: ẩn nút toggle, nav luôn hiện */
+@media (min-width: 1025px) {
+  .scroll-nav-toggle {
+    display: none;
+  }
+
+  .scroll-nav-shell.is-collapsed .scroll-nav {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    pointer-events: auto;
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .scroll-nav-shell {
+    right: 14px;
+  }
+
+  .scroll-nav {
+    width: 42px;
+    padding: 16px 0;
+    gap: 16px;
+  }
+
+  .scroll-nav-item {
+    width: 20px;
+    height: 20px;
+  }
+
+  .scroll-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scroll-label {
+    display: none;
+  }
+
+  .scroll-nav-shell.is-collapsed .scroll-nav {
+    opacity: 0;
+    transform: translateX(12px) scale(0.9);
+    pointer-events: none;
+  }
+}
+
+/* Mobile: nằm dưới cùng, nhích lên */
+@media (max-width: 768px) {
+  @media (max-width: 768px) {
+    .scroll-nav-shell {
+      display: none;
+    }
+  }
+
+  .scroll-nav-toggle {
+    width: 32px;
+    height: 32px;
+  }
+
+  .scroll-nav-toggle i {
+    font-size: 14px;
+  }
+
+  .scroll-nav {
+    width: auto;
+    height: 34px;
+    padding: 0 14px;
+
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .scroll-nav-item {
+    width: 16px;
+    height: 16px;
+  }
+
+  .scroll-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scroll-nav-item:hover .scroll-dot,
+  .scroll-nav-item.is-active .scroll-dot {
+    width: 18px;
+    height: 6px;
+    border-radius: 999px;
+  }
+
+  .scroll-label {
+    display: none !important;
+  }
+
+  .scroll-nav-shell.is-collapsed .scroll-nav {
+    opacity: 0;
+    transform: translateY(10px) scale(0.9);
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .scroll-nav-shell {
+    bottom: 62px;
+  }
+
+  .scroll-nav {
+    height: 31px;
+    padding: 0 11px;
+    gap: 9px;
+  }
+
+  .scroll-nav-toggle {
+    width: 30px;
+    height: 30px;
+  }
+}
+/* Fix nút collapse không bấm được */
+.scroll-nav-toggle {
+  position: relative;
+  z-index: 3;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+
+.scroll-nav {
+  position: relative;
+  z-index: 2;
+}
+
+/* Desktop: ẩn nút, nav luôn hiện */
+@media (min-width: 1025px) {
+  .scroll-nav-toggle {
+    display: none !important;
+  }
+
+  .scroll-nav-shell.is-collapsed .scroll-nav {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    pointer-events: auto;
+    visibility: visible;
+  }
+}
+
+/* Mobile + tablet: collapse thật sự */
+@media (max-width: 1024px) {
+  .scroll-nav-shell.is-collapsed .scroll-nav {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+/* Mobile nằm dưới, nút luôn nổi lên để bấm được */
+@media (max-width: 768px) {
+  .scroll-nav-shell {
+    bottom: 62px;
+    z-index: 99999;
+  }
+
+  .scroll-nav-toggle {
+    flex: 0 0 auto;
+  }
+}
+<a href="#archive-guide" class="scroll-nav-item" data-section="archive-guide">
+  <span class="scroll-dot"></span>
+  <span class="scroll-label">Guide</span>
+</a>
+
+<a href="#mood-door" class="scroll-nav-item" data-section="mood-door">
+  <span class="scroll-dot"></span>
+  <span class="scroll-label">Mood</span>
+</a>

@@ -1545,3 +1545,53 @@ html {
     font-size: 22px;
   }
 }
+#currentTrackDesc {
+  user-select: none;
+}
+
+#currentTrackDesc-tooltip {
+  /* ÉP CỐ ĐỊNH: Chuyển hoàn toàn gốc tọa độ của Tooltip về góc màn hình */
+  position: fixed !important;
+  /* Các thuộc tính vintage cũ của bạn giữ nguyên bên dưới */
+  color: white;
+  background-color: #211b1b;
+  border: 1px solid #5e523e;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 320px;
+  word-break: break-word;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+  z-index: 9999;
+}
+
+#currentTrackDesc-tooltip.show {
+  opacity: 1;
+}
+/* ========================================== */
+/* KHÓA CỐ ĐỊNH TRÊN ĐIỆN THOẠI (MOBILE)      */
+/* ========================================== */
+@media (max-width: 767px) {
+  #currentTrackDesc-tooltip {
+    /* Ép rộng hết cỡ chiều ngang màn hình điện thoại (trừ đi lề) */
+    width: calc(100vw - 32px) !important;
+
+    /* Ghi đè triệt để tọa độ từ JS truyền vào */
+    left: 16px !important; /* Cách đều mép trái màn hình 16px */
+
+    /* Thêm một chút hiệu ứng trượt nhẹ từ dưới lên khi hiện cho đẹp mắt */
+    transform: translateY(10px);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  #currentTrackDesc-tooltip.show {
+    transform: translateY(0);
+  }
+}

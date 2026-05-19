@@ -11,11 +11,103 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-
-    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./css/cursor.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/volume-widget.css" />
+    <link rel="stylesheet" href="./css/scroll-nav.css" />
+    <link rel="stylesheet" href="./css/form-link-section.css" />
   </head>
 
   <body>
+    <div class="volume-widget">
+      <button
+        id="volumeToggle"
+        class="volume-btn"
+        type="button"
+        aria-label="Volume"
+      >
+        <span id="volumeIcon">
+          <i class="fa-solid fa-volume-high"></i>
+        </span>
+      </button>
+
+      <div id="volumePanel" class="volume-panel">
+        <input
+          id="globalVolumeSlider"
+          class="volume-slider"
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          value="0.75"
+          aria-label="Volume slider"
+        />
+        <span id="volumePercent">75%</span>
+      </div>
+    </div>
+    <div class="scroll-nav-shell">
+      <button
+        id="scrollNavToggle"
+        class="scroll-nav-toggle"
+        type="button"
+        aria-label="Ẩn hiện thanh điều hướng"
+      >
+        <i class="fa-solid fa-pen-nib"></i>
+      </button>
+
+      <nav class="scroll-nav" aria-label="Điều hướng trang">
+        <a
+          href="#playlist"
+          class="scroll-nav-item is-active"
+          data-section="playlist"
+        >
+          <span class="scroll-dot"></span>
+          <span class="scroll-label">Playlist</span>
+        </a>
+
+        <a
+          href="#tiktok-anime"
+          class="scroll-nav-item"
+          data-section="tiktok-anime"
+        >
+          <span class="scroll-dot"></span>
+          <span class="scroll-label">AMV</span>
+        </a>
+
+        <a href="#tiktok-ai" class="scroll-nav-item" data-section="tiktok-ai">
+          <span class="scroll-dot"></span>
+          <span class="scroll-label">AI</span>
+        </a>
+
+        <a href="#memories" class="scroll-nav-item" data-section="memories">
+          <span class="scroll-dot"></span>
+          <span class="scroll-label">Ký ức</span>
+        </a>
+
+        <a
+          href="#message-form"
+          class="scroll-nav-item"
+          data-section="message-form"
+        >
+          <span class="scroll-dot"></span>
+          <span class="scroll-label">Form</span>
+        </a>
+        <a
+          href="#final-message"
+          class="scroll-nav-item"
+          data-section="final-message"
+        >
+          <span class="scroll-dot"></span>
+          <span class="scroll-label">Lời kết</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="vintage-cursor-glow"></div>
     <div class="page-texture"></div>
 
     <main class="page-shell">
@@ -86,12 +178,16 @@
             </article>
             <audio id="playlistAudio" preload="metadata"></audio>
             <div class="track-list">
+              <div id="currentTrackDesc-tooltip">
+                Có những bài hát nghe hoài không chán. Không phải vì nó quá hay,
+                mà vì từng câu chữ đều như viết riêng cho mình.
+              </div>
               <button
                 class="mood-track is-active"
                 type="button"
                 data-src="./assets/music/BaoTienMotMoBinhYen.mp3"
                 data-title="Track 01 — Bao tiền một mớ bình yên"
-                data-desc="Một bài nhạc cho những lúc chỉ muốn bình yên, không cần giải thích với ai."
+                data-desc="Giai điệu vang lên, câu chữ lặp lại, và tôi nhận ra bài hát này đang kể lại cuộc đời mình."
               >
                 <span>01</span>
                 <strong>Bao tiền một mớ bình yên</strong>
@@ -100,9 +196,9 @@
               <button
                 class="mood-track"
                 type="button"
-                data-src="./assets/music/GIoThi.mp3"
+                data-src="./assets/music/GioThi.mp3"
                 data-title="Track 02 — Giờ thì"
-                data-desc="Nhẹ như gió đi qua, nhưng vẫn để lại một khoảng trống rất lâu."
+                data-desc="Có những bài hát nghe hoài không chán. Không phải vì nó quá hay, mà vì từng câu chữ đều như viết riêng cho mình."
               >
                 <span>02</span>
                 <strong>Giờ thì</strong>
@@ -295,23 +391,22 @@
           <div class="memory-grid">
             <a href="#gallery1" class="memory-card memory-card-wide">
               <img
-                src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=600"
+                src="./assets/images/memory/QPAN_classroom.jpg"
                 alt="Memory 1"
               />
               <div class="memory-overlay">
-                <h3>Góc Phố Năm Ấy</h3>
-                <p>Phim 35mm • 2024</p>
+                <h3>Ngày Ấy Chúng Mình Cùng Mặc Quân Phục</h3>
               </div>
             </a>
 
             <a href="#gallery2" class="memory-card memory-card-square">
               <div class="memory-image-box">
                 <img
-                  src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?q=80&w=400"
+                  src="./assets/images/memory/QPAN_tapthelop.jpg"
                   alt="Memory 2"
                 />
               </div>
-              <div class="memory-caption">MẶT TRỜI LẶN</div>
+              <div class="memory-caption">MỘT KÝ ỨC ĐÁNG NHỚ</div>
             </a>
 
             <div class="quote-card">
@@ -327,6 +422,33 @@
         </div>
       </section>
 
+      <section class="section form-link-section" id="message-form">
+        <div class="form-link-glow"></div>
+
+        <div class="section-content">
+          <div class="form-link-card">
+            <div class="form-link-text">
+              <p class="chapter chapter-gold">chương 05</p>
+              <h2>Để Lại Một Lời Nhắn</h2>
+              <p>
+                Nếu bạn đã đi đến đây, có lẽ cũng có điều gì đó muốn gửi lại.
+                Một câu ngắn, một cảm xúc nhỏ, hoặc chỉ đơn giản là vài dòng bạn
+                muốn để trong khoảng lặng này.
+              </p>
+            </div>
+
+            <a
+              class="form-link-button"
+              href="https://form.typeform.com/to/faLixy1S"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Gửi một lời nhắn</span>
+              <i class="fa-solid fa-feather-pointed"></i>
+            </a>
+          </div>
+        </div>
+      </section>
       <section class="section final-message-section" id="final-message">
         <div class="final-glow"></div>
 
@@ -362,9 +484,12 @@
       </footer>
     </main>
 
-    <script src="main.js"></script>
-    <script src="music.js"></script>
-
+    <script src="./js/main.js"></script>
+    <script src="./js/music.js"></script>
+    <script src="./js/cursor.js"></script>
+    <script src="./js/volume-widget.js"></script>
+    <script src="./js/scroll-nav.js"></script>
+    <script src="./js/motion.js"></script>
     <!-- SCRIPT CHÍNH THỨC CỦA TIKTOK -->
     <script async src="https://www.tiktok.com/embed.js"></script>
   </body>
