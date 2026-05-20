@@ -290,12 +290,3 @@
     flex: 0 0 auto;
   }
 }
-<a href="#archive-guide" class="scroll-nav-item" data-section="archive-guide">
-  <span class="scroll-dot"></span>
-  <span class="scroll-label">Guide</span>
-</a>
-
-<a href="#mood-door" class="scroll-nav-item" data-section="mood-door">
-  <span class="scroll-dot"></span>
-  <span class="scroll-label">Mood</span>
-</a>
