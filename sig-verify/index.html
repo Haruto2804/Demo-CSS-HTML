@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="vi" class="h-full bg-slate-50">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hệ thống Xác minh Chữ ký số Trực tuyến & Tạo Khóa Tự động</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="h-full flex flex-col justify-between text-slate-800">
+    <header
+      class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16 items-center">
+          <div class="flex items-center space-x-3">
+            <div
+              class="bg-blue-600 text-white p-2.5 rounded-xl shadow-md flex items-center justify-center"
+            >
+              <i class="fa-solid fa-file-shield text-xl"></i>
+            </div>
+            <div>
+              <span
+                class="text-lg font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"
+              >
+                SigVerify Engine v3.0
+              </span>
+              <p class="text-xs text-slate-500 font-medium">
+                Bộ công cụ Tạo khóa & Xác minh Chữ ký số Toàn diện
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4">
+            <span
+              class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800"
+            >
+              <span
+                class="w-1.5 h-1.5 mr-1.5 rounded-full bg-emerald-500 animate-pulse"
+              ></span>
+              Xử lý RAM Cục bộ (An toàn)
+            </span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div
+        class="mb-6 bg-blue-50 border border-blue-200 rounded-xl p-4 flex items-start space-x-3"
+      >
+        <i class="fa-solid fa-circle-info text-blue-600 mt-0.5 text-lg"></i>
+        <div>
+          <h4 class="text-sm font-semibold text-blue-800">
+            Cam kết bảo mật dữ liệu tuyệt đối (Zero-Storage Policy)
+          </h4>
+          <p class="text-xs text-blue-700 mt-1">
+            Ứng dụng chạy 100% Client-side. Việc sinh cặp khóa RSA, băm SHA-256
+            và tạo chữ ký số được xử lý trực tiếp trong RAM trình duyệt của bạn
+            bằng <strong>Web Crypto API</strong> tiêu chuẩn bảo mật cao.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <section class="lg:col-span-4 space-y-6">
+          <div
+            class="bg-gradient-to-br from-slate-900 to-slate-800 text-white p-5 rounded-2xl shadow-xl space-y-4 border border-slate-700"
+          >
+            <h3
+              class="text-xs font-bold uppercase tracking-wider text-blue-400 flex items-center space-x-2"
+            >
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+              <span>Trình Tạo Khóa & Ký Số Tự Động</span>
+            </h3>
+            <p class="text-[11px] text-slate-300">
+              Dành cho người mới: Tự động sinh khóa bí mật/công khai và ký tệp
+              tin ngay lập tức mà không cần suy nghĩ.
+            </p>
+
+            <hr class="border-slate-700" />
+
+            <div class="space-y-2">
+              <label
+                class="block text-[11px] font-bold text-slate-400 uppercase"
+                >Bước A: Khởi tạo cặp khóa RSA-2048</label
+              >
+              <button
+                onclick="generateNewKeyPair()"
+                class="w-full bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold py-2 px-3 rounded-lg transition-all flex items-center justify-center space-x-1.5 shadow-md"
+              >
+                <i class="fa-solid fa-arrows-rotate animate-spin-slow"></i>
+                <span>Sinh ngẫu nhiên cặp khóa mới</span>
+              </button>
+              <div
+                id="key-gen-status"
+                class="text-[10px] text-amber-400 italic text-center"
+              >
+                Chưa có khóa nào được tạo
+              </div>
+            </div>
+
+            <div class="space-y-2 pt-2">
+              <label
+                class="block text-[11px] font-bold text-slate-400 uppercase"
+                >Bước B: Ký số lên tệp đang chọn</label
+              >
+              <button
+                onclick="signCurrentFile()"
+                class="w-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold py-2 px-3 rounded-lg transition-all flex items-center justify-center space-x-1.5 shadow-md"
+              >
+                <i class="fa-solid fa-file-pen"></i>
+                <span>Tạo Chữ ký số từ File này</span>
+              </button>
+            </div>
+
+            <div
+              class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 space-y-1.5 text-[10px]"
+            >
+              <span class="text-slate-500 font-bold"
+                >Mẹo trình diễn báo cáo:</span
+              >
+              <p class="text-slate-400 leading-normal">
+                Kéo file của bạn vào giữa $\rightarrow$ Bấm nút "Sinh khóa"
+                $\rightarrow$ Bấm nút "Tạo Chữ ký số". Hệ thống sẽ tự điền dữ
+                liệu chuẩn vào form xác minh bên cạnh!
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="lg:col-span-4 space-y-6">
+          <div
+            class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-4"
+          >
+            <h3
+              class="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center space-x-2"
+            >
+              <i class="fa-solid fa-file-arrow-up text-blue-500"></i>
+              <span>1. Tải tài liệu cần kiểm tra</span>
+            </h3>
+
+            <div
+              id="drop-zone"
+              class="border-2 border-dashed border-slate-300 hover:border-blue-500 bg-slate-50 hover:bg-blue-50/30 rounded-xl p-5 text-center cursor-pointer transition-all duration-200 relative group"
+            >
+              <input
+                type="file"
+                id="file-input"
+                class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                onchange="handleFileSelect(event)"
+              />
+              <div class="space-y-2 pointer-events-none">
+                <div
+                  class="mx-auto w-10 h-10 bg-white rounded-full flex items-center justify-center border border-slate-200 shadow-sm"
+                >
+                  <i
+                    class="fa-solid fa-cloud-arrow-up text-slate-400 text-base"
+                  ></i>
+                </div>
+                <div class="text-xs font-semibold text-slate-700">
+                  Kéo file vào đây hoặc
+                  <span class="text-blue-600">tìm kiếm</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              id="file-details-card"
+              class="hidden bg-slate-50 border border-slate-200 rounded-xl p-2.5 flex items-center justify-between"
+            >
+              <div class="flex items-center space-x-2 truncate">
+                <div class="bg-blue-100 text-blue-700 p-2 rounded-lg">
+                  <i
+                    id="file-icon-type"
+                    class="fa-solid fa-file-lines text-md"
+                  ></i>
+                </div>
+                <div class="truncate">
+                  <p
+                    id="lbl-file-name"
+                    class="text-xs font-semibold text-slate-800 truncate"
+                  >
+                    -
+                  </p>
+                  <p id="lbl-file-size" class="text-[10px] text-slate-400">
+                    0 MB
+                  </p>
+                </div>
+              </div>
+              <button
+                onclick="clearSelectedFile()"
+                class="text-slate-400 hover:text-red-500 p-1"
+              >
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-4"
+          >
+            <h3
+              class="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center space-x-2"
+            >
+              <i class="fa-solid fa-signature text-blue-500"></i>
+              <span>2. Thông tin đối sánh</span>
+            </h3>
+
+            <div class="space-y-1">
+              <label
+                class="block text-[10px] font-bold text-slate-400 uppercase"
+                >Khóa Công Khai (PEM Public Key):</label
+              >
+              <textarea
+                id="txt-public-key"
+                placeholder="Khóa công khai sẽ tự điền khi bấm nút sinh khóa hoặc bạn tự dán vào..."
+                rows="4"
+                class="w-full font-mono text-[9px] bg-slate-50 border border-slate-200 rounded-lg p-2 focus:ring-2 focus:ring-blue-500 outline-none resize-none"
+              ></textarea>
+            </div>
+
+            <div class="space-y-1">
+              <label
+                class="block text-[10px] font-bold text-slate-400 uppercase"
+                >Giá trị Chữ ký số (Signature - Hex):</label
+              >
+              <textarea
+                id="txt-signature"
+                placeholder="Chữ ký số mã hóa của file sẽ tự sinh ra ở Bước B..."
+                rows="3"
+                class="w-full font-mono text-[9px] bg-slate-50 border border-slate-200 rounded-lg p-2 focus:ring-2 focus:ring-blue-500 outline-none resize-none"
+              ></textarea>
+            </div>
+
+            <button
+              id="btn-verify"
+              onclick="performVerification()"
+              class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-xl shadow-md transition-all flex items-center justify-center space-x-2 text-xs"
+            >
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Thực Hiện Xác Minh Thật</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="lg:col-span-4 space-y-6">
+          <div
+            class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-4"
+          >
+            <h3
+              class="text-xs font-bold text-slate-700 uppercase tracking-wider"
+            >
+              Kết quả kiểm định mật mã
+            </h3>
+
+            <div
+              id="status-card-container"
+              class="border border-slate-100 bg-slate-50 rounded-xl p-4 text-center transition-all duration-300"
+            >
+              <div
+                id="status-icon-wrapper"
+                class="mx-auto w-12 h-12 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center mb-2 text-xl"
+              >
+                <i class="fa-solid fa-file-circle-question"></i>
+              </div>
+              <h2 id="status-title" class="text-xs font-bold text-slate-600">
+                Sẵn sàng phân tích
+              </h2>
+              <p
+                id="status-desc"
+                class="text-[10px] text-slate-400 mt-1 max-w-xs mx-auto"
+              >
+                Vui lòng tải tệp tin và chuẩn bị khóa để bắt đầu đối sánh tính
+                toàn vẹn.
+              </p>
+            </div>
+
+            <div
+              class="border border-slate-100 rounded-xl p-3 bg-slate-50/50 text-[10px] space-y-2"
+            >
+              <div
+                class="flex items-center space-x-1.5 border-b border-slate-200 pb-1 font-bold text-slate-600"
+              >
+                <i class="fa-solid fa-fingerprint text-blue-600"></i>
+                <span>Thông tin mã băm tệp tin</span>
+              </div>
+              <div>
+                <span class="text-slate-400 uppercase font-medium"
+                  >Thuật toán băm:</span
+                >
+                <span class="font-bold text-slate-700">SHA-256</span>
+              </div>
+              <div class="space-y-1">
+                <div class="flex justify-between items-center text-slate-400">
+                  <span>MÃ BĂM THỰC TẾ (FILE HASH):</span>
+                  <button
+                    onclick="copyHashToClipboard()"
+                    class="text-blue-600 hover:underline"
+                  >
+                    <i class="fa-regular fa-copy"></i> Sao chép
+                  </button>
+                </div>
+                <div
+                  id="lbl-sha256-hash"
+                  class="font-mono bg-white p-1.5 rounded border border-slate-200 break-all text-slate-500 text-[9px] min-h-[28px] flex items-center"
+                >
+                  (Chưa có tệp)
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-1.5">
+              <label class="block text-[10px] font-bold text-slate-500"
+                >Nhật ký hệ thống (System Engine Logs):</label
+              >
+              <div
+                id="verification-logs"
+                class="bg-slate-950 text-emerald-400 font-mono text-[9px] p-3 rounded-xl overflow-y-auto h-32 border border-slate-800 space-y-0.5"
+              >
+                <div class="text-slate-500">
+                  > Khởi tạo engine xác minh rảnh tay thành công. Sẵn sàng...
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer
+      class="bg-slate-900 text-slate-500 py-4 border-t border-slate-800 text-center text-[10px]"
+    >
+      <p>
+        © 2026 SigVerify Suite. Mã nguồn phục vụ nghiên cứu Mật mã học An toàn
+        máy tính.
+      </p>
+    </footer>
+
+    <script>
+      // BIẾN TOÀN CỤC LƯU TRỮ TRÊN RAM CỦA TRÌNH DUYỆT
+      let generatedPrivateKey = null; // Khóa bí mật dùng để ký (Dạng Object bảo mật)
+      let generatedPublicKey = null; // Khóa công khai dùng để xác minh
+      let selectedFile = null;
+      let selectedFileHashHex = "";
+
+      function log(message, type = "info") {
+        const logsContainer = document.getElementById("verification-logs");
+        const time = new Date().toLocaleTimeString();
+        let colorClass = "text-slate-400";
+
+        if (type === "success") colorClass = "text-emerald-400 font-bold";
+        if (type === "warning") colorClass = "text-amber-400 font-bold";
+        if (type === "error") colorClass = "text-red-400 font-bold";
+        if (type === "input") colorClass = "text-sky-400";
+
+        const logLine = document.createElement("div");
+        logLine.className = `${colorClass}`;
+        logLine.innerHTML = `<span class="text-slate-600">[${time}]</span> > ${message}`;
+
+        logsContainer.appendChild(logLine);
+        logsContainer.scrollTop = logsContainer.scrollHeight;
+      }
+
+      // --- TÍNH NĂNG 1: TRÌNH TẠO CẶP KHÓA TỰ ĐỘNG (KEY GENERATOR TOOL) ---
+      async function generateNewKeyPair() {
+        try {
+          document.getElementById("key-gen-status").innerText =
+            "Đang sinh khóa RSA...";
+          log(
+            "Đang tiến hành tạo cặp khóa bất đối xứng RSA-2048 bằng thuật toán Web Crypto API...",
+          );
+
+          // Sinh khóa RSA-2048 thực tế
+          const keyPair = await window.crypto.subtle.generateKey(
+            {
+              name: "RSASSA-PKCS1-v1_5",
+              modulusLength: 2048,
+              publicExponent: new Uint8Array([1, 0, 1]), // 65537
+              hash: "SHA-256",
+            },
+            true, // Cho phép xuất định dạng
+            ["sign", "verify"],
+          );
+
+          generatedPrivateKey = keyPair.privateKey;
+          generatedPublicKey = keyPair.publicKey;
+
+          // Xuất khóa công khai sang định dạng văn bản PEM chuẩn để dán vào form
+          const exportedPubKey = await window.crypto.subtle.exportKey(
+            "spki",
+            generatedPublicKey,
+          );
+          const pemString = arrayBufferToPem(exportedPubKey, "PUBLIC KEY");
+
+          document.getElementById("txt-public-key").value = pemString;
+          document.getElementById("key-gen-status").innerText =
+            "Đã sinh cặp khóa RSA-2048 thành công!";
+          log(
+            "Đã khởi tạo Khóa bí mật (Lưu an toàn trong RAM) và Khóa công khai PEM thành công!",
+            "success",
+          );
+        } catch (err) {
+          log(`Lỗi khi tạo cặp khóa: ${err.message}`, "error");
+          document.getElementById("key-gen-status").innerText =
+            "Lỗi sinh khóa!";
+        }
+      }
+
+      // --- TÍNH NĂNG 2: TRÌNH KÝ SỐ LÊN FILE THẬT (DIGITAL SIGNING TOOL) ---
+      async function signCurrentFile() {
+        if (!selectedFile) {
+          alert("Vui lòng kéo thả một file vào ô số 1 trước khi ký số!");
+          return;
+        }
+        if (!generatedPrivateKey) {
+          alert(
+            "Vui lòng bấm nút 'Sinh ngẫu nhiên cặp khóa mới' ở Bước A trước!",
+          );
+          return;
+        }
+
+        try {
+          log("Bắt đầu tiến trình ký số tệp tin...");
+          const fileDataBuffer = await selectedFile.arrayBuffer();
+
+          // Ký số trực tiếp bằng Private Key
+          const signatureBuffer = await window.crypto.subtle.sign(
+            "RSASSA-PKCS1-v1_5",
+            generatedPrivateKey,
+            fileDataBuffer,
+          );
+
+          // Chuyển mảng Byte chữ ký sang chuỗi Hex trực quan
+          const signatureHex = arrayBufferToHex(signatureBuffer);
+          document.getElementById("txt-signature").value = signatureHex;
+
+          log(
+            "KÝ SỐ THÀNH CÔNG! Chữ ký số mã hóa dạng Hex độc nhất đã được điền tự động vào ô Xác minh.",
+            "success",
+          );
+        } catch (err) {
+          log(`Lỗi trong quá trình thực hiện ký số: ${err.message}`, "error");
+        }
+      }
+
+      // --- TIẾN TRÌNH 3: XÁC MINH CHỮ KÝ SỐ THẬT ---
+      async function performVerification() {
+        const statusCard = document.getElementById("status-card-container");
+        const statusIcon = document.getElementById("status-icon-wrapper");
+        const statusTitle = document.getElementById("status-title");
+        const statusDesc = document.getElementById("status-desc");
+
+        if (!selectedFile) {
+          alert("Vui lòng tải lên một tệp tài liệu cần kiểm định trước!");
+          return;
+        }
+
+        const pubKeyPEM = document
+          .getElementById("txt-public-key")
+          .value.trim();
+        const signatureStr = document
+          .getElementById("txt-signature")
+          .value.trim();
+
+        if (!pubKeyPEM || !signatureStr) {
+          alert(
+            "Vui lòng điền/sinh đầy đủ thông tin Khóa công khai và Chữ ký số!",
+          );
+          return;
+        }
+
+        log("--- BẮT ĐẦU QUY TRÌNH KIỂM ĐỊNH MẬT MÃ HỌC THỰC TẾ ---");
+
+        try {
+          log("Đang giải mã định dạng văn bản khóa PEM Public Key...");
+          const publicKeyBuffer = pemToArrayBuffer(pubKeyPEM);
+
+          // Import chuỗi PEM vào hệ thống máy ảo crypto để verify
+          const cryptoKey = await crypto.subtle.importKey(
+            "spki",
+            publicKeyBuffer,
+            { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" },
+            false,
+            ["verify"],
+          );
+
+          log(
+            "Chuẩn bị nạp dữ liệu mảng byte của file và giải băm chữ ký số Hex...",
+          );
+          const signatureBuffer = hexToArrayBuffer(signatureStr);
+          const fileArrayBuffer = await selectedFile.arrayBuffer();
+
+          // Thực hiện lệnh toán học đối sánh verify lõi
+          const isValid = await crypto.subtle.verify(
+            "RSASSA-PKCS1-v1_5",
+            cryptoKey,
+            signatureBuffer,
+            fileArrayBuffer,
+          );
+
+          if (isValid) {
+            statusCard.className =
+              "border border-emerald-200 bg-emerald-50 rounded-xl p-4 text-center shadow-sm";
+            statusIcon.className =
+              "mx-auto w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mb-2 text-xl scale-105";
+            statusIcon.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
+            statusTitle.className = "text-xs font-bold text-emerald-800";
+            statusTitle.innerText = "CHỮ KÝ HỢP LỆ - FILE NGUYÊN VẸN";
+            statusDesc.innerText =
+              "Hệ thống xác nhận: File này hoàn toàn khớp cấu trúc mật mã toán học với Public Key. Không có bất kỳ sự chỉnh sửa sửa đổi nào sau khi ký.";
+            log(
+              "XÁC MINH TOÁN HỌC THÀNH CÔNG: Tài liệu an toàn tuyệt đối và nguyên bản 100%!",
+              "success",
+            );
+          } else {
+            statusCard.className =
+              "border border-red-200 bg-red-50 rounded-xl p-4 text-center shadow-sm";
+            statusIcon.className =
+              "mx-auto w-12 h-12 rounded-full bg-red-100 text-red-600 flex items-center justify-center mb-2 text-xl animate-pulse";
+            statusIcon.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
+            statusTitle.className = "text-xs font-bold text-red-800";
+            statusTitle.innerText = "CHỮ KÝ KHÔNG HỢP LỆ!";
+            statusDesc.innerText =
+              "Cảnh báo bảo mật: Nội dung tệp tin tải lên hiện tại không tương thích với chữ ký này hoặc khóa công khai bị sai lệch.";
+            log(
+              "CẢNH BÁO: Kiểm định thất bại! Chữ ký số không trùng khớp, tệp tin có thể đã bị sửa đổi trái phép.",
+              "error",
+            );
+          }
+        } catch (err) {
+          log(
+            `Quá trình xác minh thất bại do cấu trúc dữ liệu lỗi: ${err.message}`,
+            "error",
+          );
+          alert(
+            "Lỗi định dạng cấu trúc mật mã! Hãy đảm bảo chuỗi Khóa là dạng PEM và chữ ký là chuỗi Hex chuẩn.",
+          );
+        }
+      }
+
+      // --- CÁC HÀM TRỢ GIÚP CHUYỂN ĐỔI ĐỊNH DẠNG MẬT MÃ (HELPERS) ---
+      async function handleFileSelect(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        selectedFile = file;
+        document.getElementById("file-details-card").classList.remove("hidden");
+        document.getElementById("lbl-file-name").innerText = file.name;
+        document.getElementById("lbl-file-size").innerText =
+          (file.size / (1024 * 1024)).toFixed(2) + " MB";
+
+        log(`Đã tải tệp tin lên bộ nhớ tạm: ${file.name}.`);
+        await computeFileHash(file);
+      }
+
+      async function computeFileHash(file) {
+        try {
+          const arrayBuffer = await file.arrayBuffer();
+          const hashBuffer = await crypto.subtle.digest("SHA-256", arrayBuffer);
+          const hashArray = Array.from(new Uint8Array(hashBuffer));
+          selectedFileHashHex = hashArray
+            .map((b) => b.toString(16).padStart(2, "0"))
+            .join("");
+          document.getElementById("lbl-sha256-hash").innerText =
+            selectedFileHashHex;
+          log(`Đã tính toán xong File Hash SHA-256: ${selectedFileHashHex}`);
+        } catch (err) {
+          log(`Lỗi băm file: ${err.message}`, "error");
+        }
+      }
+
+      function clearSelectedFile() {
+        selectedFile = null;
+        selectedFileHashHex = "";
+        document.getElementById("file-input").value = "";
+        document.getElementById("file-details-card").classList.add("hidden");
+        document.getElementById("lbl-sha256-hash").innerText =
+          "(Chưa có tệp tin)";
+        resetStatusCard();
+        log("Đã dọn dẹp tệp tin.");
+      }
+
+      function resetStatusCard() {
+        const statusCard = document.getElementById("status-card-container");
+        const statusIcon = document.getElementById("status-icon-wrapper");
+        const statusTitle = document.getElementById("status-title");
+        const statusDesc = document.getElementById("status-desc");
+
+        statusCard.className =
+          "border border-slate-100 bg-slate-50 rounded-xl p-4 text-center";
+        statusIcon.className =
+          "mx-auto w-12 h-12 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center mb-2 text-xl";
+        statusIcon.innerHTML = `<i class="fa-solid fa-file-circle-question"></i>`;
+        statusTitle.className = "text-xs font-bold text-slate-600";
+        statusTitle.innerText = "Sẵn sàng phân tích";
+        statusDesc.innerText =
+          "Vui lòng tải tệp tin và chuẩn bị khóa để bắt đầu đối sánh tính toàn vẹn.";
+      }
+
+      function arrayBufferToPem(buffer, label) {
+        const binary = String.fromCharCode.apply(null, new Uint8Array(buffer));
+        const b64 = window.btoa(binary);
+        const lines = b64.match(/.{1,64}/g).join("\n");
+        return `-----BEGIN ${label}-----\n${lines}\n-----END ${label}-----`;
+      }
+
+      function pemToArrayBuffer(pem) {
+        const b64 = pem.replace(
+          /-----BEGIN PUBLIC KEY-----|-----END PUBLIC KEY-----|\n|\r/g,
+          "",
+        );
+        const binary = window.atob(b64);
+        const bytes = new Uint8Array(binary.length);
+        for (let i = 0; i < binary.length; i++) {
+          bytes[i] = binary.charCodeAt(i);
+        }
+        return bytes.buffer;
+      }
+
+      function arrayBufferToHex(buffer) {
+        return Array.from(new Uint8Array(buffer))
+          .map((b) => b.toString(16).padStart(2, "0"))
+          .join("");
+      }
+
+      function hexToArrayBuffer(hex) {
+        const bytes = new Uint8Array(hex.length / 2);
+        for (let i = 0; i < hex.length; i += 2) {
+          bytes[i / 2] = parseInt(hex.substr(i, 2), 16);
+        }
+        return bytes.buffer;
+      }
+
+      function copyHashToClipboard() {
+        if (!selectedFileHashHex) return alert("Không có mã băm nào để copy!");
+        navigator.clipboard
+          .writeText(selectedFileHashHex)
+          .then(() => log("Đã lưu mã băm vào khay nhớ tạm."));
+      }
+    </script>
+  </body>
+</html>
