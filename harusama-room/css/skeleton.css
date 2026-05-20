@@ -1,0 +1,289 @@
+/* ============================= */
+/* HARUSAMA GLOBAL SKELETON */
+/* File: css/skeleton.css */
+/* ============================= */
+
+html.is-preloading,
+html.is-preloading body {
+  overflow: hidden;
+}
+
+.page-skeleton {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(
+      circle at 20% 15%,
+      rgba(210, 155, 86, 0.18),
+      transparent 34%
+    ),
+    radial-gradient(circle at 80% 70%, rgba(110, 39, 34, 0.2), transparent 36%),
+    linear-gradient(135deg, #100b08 0%, #1a120d 46%, #080604 100%);
+  transition:
+    opacity 0.65s ease,
+    visibility 0.65s ease;
+}
+
+html.is-loaded .page-skeleton {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.skeleton-box {
+  width: min(980px, 100%);
+  display: grid;
+  gap: 24px;
+}
+
+.skeleton-brand {
+  display: grid;
+  place-items: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.skeleton-logo {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  border: 1px solid rgba(231, 184, 112, 0.35);
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      rgba(255, 230, 171, 0.32),
+      transparent 34%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.025)
+    );
+  box-shadow:
+    0 0 40px rgba(229, 183, 109, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  animation: skeletonPulse 1.6s ease-in-out infinite;
+}
+
+.skeleton-title {
+  width: min(360px, 78vw);
+  height: 34px;
+  border-radius: 999px;
+}
+
+.skeleton-subtitle {
+  width: min(260px, 62vw);
+  height: 14px;
+  border-radius: 999px;
+}
+
+.skeleton-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 22px;
+  align-items: stretch;
+  margin-top: 8px;
+}
+
+.skeleton-hero,
+.skeleton-panel {
+  min-height: 360px;
+  border-radius: 32px;
+  border: 1px solid rgba(231, 184, 112, 0.16);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 244, 220, 0.07),
+      rgba(255, 255, 255, 0.025)
+    ),
+    rgba(255, 255, 255, 0.03);
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.skeleton-hero {
+  padding: 18px;
+}
+
+.skeleton-photo {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  border-radius: 24px;
+}
+
+.skeleton-panel {
+  padding: 28px;
+  display: grid;
+  align-content: center;
+  gap: 16px;
+}
+
+.skeleton-line {
+  height: 16px;
+  border-radius: 999px;
+}
+
+.skeleton-line.big {
+  height: 42px;
+  width: 88%;
+}
+
+.skeleton-line.medium {
+  width: 72%;
+}
+
+.skeleton-line.small {
+  width: 44%;
+}
+
+.skeleton-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.skeleton-chip {
+  height: 38px;
+  border-radius: 999px;
+}
+
+.skeleton-shimmer,
+.skeleton-title,
+.skeleton-subtitle,
+.skeleton-photo,
+.skeleton-line,
+.skeleton-chip {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.065);
+}
+
+.skeleton-shimmer::after,
+.skeleton-title::after,
+.skeleton-subtitle::after,
+.skeleton-photo::after,
+.skeleton-line::after,
+.skeleton-chip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 224, 166, 0.22),
+    transparent
+  );
+  animation: skeletonShimmer 1.35s ease-in-out infinite;
+}
+
+.skeleton-loading-text {
+  margin-top: 6px;
+  color: rgba(244, 234, 220, 0.56);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+@keyframes skeletonShimmer {
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes skeletonPulse {
+  0%,
+  100% {
+    opacity: 0.58;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+/* Skeleton cho card trong gallery nếu muốn dùng thêm */
+.skeleton-card {
+  min-height: 320px;
+  border-radius: 26px;
+  border: 1px solid rgba(231, 184, 112, 0.15);
+  background: rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+}
+
+.skeleton-card-img {
+  height: 220px;
+  border-radius: 0;
+}
+
+.skeleton-card-body {
+  padding: 18px;
+  display: grid;
+  gap: 12px;
+}
+
+/* Responsive */
+@media (max-width: 820px) {
+  .skeleton-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .skeleton-hero,
+  .skeleton-panel {
+    min-height: auto;
+    border-radius: 26px;
+  }
+
+  .skeleton-photo {
+    min-height: 300px;
+  }
+
+  .skeleton-panel {
+    padding: 22px;
+  }
+
+  .skeleton-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-skeleton {
+    padding: 14px;
+  }
+
+  .skeleton-box {
+    gap: 18px;
+  }
+
+  .skeleton-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .skeleton-title {
+    height: 28px;
+  }
+
+  .skeleton-photo {
+    min-height: 240px;
+  }
+
+  .skeleton-panel {
+    padding: 18px;
+  }
+
+  .skeleton-line.big {
+    height: 34px;
+  }
+}

@@ -17,7 +17,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     />
-
+    <link rel="stylesheet" href="./css/skeleton.css" />
     <link rel="stylesheet" href="./css/cursor.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/auth.css" />
@@ -457,21 +457,25 @@
           </div>
 
           <div class="memory-grid">
-            <a href="#gallery1" class="memory-card memory-card-wide">
+            <a
+              id="main-memory"
+              ref="#gallery1"
+              class="memory-card memory-card-wide"
+            >
               <img
-                src="./assets/images/memory/QPAN_classroom.jpg"
+                src="./assets/images/memory/lancuoitanhinnhau.jpg"
                 alt="Memory 1"
               />
 
               <div class="memory-overlay">
-                <h3>Ngày Ấy Chúng Mình Cùng Mặc Quân Phục</h3>
+                <h3>Muốn giữ em trong khung hình cũ</h3>
               </div>
             </a>
 
             <a href="#gallery2" class="memory-card memory-card-square">
               <div class="memory-image-box">
                 <img
-                  src="./assets/images/memory/QPAN_tapthelop.jpg"
+                  src="./assets/images/memory/khunghinhcu.jpg"
                   alt="Memory 2"
                 />
               </div>
@@ -566,5 +570,6 @@
     <script type="module" src="./js/auth.js"></script>
 
     <script async src="https://www.tiktok.com/embed.js"></script>
+    <script src="./js/skeleton.js"></script>
   </body>
 </html>

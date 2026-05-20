@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Detail | Harusama Archive</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./css/skeleton.css" />
+    <link rel="stylesheet" href="./css/cursor.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/auth-bar.css" />
+    <link rel="stylesheet" href="./css/gallery.css" />
+  </head>
+
+  <body class="gallery-page detail-page">
+    <div class="auth-topbar" data-auth-topbar>
+      <button
+        class="auth-mobile-trigger"
+        type="button"
+        data-auth-toggle
+        aria-label="Mở menu tài khoản"
+        aria-expanded="false"
+      >
+        <img
+          class="auth-avatar-mini"
+          data-user-avatar
+          hidden
+          alt="User avatar"
+        />
+        <span data-user-name>Guest</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
+
+      <div class="auth-panel">
+        <div class="auth-user">
+          <img class="auth-avatar" data-user-avatar hidden alt="User avatar" />
+
+          <div class="auth-user-info">
+            <span class="auth-name" data-user-name>Guest</span>
+            <span class="auth-email" data-user-email
+              >Đăng nhập để mở khóa phòng</span
+            >
+          </div>
+        </div>
+
+        <div class="auth-actions">
+          <a
+            class="auth-btn auth-login-btn"
+            href="./login.html"
+            data-login-link
+          >
+            <span>Đăng nhập</span>
+          </a>
+
+          <button
+            class="auth-btn auth-logout-btn"
+            type="button"
+            data-logout-btn
+            hidden
+          >
+            <span>Đăng xuất</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="vintage-cursor-glow"></div>
+    <div class="page-texture"></div>
+
+    <main class="page-shell detail-shell">
+      <a href="./gallery.html" class="detail-back">← Quay về Gallery</a>
+
+      <article id="photoDetail" class="photo-detail-card">
+        <p class="empty-text">Đang tải ảnh...</p>
+      </article>
+
+      <section class="detail-comments">
+        <div class="comments-head">
+          <div>
+            <p class="chapter chapter-gold">comment room</p>
+            <h2>Bình luận</h2>
+          </div>
+
+          <button
+            id="detailLikeBtn"
+            class="archive-btn like-detail-btn"
+            type="button"
+          >
+            ♡ Thích
+          </button>
+        </div>
+
+        <form id="commentForm" class="comment-form">
+          <textarea
+            id="commentInput"
+            rows="3"
+            maxlength="500"
+            placeholder="Viết một bình luận..."
+          ></textarea>
+
+          <button class="archive-btn primary" type="submit">
+            Gửi bình luận
+          </button>
+        </form>
+
+        <div id="commentList" class="comment-list">
+          <p class="empty-text">Chưa có bình luận.</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="./js/cursor.js"></script>
+    <script type="module" src="./js/auth.js"></script>
+    <script type="module" src="./js/photo-detail.js"></script>
+    <script src="./js/skeleton.js"></script>
+  </body>
+</html>

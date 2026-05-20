@@ -17,15 +17,68 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     />
+    <link rel="stylesheet" href="./css/skeleton.css" />
 
     <link rel="stylesheet" href="./css/cursor.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/auth-bar.css" />
     <link rel="stylesheet" href="./css/volume-widget.css" />
     <link rel="stylesheet" href="./css/scroll-nav.css" />
     <link rel="stylesheet" href="./css/gallery.css" />
   </head>
 
   <body class="gallery-page">
+    <div class="auth-topbar" data-auth-topbar>
+      <button
+        class="auth-mobile-trigger"
+        type="button"
+        data-auth-toggle
+        aria-label="Mở menu tài khoản"
+        aria-expanded="false"
+      >
+        <img
+          class="auth-avatar-mini"
+          data-user-avatar
+          hidden
+          alt="User avatar"
+        />
+        <span data-user-name>Guest</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
+
+      <div class="auth-panel">
+        <div class="auth-user">
+          <img class="auth-avatar" data-user-avatar hidden alt="User avatar" />
+
+          <div class="auth-user-info">
+            <span class="auth-name" data-user-name>Guest</span>
+            <span class="auth-email" data-user-email
+              >Đăng nhập để mở khóa phòng</span
+            >
+          </div>
+        </div>
+
+        <div class="auth-actions">
+          <a
+            class="auth-btn auth-login-btn"
+            href="./login.html"
+            data-login-link
+          >
+            <span>Đăng nhập</span>
+          </a>
+
+          <button
+            class="auth-btn auth-logout-btn"
+            type="button"
+            data-logout-btn
+            hidden
+          >
+            <span>Đăng xuất</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
     <div class="volume-widget">
       <button
         id="volumeToggle"
@@ -53,60 +106,11 @@
       </div>
     </div>
 
-    <div class="scroll-nav-shell">
-      <button
-        id="scrollNavToggle"
-        class="scroll-nav-toggle"
-        type="button"
-        aria-label="Ẩn hiện thanh điều hướng"
-      >
-        <i class="fa-solid fa-pen-nib"></i>
-      </button>
-
-      <nav class="scroll-nav" aria-label="Điều hướng trang gallery">
-        <a
-          href="#gallery-hero"
-          class="scroll-nav-item is-active"
-          data-section="gallery-hero"
-        >
-          <span class="scroll-dot"></span>
-          <span class="scroll-label">Đầu trang</span>
-        </a>
-
-        <a
-          href="#bento-gallery"
-          class="scroll-nav-item"
-          data-section="bento-gallery"
-        >
-          <span class="scroll-dot"></span>
-          <span class="scroll-label">Bento</span>
-        </a>
-
-        <a
-          href="#photo-archive"
-          class="scroll-nav-item"
-          data-section="photo-archive"
-        >
-          <span class="scroll-dot"></span>
-          <span class="scroll-label">Archive</span>
-        </a>
-
-        <a
-          href="#final-message"
-          class="scroll-nav-item"
-          data-section="final-message"
-        >
-          <span class="scroll-dot"></span>
-          <span class="scroll-label">Lời kết</span>
-        </a>
-      </nav>
-    </div>
-
     <div class="vintage-cursor-glow"></div>
     <div class="page-texture"></div>
 
     <main class="page-shell">
-      <header class="hero" id="gallery-hero">
+      <header class="hero gallery-hero" id="gallery-hero">
         <div class="polaroid-card">
           <div class="avatar-frame">
             <img
@@ -121,11 +125,14 @@
         <div class="hero-text">
           <h1>Harusama</h1>
           <p>[ GALLERY ARCHIVE ]</p>
+          <small id="galleryAuthStatus">Đang kiểm tra đăng nhập...</small>
         </div>
+
+        <a href="./index.html" class="room-memories">← quay về phòng chính</a>
       </header>
 
-      <section class="section gallery-intro-section">
-        <div class="section-content">
+      <section class="section gallery-intro-section hidden">
+        <div class="section-content gallery-intro-grid">
           <div class="section-heading">
             <p class="chapter chapter-gold">chương phụ</p>
             <h2>Thư Viện Ký Ức</h2>
@@ -141,12 +148,182 @@
           </div>
 
           <div class="gallery-intro-card">
-            <p>
-              <strong>Gallery này</strong> được thiết kế để đi cùng vibe của
-              trang chính: tối, trầm, cổ điển, hơi buồn, có chất archive và
-              giống một cuốn album được mở ra trong phòng khuya.
-            </p>
+            <p><strong>Thư viện ký ức là nơi những thước phim cũ tìm thấy khoảng lặng để kể lại câu chuyện của riêng mình. Không có thanh âm ồn ào, chỉ có những mảnh vỡ thời gian nằm yên trong bóng tối. Mỗi bức ảnh được giữ lại đều mang một phần linh hồn của quá khứ...</p>
           </div>
+        </div>
+      </section>
+
+      <section class="section admin-section" id="adminPanel" hidden>
+        <div class="section-content">
+          <div class="section-heading">
+            <p class="chapter chapter-gold">admin room</p>
+            <h2>Quản Lý Ảnh</h2>
+            <p>Chỉ tài khoản admin mới thấy khu vực này.</p>
+          </div>
+
+          <form id="photoForm" class="admin-form">
+            <input type="hidden" id="photoId" />
+
+            <div class="form-grid">
+              <label>
+                Tiêu đề ảnh
+                <input
+                  id="photoTitle"
+                  type="text"
+                  required
+                  placeholder="Tên ký ức..."
+                />
+              </label>
+
+              <label>
+                Subtitle
+                <input
+                  id="photoSubtitle"
+                  type="text"
+                  placeholder="memory • archive"
+                />
+              </label>
+
+              <label>
+                Category
+                <input
+                  id="photoCategory"
+                  type="text"
+                  placeholder="memory / qpan / avatar"
+                />
+              </label>
+
+              <label>
+                Địa điểm
+                <input
+                  id="photoLocation"
+                  type="text"
+                  placeholder="Classroom..."
+                />
+              </label>
+
+              <label>
+                Ngày chụp
+                <input id="photoTakenAt" type="date" />
+              </label>
+
+              <label>
+                Tags
+                <input
+                  id="photoTags"
+                  type="text"
+                  placeholder="qpan, classroom, memory"
+                />
+              </label>
+            </div>
+            <input type="hidden" id="photoId" />
+
+            <input type="hidden" id="photoImageUrl" />
+            <input type="hidden" id="photoThumbUrl" />
+            <input type="hidden" id="photoImagePublicId" />
+            <input type="hidden" id="photoThumbPublicId" />
+
+            <div class="upload-grid">
+              <div class="upload-field">
+                <p>Ảnh chính</p>
+
+                <label
+                  class="drop-zone"
+                  id="imageDropZone"
+                  for="photoImageFile"
+                >
+                  <input
+                    id="photoImageFile"
+                    type="file"
+                    accept="image/jpeg,image/png,image/webp"
+                    hidden
+                  />
+
+                  <span class="drop-icon">＋</span>
+                  <strong>Kéo thả ảnh chính vào đây</strong>
+                  <small>hoặc bấm để chọn ảnh từ máy</small>
+
+                  <img
+                    id="imagePreview"
+                    class="upload-preview"
+                    alt="Preview ảnh chính"
+                    hidden
+                  />
+                </label>
+
+                <small id="imageUploadStatus" class="upload-status">
+                  Chưa chọn ảnh.
+                </small>
+              </div>
+
+              <div class="upload-field">
+                <p>Ảnh thumbnail</p>
+
+                <label
+                  class="drop-zone"
+                  id="thumbDropZone"
+                  for="photoThumbFile"
+                >
+                  <input
+                    id="photoThumbFile"
+                    type="file"
+                    accept="image/jpeg,image/png,image/webp"
+                    hidden
+                  />
+
+                  <span class="drop-icon">＋</span>
+                  <strong>Kéo thả thumbnail vào đây</strong>
+                  <small>Nếu bỏ trống, hệ thống dùng ảnh chính</small>
+
+                  <img
+                    id="thumbPreview"
+                    class="upload-preview"
+                    alt="Preview thumbnail"
+                    hidden
+                  />
+                </label>
+
+                <small id="thumbUploadStatus" class="upload-status">
+                  Chưa chọn thumbnail.
+                </small>
+              </div>
+            </div>
+            <label>
+              Mô tả ảnh
+              <textarea
+                id="photoDescription"
+                rows="4"
+                placeholder="Câu chuyện đằng sau tấm ảnh..."
+              ></textarea>
+            </label>
+
+            <label class="checkbox-line">
+              <input id="photoFeatured" type="checkbox" />
+              <span>Đánh dấu ảnh nổi bật</span>
+            </label>
+
+            <div class="admin-actions">
+              <button
+                class="archive-btn primary"
+                type="submit"
+                id="savePhotoBtn"
+              >
+                Lưu ảnh
+              </button>
+
+              <button class="archive-btn" type="button" id="resetPhotoBtn">
+                Làm mới form
+              </button>
+
+              <button
+                class="archive-btn ghost"
+                type="button"
+                id="seedSampleBtn"
+              >
+                Tạo ảnh mẫu
+              </button>
+            </div>
+          </form>
         </div>
       </section>
 
@@ -156,158 +333,41 @@
             <p class="chapter chapter-gold">chương 01</p>
             <h2>Bento Ký Ức</h2>
             <p>
-              Các tấm ảnh được đặt không đều nhau như những mảnh ký ức rời rạc:
-              có tấm rất rõ, có tấm chỉ còn lại cảm giác.
+              Những ảnh nổi bật được đặt như các mảnh ký ức rời rạc trong một
+              chiếc hộp cũ.
             </p>
           </div>
 
-          <div class="bento-archive">
-            <a
-              href="./assets/images/memory/QPAN_classroom.jpg"
-              class="bento-item bento-wide"
-            >
-              <img
-                src="./assets/images/memory/QPAN_classroom.jpg"
-                alt="Ngày ấy chúng mình cùng mặc quân phục"
-              />
-
-              <div class="bento-caption">
-                <span>memory 01</span>
-                <h3>Ngày Ấy Chúng Mình Cùng Mặc Quân Phục</h3>
-                <p>QPAN classroom • archived moment</p>
-              </div>
-            </a>
-
-            <a
-              href="./assets/images/memory/QPAN_tapthelop.jpg"
-              class="bento-item bento-tall"
-            >
-              <img
-                src="./assets/images/memory/QPAN_tapthelop.jpg"
-                alt="Một ký ức đáng nhớ"
-              />
-
-              <div class="bento-caption">
-                <span>memory 02</span>
-                <h3>Một Ký Ức Đáng Nhớ</h3>
-                <p>group frame • quiet nostalgia</p>
-              </div>
-            </a>
-
-            <div class="bento-note bento-small">
-              <small>note 01</small>
-              <p>Mọi thứ rồi sẽ trở thành kỷ niệm, chỉ là sớm hay muộn.</p>
-            </div>
-
-            <a
-              href="./assets/images/avatar.jpeg"
-              class="bento-item bento-small"
-            >
-              <img src="./assets/images/avatar.jpeg" alt="Harusama avatar" />
-
-              <div class="bento-caption">
-                <span>avatar</span>
-                <h3>Main Frame</h3>
-              </div>
-            </a>
-
-            <a
-              href="./assets/images/memory/QPAN_classroom.jpg"
-              class="bento-item bento-medium"
-            >
-              <img
-                src="./assets/images/memory/QPAN_classroom.jpg"
-                alt="Khoảnh khắc trong lớp"
-              />
-
-              <div class="bento-caption">
-                <span>archive</span>
-                <h3>Góc Nhìn Cũ</h3>
-                <p>old frame • silent room</p>
-              </div>
-            </a>
-
-            <a
-              href="./assets/images/memory/QPAN_tapthelop.jpg"
-              class="bento-item bento-thin"
-            >
-              <img
-                src="./assets/images/memory/QPAN_tapthelop.jpg"
-                alt="Mảnh ký ức tập thể"
-              />
-
-              <div class="bento-caption">
-                <span>film</span>
-                <h3>Still</h3>
-              </div>
-            </a>
+          <div id="featuredGrid" class="bento-archive">
+            <p class="empty-text">Đang tải ảnh...</p>
           </div>
         </div>
       </section>
 
       <section class="section" id="photo-archive">
         <div class="section-content">
-          <div class="section-heading">
-            <p class="chapter chapter-stone">chương 02</p>
-            <h2>Photo Archive</h2>
-            <p>
-              Danh sách ảnh được lưu lại như một cuốn sổ nhỏ. Sau này chủ
-              nhân-sama thêm ảnh mới thì chỉ cần copy thêm một dòng
-              <code>photo-row</code>.
-            </p>
+          <div class="section-heading archive-heading-row">
+            <div>
+              <p class="chapter chapter-stone">chương 02</p>
+              <h2>Photo Archive</h2>
+              <p>
+                Tất cả ảnh được sắp xếp mới nhất trước. Bấm vào ảnh để xem trang
+                chi tiết.
+              </p>
+            </div>
+
+            <div class="filter-box">
+              <input id="searchInput" type="search" placeholder="Tìm ảnh..." />
+              <select id="sortSelect">
+                <option value="newest">Mới nhất</option>
+                <option value="oldest">Cũ nhất</option>
+                <option value="title">Theo tên</option>
+              </select>
+            </div>
           </div>
 
-          <div class="photo-list">
-            <a
-              href="./assets/images/memory/QPAN_classroom.jpg"
-              class="photo-row"
-            >
-              <div class="photo-thumb">
-                <img
-                  src="./assets/images/memory/QPAN_classroom.jpg"
-                  alt="QPAN classroom"
-                />
-              </div>
-
-              <div class="photo-info">
-                <h3>Ngày Ấy Chúng Mình Cùng Mặc Quân Phục</h3>
-                <p>memory / classroom / qpan</p>
-              </div>
-
-              <span class="photo-number">01</span>
-            </a>
-
-            <a
-              href="./assets/images/memory/QPAN_tapthelop.jpg"
-              class="photo-row"
-            >
-              <div class="photo-thumb">
-                <img
-                  src="./assets/images/memory/QPAN_tapthelop.jpg"
-                  alt="QPAN tập thể lớp"
-                />
-              </div>
-
-              <div class="photo-info">
-                <h3>Một Ký Ức Đáng Nhớ</h3>
-                <p>memory / group / archive</p>
-              </div>
-
-              <span class="photo-number">02</span>
-            </a>
-
-            <a href="./assets/images/avatar.jpeg" class="photo-row">
-              <div class="photo-thumb">
-                <img src="./assets/images/avatar.jpeg" alt="Avatar" />
-              </div>
-
-              <div class="photo-info">
-                <h3>Harusama Main Avatar</h3>
-                <p>profile / identity / room</p>
-              </div>
-
-              <span class="photo-number">03</span>
-            </a>
+          <div id="photoGrid" class="photo-grid">
+            <p class="empty-text">Đang tải archive...</p>
           </div>
         </div>
       </section>
@@ -332,5 +392,8 @@
     <script src="./js/volume-widget.js"></script>
     <script src="./js/scroll-nav.js"></script>
     <script src="./js/motion.js"></script>
+    <script type="module" src="./js/auth.js"></script>
+    <script type="module" src="./js/gallery.js"></script>
+    <script src="./js/skeleton.js"></script>
   </body>
 </html>

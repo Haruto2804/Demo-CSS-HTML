@@ -1,361 +1,1228 @@
-/* ============================= */
-/* GALLERY PAGE — HARUSAMA VIBE  */
-/* ============================= */
-
-.gallery-page .page-shell {
-  max-width: 512px;
-  gap: 72px;
+.gallery-page {
+  background:
+    radial-gradient(
+      circle at 18% 8%,
+      rgba(245, 158, 11, 0.13),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 82% 34%,
+      rgba(124, 58, 237, 0.1),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #0e0c10 0%, #1b1517 52%, #08070a 100%);
+  color: rgba(255, 248, 232, 0.94);
 }
 
-.gallery-back {
-  width: fit-content;
-  margin-inline: auto;
-  padding: 9px 14px;
-  border: 1px solid var(--border);
-  color: var(--muted);
-  background: rgba(28, 27, 25, 0.75);
-  font-family: monospace;
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  transition:
-    color 300ms ease,
-    border-color 300ms ease,
-    transform 300ms ease;
+.gallery-hero {
+  padding-top: 72px;
 }
 
-.gallery-back:hover {
-  color: var(--gold);
-  border-color: rgba(198, 155, 123, 0.7);
-  transform: translateY(-2px);
+.gallery-intro-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.gallery-intro-card,
+.admin-form,
+.photo-detail-card,
+.detail-comments,
+.gallery-final {
+  border: 1px solid rgba(232, 204, 150, 0.18);
+  border-radius: 30px;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(245, 158, 11, 0.13),
+      transparent 36%
+    ),
+    linear-gradient(135deg, rgba(47, 35, 28, 0.82), rgba(14, 13, 18, 0.84));
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 244, 214, 0.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 
 .gallery-intro-card {
-  position: relative;
-  padding: 18px;
-  border: 1px solid var(--border);
-  background: rgba(28, 27, 25, 0.72);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
-
-.gallery-intro-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(
-      circle at 18% 0%,
-      rgba(198, 155, 123, 0.14),
-      transparent 38%
-    ),
-    radial-gradient(
-      circle at 88% 90%,
-      rgba(129, 140, 248, 0.12),
-      transparent 34%
-    );
-}
-
-.gallery-intro-card p {
-  position: relative;
-  z-index: 1;
-  margin: 0;
-  color: var(--muted);
-  font-size: 12px;
+  padding: 28px;
+  color: rgba(255, 248, 232, 0.72);
   line-height: 1.8;
 }
 
-.gallery-intro-card strong {
-  color: var(--text);
-  font-weight: 500;
+.admin-section[hidden] {
+  display: none !important;
+}
+
+.admin-form {
+  padding: 24px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.admin-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: rgba(232, 204, 150, 0.72);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.admin-form input,
+.admin-form textarea,
+.filter-box input,
+.filter-box select,
+.comment-form textarea {
+  width: 100%;
+  border: 1px solid rgba(232, 204, 150, 0.18);
+  border-radius: 16px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 248, 232, 0.95);
+  font-family: inherit;
+  padding: 13px 14px;
+}
+
+.admin-form input:focus,
+.admin-form textarea:focus,
+.filter-box input:focus,
+.filter-box select:focus,
+.comment-form textarea:focus {
+  border-color: rgba(250, 204, 21, 0.42);
+  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.08);
+}
+
+.checkbox-line {
+  margin-top: 14px;
+  flex-direction: row !important;
+  align-items: center;
+}
+
+.checkbox-line input {
+  width: auto;
+}
+
+.admin-actions {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.archive-btn {
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid rgba(232, 204, 150, 0.2);
+  border-radius: 999px;
+  color: rgba(255, 248, 232, 0.94);
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.12),
+      transparent 34%
+    ),
+    linear-gradient(135deg, rgba(96, 49, 36, 0.88), rgba(35, 26, 27, 0.86));
+  font-family: inherit;
+  font-weight: 850;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    filter 0.25s ease;
+}
+
+.archive-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(250, 204, 21, 0.48);
+  filter: brightness(1.08);
+}
+
+.archive-btn.primary {
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.18),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #7c4a28, #b7791f 52%, #3b2a22);
+}
+
+.archive-btn.ghost {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.archive-btn.small {
+  min-height: 34px;
+  padding: 0 12px;
+  font-size: 0.74rem;
+}
+
+.archive-btn.danger {
+  border-color: rgba(248, 113, 113, 0.28);
 }
 
 .bento-archive {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: 74px;
-  gap: 10px;
+  grid-auto-rows: 150px;
+  gap: 16px;
 }
 
 .bento-item {
   position: relative;
-  display: block;
+  border-radius: 28px;
   overflow: hidden;
-  border: 1px solid var(--border);
-  background: var(--panel);
-  box-shadow: var(--shadow);
-  color: inherit;
-  isolation: isolate;
-}
-
-.bento-item::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background:
-    linear-gradient(
-      to top,
-      rgba(18, 17, 15, 0.92),
-      rgba(18, 17, 15, 0.2) 58%,
-      rgba(18, 17, 15, 0.06)
-    ),
-    radial-gradient(
-      circle at 20% 12%,
-      rgba(244, 241, 234, 0.18),
-      transparent 24%
-    );
-}
-
-.bento-item::after {
-  content: "";
-  position: absolute;
-  inset: 8px;
-  z-index: 3;
-  pointer-events: none;
-  border: 1px solid rgba(244, 241, 234, 0.08);
-}
-
-.bento-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(0.45) contrast(1.05) brightness(0.86);
-  transition:
-    transform 900ms ease,
-    filter 900ms ease;
-}
-
-.bento-item:hover img {
-  transform: scale(1.06);
-  filter: grayscale(0.1) contrast(1.08) brightness(0.95);
-}
-
-.bento-caption {
-  position: absolute;
-  left: 14px;
-  right: 14px;
-  bottom: 13px;
-  z-index: 4;
-}
-
-.bento-caption span {
-  display: block;
-  margin-bottom: 5px;
-  color: var(--gold);
-  font-family: monospace;
-  font-size: 8px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
-.bento-caption h3 {
-  margin: 0;
-  color: #f5f5f4;
-  font-family: var(--serif);
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.15;
-}
-
-.bento-caption p {
-  margin: 5px 0 0;
-  color: var(--muted);
-  font-size: 10.5px;
-  line-height: 1.5;
+  border: 1px solid rgba(232, 204, 150, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.36);
 }
 
 .bento-wide {
-  grid-column: span 6;
-  grid-row: span 3;
-}
-
-.bento-tall {
-  grid-column: span 3;
-  grid-row: span 4;
-}
-
-.bento-small {
-  grid-column: span 3;
+  grid-column: span 4;
   grid-row: span 2;
 }
 
-.bento-medium {
-  grid-column: span 4;
-  grid-row: span 3;
-}
-
-.bento-thin {
+.bento-tall {
   grid-column: span 2;
   grid-row: span 3;
 }
 
-.bento-note {
-  position: relative;
-  padding: 16px;
-  border: 1px solid var(--border);
-  background:
-    linear-gradient(135deg, rgba(198, 155, 123, 0.08), rgba(28, 27, 25, 0.9)),
-    var(--panel);
-  box-shadow: var(--shadow);
-  overflow: hidden;
+.bento-small {
+  grid-column: span 2;
+  grid-row: span 1;
 }
 
-.bento-note::before {
-  content: "“";
-  position: absolute;
-  right: 12px;
-  top: -16px;
-  color: rgba(198, 155, 123, 0.13);
-  font-family: var(--serif);
-  font-size: 92px;
-  line-height: 1;
-}
-
-.bento-note small {
+.photo-link,
+.archive-image {
   display: block;
-  margin-bottom: 10px;
-  color: var(--gold);
-  font-family: monospace;
-  font-size: 8px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
 }
 
-.bento-note p {
-  position: relative;
-  z-index: 1;
-  margin: 0;
-  color: var(--muted);
-  font-family: var(--serif);
-  font-size: 14px;
-  font-style: italic;
-  line-height: 1.65;
-}
-
-.photo-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.photo-row {
-  display: grid;
-  grid-template-columns: 72px 1fr auto;
-  align-items: center;
-  gap: 12px;
-  padding: 10px;
-  border: 1px solid var(--border);
-  background: rgba(28, 27, 25, 0.75);
-  transition:
-    border-color 300ms ease,
-    transform 300ms ease,
-    background 300ms ease;
-}
-
-.photo-row:hover {
-  transform: translateY(-2px);
-  border-color: rgba(198, 155, 123, 0.55);
-  background: rgba(41, 37, 36, 0.86);
-}
-
-.photo-thumb {
-  width: 72px;
-  height: 58px;
-  overflow: hidden;
-  background: #0c0a09;
-}
-
-.photo-thumb img {
+.bento-item img,
+.archive-image img,
+.detail-image-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(0.5);
-  transition: 600ms ease;
+  display: block;
+  filter: sepia(0.08) contrast(1.02) saturate(0.92);
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
 }
 
-.photo-row:hover .photo-thumb img {
-  filter: grayscale(0.05);
-  transform: scale(1.06);
+.bento-item:hover img,
+.archive-card:hover img {
+  transform: scale(1.05);
+  filter: sepia(0.02) contrast(1.06) saturate(1.02);
 }
 
-.photo-info h3 {
-  margin: 0;
-  color: var(--text);
-  font-size: 12px;
-  font-weight: 500;
+.bento-caption {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 56px;
+  z-index: 2;
 }
 
-.photo-info p {
-  margin: 4px 0 0;
-  color: var(--muted-2);
-  font-family: monospace;
-  font-size: 9px;
-  letter-spacing: 0.12em;
+.bento-caption span,
+.archive-kicker {
+  color: rgba(250, 204, 21, 0.72);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
-.photo-number {
-  color: var(--gold);
-  font-family: monospace;
-  font-size: 10px;
+.bento-caption h3,
+.archive-body h3 {
+  margin: 6px 0;
+  color: rgba(255, 248, 232, 0.98);
+  font-family: "Playfair Display", serif;
+}
+
+.bento-caption p,
+.archive-body p,
+.detail-subtitle {
+  color: rgba(255, 248, 232, 0.62);
+  line-height: 1.6;
+}
+
+.bento-item::after,
+.archive-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(0, 0, 0, 0.78), transparent 62%),
+    radial-gradient(
+      circle at top left,
+      rgba(245, 158, 11, 0.12),
+      transparent 34%
+    );
+  pointer-events: none;
+}
+
+.photo-mini-actions {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 248, 232, 0.82);
+  font-size: 0.78rem;
+}
+
+.mini-action {
+  border: 1px solid rgba(232, 204, 150, 0.2);
+  border-radius: 999px;
+  min-height: 32px;
+  padding: 0 11px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: rgba(255, 248, 232, 0.92);
+  background: rgba(12, 10, 14, 0.62);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.75rem;
+}
+
+.mini-action.is-liked,
+.like-detail-btn.is-liked {
+  color: #fecaca;
+  border-color: rgba(248, 113, 113, 0.42);
+}
+
+.archive-heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+}
+
+.filter-box {
+  display: flex;
+  gap: 10px;
+  min-width: min(420px, 100%);
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.archive-card {
+  border: 1px solid rgba(232, 204, 150, 0.16);
+  border-radius: 28px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(245, 158, 11, 0.1),
+      transparent 36%
+    ),
+    rgba(255, 255, 255, 0.045);
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.34);
+}
+
+.archive-image {
+  position: relative;
+  height: 230px;
+  overflow: hidden;
+}
+
+.archive-body {
+  padding: 18px;
+}
+
+.archive-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.archive-tags span {
+  border: 1px solid rgba(232, 204, 150, 0.16);
+  border-radius: 999px;
+  padding: 5px 9px;
+  color: rgba(232, 204, 150, 0.68);
+  font-size: 0.72rem;
+}
+
+.archive-meta {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 248, 232, 0.72);
+  font-size: 0.8rem;
+}
+
+.admin-card-actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 8px;
+}
+
+.admin-card-actions[hidden] {
+  display: none !important;
+}
+
+.empty-text {
+  color: rgba(255, 248, 232, 0.58);
+}
+
+/* Detail page */
+.detail-shell {
+  padding-top: 90px;
+}
+
+.detail-back {
+  width: fit-content;
+  display: inline-flex;
+  margin-bottom: 22px;
+  color: rgba(232, 204, 150, 0.72);
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.photo-detail-card {
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 28px;
+}
+
+.detail-image-wrap {
+  min-height: 520px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.detail-info h1 {
+  margin: 8px 0 12px;
+  color: rgba(255, 248, 232, 0.98);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  line-height: 0.95;
+}
+
+.detail-meta-grid {
+  margin: 24px 0;
+  display: grid;
+  gap: 10px;
+  color: rgba(255, 248, 232, 0.72);
+}
+
+.detail-description {
+  color: rgba(255, 248, 232, 0.68);
+  line-height: 1.8;
+}
+
+.detail-stats {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  color: rgba(255, 248, 232, 0.72);
+}
+
+.detail-comments {
+  margin-top: 26px;
+  padding: 24px;
+}
+
+.comments-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: center;
+}
+
+.comments-head h2 {
+  margin: 0;
+  color: rgba(255, 248, 232, 0.98);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+
+.comment-form {
+  margin: 18px 0 20px;
+  display: grid;
+  gap: 12px;
+}
+
+.comment-list {
+  display: grid;
+  gap: 12px;
+}
+
+.comment-card {
+  padding: 16px;
+  border: 1px solid rgba(232, 204, 150, 0.14);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.comment-card h4 {
+  margin: 0 0 6px;
+  color: rgba(255, 248, 232, 0.94);
+}
+
+.comment-card p {
+  margin: 0 0 8px;
+  color: rgba(255, 248, 232, 0.72);
+  line-height: 1.6;
+}
+
+.comment-card small {
+  color: rgba(232, 204, 150, 0.48);
+}
+
+.comment-delete {
+  height: 34px;
+  border: 1px solid rgba(248, 113, 113, 0.28);
+  border-radius: 999px;
+  color: rgba(254, 202, 202, 0.9);
+  background: rgba(127, 29, 29, 0.16);
+  cursor: pointer;
 }
 
 .gallery-final {
-  padding: 20px;
-  border: 1px solid var(--border);
-  background: rgba(22, 21, 26, 0.82);
-  box-shadow: var(--shadow);
+  padding: 36px;
   text-align: center;
 }
 
 .gallery-final p {
-  margin: 0;
-  color: var(--muted);
-  font-family: var(--serif);
-  font-size: 14px;
-  font-style: italic;
-  line-height: 1.8;
+  max-width: 720px;
+  margin: 0 auto 12px;
+  color: rgba(255, 248, 232, 0.78);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  line-height: 1.35;
 }
 
 .gallery-final span {
-  display: block;
-  margin-top: 14px;
-  color: var(--gold);
-  font-family: monospace;
-  font-size: 9px;
+  color: rgba(232, 204, 150, 0.52);
+  font-size: 0.72rem;
+  font-weight: 900;
   letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 
-@media (max-width: 420px) {
+@media (max-width: 900px) {
+  .gallery-intro-grid,
+  .photo-detail-card {
+    grid-template-columns: 1fr;
+  }
+
   .bento-archive {
-    grid-auto-rows: 68px;
-    gap: 9px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 180px;
   }
 
-  .bento-caption {
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
+  .bento-wide,
+  .bento-tall,
+  .bento-small {
+    grid-column: span 1;
+    grid-row: span 1;
   }
 
-  .bento-caption h3 {
-    font-size: 16px;
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .photo-row {
-    grid-template-columns: 64px 1fr;
+  .archive-heading-row {
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .photo-number {
-    display: none;
+  .detail-image-wrap {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 560px) {
+  .gallery-hero {
+    padding-top: 96px;
   }
 
-  .photo-thumb {
-    width: 64px;
-    height: 54px;
+  .form-grid,
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-box {
+    flex-direction: column;
+  }
+
+  .bento-archive {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-actions,
+  .comments-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .detail-image-wrap {
+    min-height: 320px;
+  }
+
+  .photo-detail-card,
+  .detail-comments,
+  .admin-form,
+  .gallery-intro-card {
+    padding: 18px;
+    border-radius: 22px;
+  }
+}
+#adminPanel[hidden],
+.admin-section[hidden],
+[hidden] {
+  display: none !important;
+}
+/* ===============================
+   CLOUDINARY DRAG DROP UPLOAD
+================================ */
+
+.upload-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.upload-field {
+  display: grid;
+  gap: 10px;
+}
+
+.upload-field p {
+  margin: 0;
+  color: rgba(232, 204, 150, 0.76);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.drop-zone {
+  position: relative;
+
+  min-height: 230px;
+  padding: 18px;
+
+  display: grid;
+  place-items: center;
+  text-align: center;
+
+  border: 1.5px dashed rgba(232, 204, 150, 0.28);
+  border-radius: 26px;
+
+  background:
+    radial-gradient(
+      circle at 20% 0%,
+      rgba(245, 158, 11, 0.13),
+      transparent 34%
+    ),
+    rgba(255, 255, 255, 0.045);
+
+  color: rgba(255, 248, 232, 0.76);
+  cursor: pointer;
+  overflow: hidden;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.drop-zone:hover,
+.drop-zone.is-dragover {
+  transform: translateY(-3px);
+  border-color: rgba(250, 204, 21, 0.5);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(245, 158, 11, 0.2), transparent 38%),
+    rgba(255, 255, 255, 0.07);
+  box-shadow:
+    0 18px 48px rgba(0, 0, 0, 0.34),
+    0 0 34px rgba(245, 158, 11, 0.12);
+}
+
+.drop-icon {
+  width: 52px;
+  height: 52px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+  border: 1px solid rgba(232, 204, 150, 0.22);
+
+  color: rgba(250, 204, 21, 0.9);
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.18),
+      transparent 36%
+    ),
+    linear-gradient(135deg, #7c4a28, #b7791f 52%, #3b2a22);
+
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+.drop-zone strong {
+  margin-top: 8px;
+  display: block;
+  color: rgba(255, 248, 232, 0.94);
+}
+
+.drop-zone small {
+  display: block;
+  color: rgba(232, 204, 150, 0.55);
+}
+
+.upload-preview {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  display: block;
+
+  filter: sepia(0.08) contrast(1.03) saturate(0.95);
+}
+
+.drop-zone.has-image::after {
+  content: "Bấm hoặc kéo ảnh khác để thay";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+
+  padding: 10px 12px;
+  border-radius: 999px;
+
+  color: rgba(255, 248, 232, 0.94);
+  background: rgba(8, 7, 10, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  font-size: 0.76rem;
+  font-weight: 850;
+}
+
+.upload-status {
+  color: rgba(255, 248, 232, 0.54);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.upload-status.is-uploading {
+  color: rgba(250, 204, 21, 0.82);
+}
+
+.upload-status.is-done {
+  color: rgba(134, 239, 172, 0.82);
+}
+
+.upload-status.is-error {
+  color: rgba(248, 113, 113, 0.88);
+}
+
+@media (max-width: 760px) {
+  .upload-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .drop-zone {
+    min-height: 210px;
+  }
+}
+/* ============================= */
+/* FIX PHOTO DETAIL - IMAGE FULL ROW */
+/* Dán CUỐI file css/gallery.css */
+/* ============================= */
+
+.detail-shell {
+  width: min(1400px, calc(100% - 32px)) !important;
+  margin: 0 auto !important;
+  padding: 110px 0 70px !important;
+}
+
+/* Card chính */
+.photo-detail-card {
+  width: 100% !important;
+  overflow: hidden !important;
+  border-radius: 32px !important;
+  border: 1px solid rgba(229, 183, 109, 0.28) !important;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 239, 203, 0.08),
+      rgba(255, 255, 255, 0.025)
+    ),
+    rgba(18, 12, 9, 0.9) !important;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5) !important;
+
+  /* Quan trọng: ép nội dung thành 1 cột */
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+}
+
+/* Khung ảnh chiếm 1 hàng duy nhất */
+.photo-detail-card figure,
+.photo-detail-media,
+.photo-detail-figure,
+.detail-image-wrap,
+#photoDetail figure {
+  width: 100% !important;
+  height: min(82vh, 860px) !important;
+  min-height: 560px !important;
+  margin: 0 !important;
+  padding: 18px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 221, 158, 0.13),
+      transparent 55%
+    ),
+    linear-gradient(135deg, rgba(0, 0, 0, 0.45), rgba(255, 255, 255, 0.035)) !important;
+}
+
+/* Ảnh luôn hiện lớn, rõ, không bị cắt */
+.photo-detail-card img,
+.photo-detail-image,
+.detail-image,
+#photoDetail img {
+  display: block !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: contain !important;
+  object-position: center !important;
+
+  border-radius: 24px !important;
+  background: rgba(0, 0, 0, 0.28) !important;
+}
+
+/* Nếu JS render img trực tiếp không có figure */
+#photoDetail > img,
+.photo-detail-card > img {
+  width: 100% !important;
+  height: min(82vh, 860px) !important;
+  min-height: 560px !important;
+  padding: 18px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* Phần thông tin nằm riêng phía dưới ảnh */
+.photo-detail-content,
+.detail-info,
+.photo-info,
+#photoDetail .detail-content,
+#photoDetail .photo-content {
+  width: 100% !important;
+  padding: clamp(24px, 4vw, 46px) !important;
+  border-top: 1px solid rgba(229, 183, 109, 0.2) !important;
+}
+
+/* Title đẹp hơn */
+.photo-detail-card h1,
+.photo-detail-card h2,
+.photo-detail-title,
+.detail-title,
+#photoDetail h1,
+#photoDetail h2 {
+  margin: 0 0 14px !important;
+  font-family: "Playfair Display", serif !important;
+  font-size: clamp(2.3rem, 5vw, 5rem) !important;
+  line-height: 0.95 !important;
+  color: #ffdda0 !important;
+}
+
+/* Mô tả */
+.photo-detail-card p,
+.photo-detail-desc,
+.detail-desc,
+#photoDetail p {
+  max-width: 900px !important;
+  color: rgba(244, 234, 220, 0.78) !important;
+  font-size: 1rem !important;
+  line-height: 1.8 !important;
+}
+
+/* Comment room nằm dưới card */
+.detail-comments {
+  margin-top: 36px !important;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .detail-shell {
+    width: min(100% - 24px, 1400px) !important;
+    padding-top: 100px !important;
+  }
+
+  .photo-detail-card figure,
+  .photo-detail-media,
+  .photo-detail-figure,
+  .detail-image-wrap,
+  #photoDetail figure,
+  #photoDetail > img,
+  .photo-detail-card > img {
+    height: 75vh !important;
+    min-height: 470px !important;
+    padding: 12px !important;
+  }
+
+  .photo-detail-card img,
+  .photo-detail-image,
+  .detail-image,
+  #photoDetail img {
+    border-radius: 18px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .detail-shell {
+    width: min(100% - 14px, 1400px) !important;
+    padding-top: 90px !important;
+  }
+
+  .photo-detail-card {
+    border-radius: 22px !important;
+  }
+
+  .photo-detail-card figure,
+  .photo-detail-media,
+  .photo-detail-figure,
+  .detail-image-wrap,
+  #photoDetail figure,
+  #photoDetail > img,
+  .photo-detail-card > img {
+    height: 72vh !important;
+    min-height: 390px !important;
+    padding: 8px !important;
+  }
+
+  .photo-detail-content,
+  .detail-info,
+  .photo-info,
+  #photoDetail .detail-content,
+  #photoDetail .photo-content {
+    padding: 22px !important;
+  }
+}
+
+/* Màn rất nhỏ */
+@media (max-width: 390px) {
+  .photo-detail-card figure,
+  .photo-detail-media,
+  .photo-detail-figure,
+  .detail-image-wrap,
+  #photoDetail figure,
+  #photoDetail > img,
+  .photo-detail-card > img {
+    height: 68vh !important;
+    min-height: 340px !important;
+  }
+} /* ============================= */
+/* RESPONSIVE PHOTO DETAIL */
+/* Dán cuối file gallery.css */
+/* ============================= */
+
+.detail-page .detail-shell {
+  width: min(1500px, calc(100% - 32px)) !important;
+  margin: 0 auto !important;
+  padding: 110px 0 72px !important;
+}
+
+/* Card ảnh chi tiết: luôn 1 cột */
+#photoDetail.photo-detail-card,
+.photo-detail-card {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+
+  border-radius: 34px !important;
+  border: 1px solid rgba(229, 183, 109, 0.28) !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 239, 203, 0.08),
+      rgba(255, 255, 255, 0.025)
+    ),
+    rgba(18, 12, 9, 0.92) !important;
+
+  box-shadow:
+    0 32px 90px rgba(0, 0, 0, 0.52),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Khung ảnh chiếm nguyên 1 dòng */
+.photo-detail-media,
+.detail-image-wrap,
+.photo-detail-card figure,
+#photoDetail figure {
+  width: 100% !important;
+  height: clamp(560px, 82svh, 920px) !important;
+  min-height: 560px !important;
+
+  margin: 0 !important;
+  padding: clamp(10px, 1.6vw, 22px) !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 221, 158, 0.14),
+      transparent 56%
+    ),
+    linear-gradient(135deg, rgba(0, 0, 0, 0.52), rgba(255, 255, 255, 0.035)) !important;
+}
+
+/* Ảnh luôn to nhất có thể nhưng không bị crop */
+.photo-detail-image,
+.detail-image-wrap img,
+.photo-detail-card img,
+#photoDetail img {
+  display: block !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  max-width: 100% !important;
+  max-height: 100% !important;
+
+  object-fit: contain !important;
+  object-position: center !important;
+
+  border-radius: 24px !important;
+  background: rgba(0, 0, 0, 0.26) !important;
+}
+
+/* Nếu JS render img trực tiếp không có figure */
+#photoDetail > img,
+.photo-detail-card > img {
+  width: 100% !important;
+  height: clamp(560px, 82svh, 920px) !important;
+  min-height: 560px !important;
+  padding: clamp(10px, 1.6vw, 22px) !important;
+  object-fit: contain !important;
+}
+
+/* Phần thông tin ảnh nằm dưới ảnh */
+.photo-detail-content,
+.detail-info,
+#photoDetail .detail-info,
+#photoDetail .photo-detail-content {
+  width: 100% !important;
+  padding: clamp(24px, 4vw, 52px) !important;
+  border-top: 1px solid rgba(229, 183, 109, 0.2) !important;
+}
+
+/* Title responsive */
+.photo-detail-content h1,
+.detail-info h1,
+#photoDetail h1 {
+  margin: 0 0 14px !important;
+  font-family: "Playfair Display", serif !important;
+  font-size: clamp(2.2rem, 5.4vw, 5.4rem) !important;
+  line-height: 0.95 !important;
+  color: #ffdda0 !important;
+}
+
+/* Mô tả */
+.detail-description,
+.detail-subtitle,
+#photoDetail p {
+  max-width: 980px !important;
+  color: rgba(244, 234, 220, 0.78) !important;
+  line-height: 1.8 !important;
+}
+
+/* Meta ngày / địa điểm */
+.detail-meta-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  margin: 22px 0 !important;
+}
+
+.detail-meta-grid span {
+  min-height: 48px !important;
+  padding: 13px 16px !important;
+  border-radius: 18px !important;
+  border: 1px solid rgba(229, 183, 109, 0.18) !important;
+  background: rgba(255, 255, 255, 0.045) !important;
+  color: rgba(244, 234, 220, 0.74) !important;
+}
+
+/* Nút xóa / actions */
+.photo-detail-actions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  margin-top: 24px !important;
+}
+
+/* ============================= */
+/* TABLET */
+/* ============================= */
+
+@media (max-width: 1024px) {
+  .detail-page .detail-shell {
+    width: min(100% - 24px, 1500px) !important;
+    padding-top: 100px !important;
+  }
+
+  .photo-detail-media,
+  .detail-image-wrap,
+  .photo-detail-card figure,
+  #photoDetail figure,
+  #photoDetail > img,
+  .photo-detail-card > img {
+    height: 78svh !important;
+    min-height: 500px !important;
+  }
+
+  .photo-detail-content,
+  .detail-info,
+  #photoDetail .detail-info,
+  #photoDetail .photo-detail-content {
+    padding: 32px !important;
+  }
+}
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width: 640px) {
+  .detail-page .detail-shell {
+    width: min(100% - 14px, 1500px) !important;
+    padding-top: 90px !important;
+    padding-bottom: 48px !important;
+  }
+
+  .photo-detail-card {
+    border-radius: 24px !important;
+  }
+
+  .photo-detail-media,
+  .detail-image-wrap,
+  .photo-detail-card figure,
+  #photoDetail figure,
+  #photoDetail > img,
+  .photo-detail-card > img {
+    height: 72svh !important;
+    min-height: 420px !important;
+    padding: 8px !important;
+  }
+
+  .photo-detail-image,
+  .detail-image-wrap img,
+  .photo-detail-card img,
+  #photoDetail img {
+    border-radius: 18px !important;
+  }
+
+  .photo-detail-content,
+  .detail-info,
+  #photoDetail .detail-info,
+  #photoDetail .photo-detail-content {
+    padding: 22px !important;
+  }
+
+  .detail-meta-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .photo-detail-actions {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .photo-detail-actions .archive-btn,
+  .photo-detail-actions button {
+    width: 100% !important;
+  }
+}
+
+/* ============================= */
+/* MÀN RẤT NHỎ */
+/* ============================= */
+
+@media (max-width: 390px) {
+  .photo-detail-media,
+  .detail-image-wrap,
+  .photo-detail-card figure,
+  #photoDetail figure,
+  #photoDetail > img,
+  .photo-detail-card > img {
+    height: 68svh !important;
+    min-height: 360px !important;
+  }
+
+  .photo-detail-content h1,
+  .detail-info h1,
+  #photoDetail h1 {
+    font-size: clamp(1.9rem, 12vw, 3rem) !important;
+  }
+}
+
+/* ============================= */
+/* MOBILE XOAY NGANG */
+/* ============================= */
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .photo-detail-media,
+  .detail-image-wrap,
+  .photo-detail-card figure,
+  #photoDetail figure,
+  #photoDetail > img,
+  .photo-detail-card > img {
+    height: 92svh !important;
+    min-height: 320px !important;
   }
 }

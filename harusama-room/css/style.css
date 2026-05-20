@@ -667,6 +667,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position:;
 }
 
 .memory-card-wide > img {
@@ -1879,4 +1880,10 @@ html {
     padding: 7px 10px;
     font-size: 11px;
   }
+}
+.memory-card-wide > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 25%; /* lên vừa */
 }
