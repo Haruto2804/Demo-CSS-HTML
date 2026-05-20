@@ -7,22 +7,80 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     />
+
     <link rel="stylesheet" href="./css/cursor.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/auth.css" />
     <link rel="stylesheet" href="./css/volume-widget.css" />
     <link rel="stylesheet" href="./css/scroll-nav.css" />
     <link rel="stylesheet" href="./css/form-link-section.css" />
+    <link rel="stylesheet" href="./css/auth-bar.css" />
   </head>
 
   <body>
+    <div class="auth-topbar" data-auth-topbar>
+      <button
+        class="auth-mobile-trigger"
+        type="button"
+        data-auth-toggle
+        aria-label="Mở menu tài khoản"
+        aria-expanded="false"
+      >
+        <img
+          class="auth-avatar-mini"
+          data-user-avatar
+          hidden
+          alt="User avatar"
+        />
+        <span class="auth-mobile-status" data-user-name>Guest</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
+
+      <div class="auth-panel">
+        <div class="auth-user">
+          <img class="auth-avatar" data-user-avatar hidden alt="User avatar" />
+
+          <div class="auth-user-info">
+            <span class="auth-name" data-user-name>Guest</span>
+            <span class="auth-email" data-user-email
+              >Đăng nhập để mở khóa phòng</span
+            >
+          </div>
+        </div>
+
+        <div class="auth-actions">
+          <a
+            class="auth-btn auth-login-btn"
+            href="./login.html"
+            data-login-link
+          >
+            <i class="fa-brands fa-google"></i>
+            <span>Đăng nhập</span>
+          </a>
+
+          <button
+            class="auth-btn auth-logout-btn"
+            type="button"
+            data-logout-btn
+            disabled
+          >
+            <i class="fa-solid fa-right-from-bracket" hidden></i>
+            <span>Đăng xuất</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
     <div class="volume-widget">
       <button
         id="volumeToggle"
@@ -49,6 +107,7 @@
         <span id="volumePercent">75%</span>
       </div>
     </div>
+
     <div class="scroll-nav-shell">
       <button
         id="scrollNavToggle"
@@ -96,6 +155,7 @@
           <span class="scroll-dot"></span>
           <span class="scroll-label">Form</span>
         </a>
+
         <a
           href="#final-message"
           class="scroll-nav-item"
@@ -127,6 +187,10 @@
           <h1>Harusama</h1>
           <p>[ THE ARCHIVE SPACE ]</p>
         </div>
+
+        <a href="./gallery.html" class="room-memories">
+          Đi vào phòng kí ức ➜
+        </a>
       </header>
 
       <section class="section playlist-section" id="playlist">
@@ -141,6 +205,7 @@
               nhạc” chỉ tồn tại trong đầu, được bật lên vào những lúc mình cần
               yên tĩnh.
             </p>
+
             <blockquote>
               “Có những cảm xúc không cần nói ra, chỉ cần để chúng phát thật
               khẽ.”
@@ -176,12 +241,15 @@
                 </div>
               </div>
             </article>
+
             <audio id="playlistAudio" preload="metadata"></audio>
+
             <div class="track-list">
               <div id="currentTrackDesc-tooltip">
                 Có những bài hát nghe hoài không chán. Không phải vì nó quá hay,
                 mà vì từng câu chữ đều như viết riêng cho mình.
               </div>
+
               <button
                 class="mood-track is-active"
                 type="button"
@@ -263,10 +331,10 @@
             </div>
 
             <h2>Góc Nhỏ Khiến Mình Mỉm Cười</h2>
+
             <p>
               Một góc lưu lại những thước phim mình từng thích, những nhân vật
-              từng khiến mình dừng lại lâu hơn một chút. Không cần quá sâu xa,
-              chỉ là vài khoảnh khắc nhìn thôi cũng thấy vui.
+              từng khiến mình dừng lại lâu hơn một chút.
             </p>
 
             <button class="pause-all-tiktok" type="button">
@@ -325,11 +393,10 @@
             </div>
 
             <h2>Nơi Trí Tưởng Tượng Thành Sự Thật</h2>
+
             <p>
               Có những điều mình chưa từng sống qua, nhưng lại từng tưởng tượng
-              rất rõ. AI biến những mảnh cảm xúc ấy thành hình ảnh, thành câu
-              chuyện, thành một thế giới mà trước đây chỉ tồn tại trong đầu
-              mình.
+              rất rõ. AI biến những mảnh cảm xúc ấy thành hình ảnh.
             </p>
 
             <button class="pause-all-tiktok" type="button">
@@ -382,6 +449,7 @@
           <div class="section-heading">
             <p class="chapter chapter-gold">chương 04</p>
             <h2>Mảnh Ghép Ký Ức</h2>
+
             <p>
               Bộ sưu tập những khoảnh khắc đời thường, những góc nhìn tĩnh lặng
               được đóng khung qua lăng kính cá nhân.
@@ -394,6 +462,7 @@
                 src="./assets/images/memory/QPAN_classroom.jpg"
                 alt="Memory 1"
               />
+
               <div class="memory-overlay">
                 <h3>Ngày Ấy Chúng Mình Cùng Mặc Quân Phục</h3>
               </div>
@@ -406,6 +475,7 @@
                   alt="Memory 2"
                 />
               </div>
+
               <div class="memory-caption">MỘT KÝ ỨC ĐÁNG NHỚ</div>
             </a>
 
@@ -414,7 +484,7 @@
               <p>Mọi thứ rồi sẽ trở thành kỷ niệm, chỉ là sớm hay muộn.</p>
             </div>
 
-            <a href="#full-gallery" class="album-link">
+            <a href="./gallery.html" class="album-link">
               <span>Xem toàn bộ Album</span>
               <span>→</span>
             </a>
@@ -430,6 +500,7 @@
             <div class="form-link-text">
               <p class="chapter chapter-gold">chương 05</p>
               <h2>Để Lại Một Lời Nhắn</h2>
+
               <p>
                 Nếu bạn đã đi đến đây, có lẽ cũng có điều gì đó muốn gửi lại.
                 Một câu ngắn, một cảm xúc nhỏ, hoặc chỉ đơn giản là vài dòng bạn
@@ -449,6 +520,7 @@
           </div>
         </div>
       </section>
+
       <section class="section final-message-section" id="final-message">
         <div class="final-glow"></div>
 
@@ -468,9 +540,9 @@
             </div>
 
             <div class="typing-line line-2">
-              <span
-                >Chỉ là đang học cách tồn tại đúng với cảm xúc của mình.</span
-              >
+              <span>
+                Chỉ là đang học cách tồn tại đúng với cảm xúc của mình.
+              </span>
             </div>
 
             <p class="final-subtext">thanks for staying until the end.</p>
@@ -479,6 +551,7 @@
           </div>
         </div>
       </section>
+
       <footer class="page-footer">
         <p>EST. 2026 — DESIGNED FOR THE SILENT SOUL</p>
       </footer>
@@ -490,7 +563,8 @@
     <script src="./js/volume-widget.js"></script>
     <script src="./js/scroll-nav.js"></script>
     <script src="./js/motion.js"></script>
-    <!-- SCRIPT CHÍNH THỨC CỦA TIKTOK -->
+    <script type="module" src="./js/auth.js"></script>
+
     <script async src="https://www.tiktok.com/embed.js"></script>
   </body>
 </html>

@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery | Harusama Archive Space</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="./css/cursor.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/volume-widget.css" />
+    <link rel="stylesheet" href="./css/scroll-nav.css" />
+    <link rel="stylesheet" href="./css/gallery.css" />
+  </head>
+
+  <body class="gallery-page">
+    <div class="volume-widget">
+      <button
+        id="volumeToggle"
+        class="volume-btn"
+        type="button"
+        aria-label="Volume"
+      >
+        <span id="volumeIcon">
+          <i class="fa-solid fa-volume-high"></i>
+        </span>
+      </button>
+
+      <div id="volumePanel" class="volume-panel">
+        <input
+          id="globalVolumeSlider"
+          class="volume-slider"
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          value="0.75"
+          aria-label="Volume slider"
+        />
+        <span id="volumePercent">75%</span>
+      </div>
+    </div>
+
+    <div class="scroll-nav-shell">
+      <button
+        id="scrollNavToggle"
+        class="scroll-nav-toggle"
+        type="button"
+        aria-label="Ẩn hiện thanh điều hướng"
+      >
+        <i class="fa-solid fa-pen-nib"></i>
+      </button>
+
+      <nav class="scroll-nav" aria-label="Điều hướng trang gallery">
+        <a
+          href="#gallery-hero"
+          class="scroll-nav-item is-active"
+          data-section="gallery-hero"
+        >
+          <span class="scroll-dot"></span>
+          <span class="scroll-label">Đầu trang</span>
+        </a>
+
+        <a
+          href="#bento-gallery"
+          class="scroll-nav-item"
+          data-section="bento-gallery"
+        >
+          <span class="scroll-dot"></span>
+          <span class="scroll-label">Bento</span>
+        </a>
+
+        <a
+          href="#photo-archive"
+          class="scroll-nav-item"
+          data-section="photo-archive"
+        >
+          <span class="scroll-dot"></span>
+          <span class="scroll-label">Archive</span>
+        </a>
+
+        <a
+          href="#final-message"
+          class="scroll-nav-item"
+          data-section="final-message"
+        >
+          <span class="scroll-dot"></span>
+          <span class="scroll-label">Lời kết</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="vintage-cursor-glow"></div>
+    <div class="page-texture"></div>
+
+    <main class="page-shell">
+      <header class="hero" id="gallery-hero">
+        <div class="polaroid-card">
+          <div class="avatar-frame">
+            <img
+              src="./assets/images/avatar.jpeg"
+              alt="Avatar"
+              class="avatar-img"
+            />
+          </div>
+          <span class="avatar-handle">@HARUTO_2804</span>
+        </div>
+
+        <div class="hero-text">
+          <h1>Harusama</h1>
+          <p>[ GALLERY ARCHIVE ]</p>
+        </div>
+      </header>
+
+      <section class="section gallery-intro-section">
+        <div class="section-content">
+          <div class="section-heading">
+            <p class="chapter chapter-gold">chương phụ</p>
+            <h2>Thư Viện Ký Ức</h2>
+            <p>
+              Một căn phòng nhỏ dành riêng cho những tấm ảnh đã được giữ lại.
+              Không quá rực rỡ, không quá ồn ào — chỉ là vài mảnh thời gian nằm
+              yên trong bóng tối.
+            </p>
+
+            <blockquote>
+              “Có những bức ảnh không cần đẹp nhất, chỉ cần đúng cảm giác nhất.”
+            </blockquote>
+          </div>
+
+          <div class="gallery-intro-card">
+            <p>
+              <strong>Gallery này</strong> được thiết kế để đi cùng vibe của
+              trang chính: tối, trầm, cổ điển, hơi buồn, có chất archive và
+              giống một cuốn album được mở ra trong phòng khuya.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="bento-gallery">
+        <div class="section-content">
+          <div class="section-heading">
+            <p class="chapter chapter-gold">chương 01</p>
+            <h2>Bento Ký Ức</h2>
+            <p>
+              Các tấm ảnh được đặt không đều nhau như những mảnh ký ức rời rạc:
+              có tấm rất rõ, có tấm chỉ còn lại cảm giác.
+            </p>
+          </div>
+
+          <div class="bento-archive">
+            <a
+              href="./assets/images/memory/QPAN_classroom.jpg"
+              class="bento-item bento-wide"
+            >
+              <img
+                src="./assets/images/memory/QPAN_classroom.jpg"
+                alt="Ngày ấy chúng mình cùng mặc quân phục"
+              />
+
+              <div class="bento-caption">
+                <span>memory 01</span>
+                <h3>Ngày Ấy Chúng Mình Cùng Mặc Quân Phục</h3>
+                <p>QPAN classroom • archived moment</p>
+              </div>
+            </a>
+
+            <a
+              href="./assets/images/memory/QPAN_tapthelop.jpg"
+              class="bento-item bento-tall"
+            >
+              <img
+                src="./assets/images/memory/QPAN_tapthelop.jpg"
+                alt="Một ký ức đáng nhớ"
+              />
+
+              <div class="bento-caption">
+                <span>memory 02</span>
+                <h3>Một Ký Ức Đáng Nhớ</h3>
+                <p>group frame • quiet nostalgia</p>
+              </div>
+            </a>
+
+            <div class="bento-note bento-small">
+              <small>note 01</small>
+              <p>Mọi thứ rồi sẽ trở thành kỷ niệm, chỉ là sớm hay muộn.</p>
+            </div>
+
+            <a
+              href="./assets/images/avatar.jpeg"
+              class="bento-item bento-small"
+            >
+              <img src="./assets/images/avatar.jpeg" alt="Harusama avatar" />
+
+              <div class="bento-caption">
+                <span>avatar</span>
+                <h3>Main Frame</h3>
+              </div>
+            </a>
+
+            <a
+              href="./assets/images/memory/QPAN_classroom.jpg"
+              class="bento-item bento-medium"
+            >
+              <img
+                src="./assets/images/memory/QPAN_classroom.jpg"
+                alt="Khoảnh khắc trong lớp"
+              />
+
+              <div class="bento-caption">
+                <span>archive</span>
+                <h3>Góc Nhìn Cũ</h3>
+                <p>old frame • silent room</p>
+              </div>
+            </a>
+
+            <a
+              href="./assets/images/memory/QPAN_tapthelop.jpg"
+              class="bento-item bento-thin"
+            >
+              <img
+                src="./assets/images/memory/QPAN_tapthelop.jpg"
+                alt="Mảnh ký ức tập thể"
+              />
+
+              <div class="bento-caption">
+                <span>film</span>
+                <h3>Still</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="photo-archive">
+        <div class="section-content">
+          <div class="section-heading">
+            <p class="chapter chapter-stone">chương 02</p>
+            <h2>Photo Archive</h2>
+            <p>
+              Danh sách ảnh được lưu lại như một cuốn sổ nhỏ. Sau này chủ
+              nhân-sama thêm ảnh mới thì chỉ cần copy thêm một dòng
+              <code>photo-row</code>.
+            </p>
+          </div>
+
+          <div class="photo-list">
+            <a
+              href="./assets/images/memory/QPAN_classroom.jpg"
+              class="photo-row"
+            >
+              <div class="photo-thumb">
+                <img
+                  src="./assets/images/memory/QPAN_classroom.jpg"
+                  alt="QPAN classroom"
+                />
+              </div>
+
+              <div class="photo-info">
+                <h3>Ngày Ấy Chúng Mình Cùng Mặc Quân Phục</h3>
+                <p>memory / classroom / qpan</p>
+              </div>
+
+              <span class="photo-number">01</span>
+            </a>
+
+            <a
+              href="./assets/images/memory/QPAN_tapthelop.jpg"
+              class="photo-row"
+            >
+              <div class="photo-thumb">
+                <img
+                  src="./assets/images/memory/QPAN_tapthelop.jpg"
+                  alt="QPAN tập thể lớp"
+                />
+              </div>
+
+              <div class="photo-info">
+                <h3>Một Ký Ức Đáng Nhớ</h3>
+                <p>memory / group / archive</p>
+              </div>
+
+              <span class="photo-number">02</span>
+            </a>
+
+            <a href="./assets/images/avatar.jpeg" class="photo-row">
+              <div class="photo-thumb">
+                <img src="./assets/images/avatar.jpeg" alt="Avatar" />
+              </div>
+
+              <div class="photo-info">
+                <h3>Harusama Main Avatar</h3>
+                <p>profile / identity / room</p>
+              </div>
+
+              <span class="photo-number">03</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section final-message-section" id="final-message">
+        <div class="gallery-final">
+          <p>
+            “Một bức ảnh không giữ được cả quá khứ, nhưng đủ để nhắc mình rằng
+            khoảnh khắc đó đã từng tồn tại.”
+          </p>
+
+          <span>saved inside harusama room</span>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <p>EST. 2026 — DESIGNED FOR THE SILENT SOUL</p>
+      </footer>
+    </main>
+
+    <script src="./js/cursor.js"></script>
+    <script src="./js/volume-widget.js"></script>
+    <script src="./js/scroll-nav.js"></script>
+    <script src="./js/motion.js"></script>
+  </body>
+</html>
