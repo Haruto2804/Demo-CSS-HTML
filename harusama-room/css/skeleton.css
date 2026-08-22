@@ -16,11 +16,9 @@ html.is-preloading body {
   place-items: center;
   padding: 24px;
   background:
-    radial-gradient(
-      circle at 20% 15%,
+    radial-gradient(circle at 20% 15%,
       rgba(210, 155, 86, 0.18),
-      transparent 34%
-    ),
+      transparent 34%),
     radial-gradient(circle at 80% 70%, rgba(110, 39, 34, 0.2), transparent 36%),
     linear-gradient(135deg, #100b08 0%, #1a120d 46%, #080604 100%);
   transition:
@@ -48,25 +46,51 @@ html.is-loaded .page-skeleton {
 }
 
 .skeleton-logo {
-  width: 74px;
-  height: 74px;
+  position: relative;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  border: 1px solid rgba(231, 184, 112, 0.35);
-  background:
-    radial-gradient(
-      circle at 35% 30%,
-      rgba(255, 230, 171, 0.32),
-      transparent 34%
-    ),
-    linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.1),
-      rgba(255, 255, 255, 0.025)
-    );
-  box-shadow:
-    0 0 40px rgba(229, 183, 109, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  animation: skeletonPulse 1.6s ease-in-out infinite;
+  background-image: url('../assets/images/memory/khunghinhcu.jpg');
+  background-size: 180%;
+  /* Phóng to để cắt mặt */
+  background-position: 0% 25%;
+  /* Cắt vị trí khuôn mặt (X: 35%, Y: 25%) */
+  background-repeat: no-repeat;
+  box-shadow: 0 0 30px rgba(198, 155, 123, 0.4);
+  animation: logoPulse 2s ease-in-out infinite alternate;
+}
+
+.skeleton-logo::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: #c69b7b;
+  border-bottom-color: rgba(198, 155, 123, 0.3);
+  animation: spinner 1.2s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes logoPulse {
+  0% {
+    filter: brightness(0.9) grayscale(20%);
+    transform: scale(1);
+  }
+
+  100% {
+    filter: brightness(1.1) grayscale(0%);
+    transform: scale(1.02);
+  }
 }
 
 .skeleton-title {
@@ -95,11 +119,9 @@ html.is-loaded .page-skeleton {
   border-radius: 32px;
   border: 1px solid rgba(231, 184, 112, 0.16);
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       rgba(255, 244, 220, 0.07),
-      rgba(255, 255, 255, 0.025)
-    ),
+      rgba(255, 255, 255, 0.025)),
     rgba(255, 255, 255, 0.03);
   box-shadow:
     0 28px 80px rgba(0, 0, 0, 0.35),
@@ -176,12 +198,10 @@ html.is-loaded .page-skeleton {
   position: absolute;
   inset: 0;
   transform: translateX(-120%);
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 224, 166, 0.22),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 224, 166, 0.22),
+      transparent);
   animation: skeletonShimmer 1.35s ease-in-out infinite;
 }
 
@@ -200,6 +220,7 @@ html.is-loaded .page-skeleton {
 }
 
 @keyframes skeletonPulse {
+
   0%,
   100% {
     opacity: 0.58;

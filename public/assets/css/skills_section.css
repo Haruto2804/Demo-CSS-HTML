@@ -8,7 +8,7 @@
   justify-content: space-between;
   gap: 50px;
   padding: 60px 10%;
-  background-color: rgb(15, 37, 79);
+  background-color: transparent;
   color: #ffffff;
   align-items: center;
 }
@@ -326,4 +326,32 @@
   .skill-card {
     border-radius: 14px;
   }
+}
+
+/* ===================================================
+   SKILL FILTER PILLS (PACKAGE 4 VIP)
+   =================================================== */
+.skill-filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+.skill-filter-btn {
+  padding: 8px 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.skill-filter-btn:hover,
+.skill-filter-btn.active {
+  background: rgba(0, 245, 255, 0.15);
+  border-color: #00f5ff;
+  color: #00f5ff;
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.2);
 }

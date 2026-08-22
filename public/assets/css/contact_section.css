@@ -4,7 +4,7 @@
 
 #contact-section {
   padding: 80px 10%;
-  background-color: rgb(15, 37, 79);
+  background-color: transparent;
   color: #ffffff;
 }
 
@@ -228,4 +228,33 @@
     padding: 25px;
     border-radius: 20px;
   }
+}
+
+/* ===================================================
+   ONE-CLICK COPY EMAIL BUTTON (PACKAGE 4 VIP)
+   =================================================== */
+#copy-email-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: rgba(0, 245, 255, 0.12);
+  border: 1px solid rgba(0, 245, 255, 0.35);
+  color: #00f5ff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#copy-email-btn:hover {
+  background: rgba(0, 245, 255, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 245, 255, 0.25);
+}
+#copy-email-btn.copied {
+  background: rgba(34, 197, 94, 0.25);
+  border-color: #22c55e;
+  color: #22c55e;
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
 }

@@ -10,8 +10,8 @@ function getTikTokPlaceholderHTML() {
   return `
     <button class="tiktok-load-btn" type="button">
       <span>▶</span>
-      <strong>Bấm để tải video</strong>
-      <small>Video đang tạm dừng</small>
+      <strong>Chạm để phát thước phim</strong>
+      <small>Đang tạm dừng</small>
     </button>
   `;
 }
@@ -61,6 +61,11 @@ function activateTikTokFrame(frame) {
   // Nếu video này đã load rồi thì không tạo lại
   if (frame.querySelector(".tiktok-player")) {
     return;
+  }
+
+  // Tạm dừng nhạc nền của web khi bật video TikTok
+  if (typeof window.pauseAudio === "function") {
+    window.pauseAudio();
   }
 
   const iframe = document.createElement("iframe");

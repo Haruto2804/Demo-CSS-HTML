@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Căn Gác Xép | Harusama</title>
+    <meta name="description" content="Nơi cất giữ những bản nháp lộn xộn." />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/cursor.css" />
+    
+    <style>
+      body {
+        background: #0a0a0a;
+        color: #78716c;
+      }
+      /* Heavy noise overlay */
+      .heavy-noise {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        pointer-events: none;
+        background-image: url("./assets/images/dust.png");
+        opacity: 0.15;
+        mix-blend-mode: overlay;
+      }
+      .attic-header {
+        text-align: center;
+        padding-top: 60px;
+        margin-bottom: 20px;
+      }
+      .attic-header h1 {
+        font-family: var(--serif);
+        color: #57534e;
+        font-size: 2rem;
+        letter-spacing: 2px;
+        text-shadow: 0 0 10px rgba(255,255,255,0.05);
+      }
+      
+      .draft-card {
+        background: rgba(255,255,255,0.02);
+        border: 1px dashed #292524;
+        padding: 24px;
+        margin-bottom: 24px;
+        font-family: monospace;
+        opacity: 0.6;
+        transition: opacity 0.3s ease;
+      }
+      .draft-card:hover {
+        opacity: 1;
+        border-color: #57534e;
+      }
+      .strike {
+        text-decoration: line-through;
+        color: #3f3f46;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="vintage-cursor-glow"></div>
+    <div class="heavy-noise"></div>
+
+    <main class="page-shell">
+      <header class="attic-header">
+        <h1>CĂN GÁC XÉP</h1>
+        <p style="font-size: 0.8rem; letter-spacing: 1px;">Những thứ không hoàn hảo</p>
+      </header>
+
+      <section class="section">
+        <div class="draft-card">
+          <p>Draft #12 - 02:34 AM</p>
+          <p class="strike">Mình đã định nói ra tất cả nhưng lại thôi.</p>
+          <p>Đôi khi im lặng là câu trả lời rõ ràng nhất.</p>
+        </div>
+        
+        <div class="draft-card" style="filter: blur(1px);">
+          <p>Draft #15 - Deleted</p>
+          <p>...</p>
+        </div>
+      </section>
+
+      <section class="section room-navigation">
+        <div class="section-content">
+          <div class="doors-grid">
+            <a href="rooftop.html" class="door-card door-up">
+              <div class="door-icon"><i class="fa-solid fa-arrow-up"></i></div>
+              <span>Lên Ban Công (Tầng Thượng)</span>
+            </a>
+            
+            <a href="index.html" class="door-card door-down">
+              <div class="door-icon"><i class="fa-solid fa-stairs"></i></div>
+              <span>Xuống lầu quay lại Phòng Chính</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer" style="opacity: 0.3;">
+        <p>EST. 2026 — ARCHIVED</p>
+      </footer>
+    </main>
+
+    <script src="./js/cursor.js"></script>
+    <script src="./js/minimap.js"></script>
+  </body>
+</html>

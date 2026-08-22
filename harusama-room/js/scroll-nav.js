@@ -10,7 +10,7 @@
 
     const navItems = document.querySelectorAll(".scroll-nav-item");
     const scrollSections = document.querySelectorAll(
-      "#playlist, #tiktok-anime, #tiktok-ai, #memories, #final-message",
+      "#playlist, #navigation"
     );
 
     if (!shell || !toggleBtn || !nav || navItems.length === 0) return;

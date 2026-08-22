@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Góc Ban Công | Harusama</title>
+  <meta name="description" content="Chỉ có tiếng mưa và những đài radio vô tuyến." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/cursor.css" />
+  <link rel="stylesheet" href="./css/premium-radio.css" />
+
+  <style>
+    body {
+      background: #0f172a;
+      /* Dark blue/slate for night sky */
+      color: #94a3b8;
+    }
+
+    .page-shell {
+      z-index: 10;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Simple rain animation */
+    .rain-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/200.svg"><line x1="10" y1="0" x2="10" y2="10" stroke="%23334155" stroke-width="1" stroke-dasharray="2, 8" /></svg>') repeat;
+      animation: rainFall 0.5s linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes rainFall {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(20px);
+      }
+    }
+
+    /* Position doors at bottom */
+    .room-navigation {
+      margin-bottom: 32px;
+      z-index: 10;
+    }
+
+    .door-card {
+      background: rgba(30, 41, 59, 0.8);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="vintage-cursor-glow"
+    style="background: radial-gradient(circle at center, rgba(56, 189, 248, 0.15) 0%, transparent 60%);"></div>
+  <div class="rain-overlay"></div>
+
+  <main class="page-shell">
+    <div style="height: 40px;"></div>
+    <div class="premium-radio-wrapper" style="margin-top: auto; margin-bottom: auto; align-self: center;">
+      <!-- Left Panel: Tuning & Display -->
+      <div class="radio-panel panel-left">
+        <div class="radio-display-wrapper">
+          <div class="led-display">
+            <div class="led-top">
+              <span class="led-band" id="pr-band">AM 7</span>
+            </div>
+            <div class="led-main">
+              <span class="led-freq" id="pr-freq">97.2</span>
+              <span class="led-unit">KHz</span>
+            </div>
+          </div>
+          <div class="display-info">
+            <h3 class="info-title" id="pr-title">the Theater Back to</h3>
+            <p class="info-subtitle" id="pr-subtitle">The Daily</p>
+            <div class="info-timer">
+              <i class="fa-regular fa-clock"></i> <span id="pr-time">45 mins</span> <i
+                class="fa-solid fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="tuning-scale">
+          <div class="scale-ticks"></div>
+          <div class="scale-labels">
+            <span>96</span>
+            <span>97</span>
+            <span>98</span>
+            <span>99</span>
+          </div>
+          <div class="tuning-needle" id="pr-needle"></div>
+        </div>
+
+        <div class="left-actions">
+          <button class="action-btn"><i class="fa-solid fa-star"></i></button>
+          <div class="band-toggle">
+            <span class="band active">FM</span>
+            <span class="band-dot">•</span>
+            <span class="band">AM</span>
+          </div>
+          <button class="action-btn"><i class="fa-solid fa-tower-broadcast"></i></button>
+        </div>
+      </div>
+
+      <!-- Right Panel: Stations & Media -->
+      <div class="radio-panel panel-right">
+        <div class="right-header">
+          <div class="radio-area-btn">
+            <span class="area-label">RADIO AREA</span>
+            <span class="area-value">Default <i class="fa-solid fa-chevron-right"
+                style="font-size:12px;margin-left:4px;"></i></span>
+          </div>
+          <button class="stereo-btn">
+            <i class="fa-solid fa-headphones"></i>
+            <span>STEREO</span>
+          </button>
+        </div>
+
+        <div class="stations-section">
+          <div class="stations-header">
+            <span class="stations-count">Stations <span class="dot">•</span> <span id="pr-count">4</span></span>
+            <span class="auto-search">Auto Search <i class="fa-solid fa-magnifying-glass"></i></span>
+          </div>
+          <div class="stations-list" id="pr-stations">
+            <button class="station-chip active" data-freq="88.5" data-title="Là Chính Mình"
+              data-subtitle="Podcast Tâm Sự" data-src="./assets/music/radio_music/la_chinh_minh.mp3">1. Tâm Sự <span
+                class="chip-freq">88.5</span></button>
+            <button class="station-chip" data-freq="95.5" data-title="Lofi Vibes" data-subtitle="Chill & Relax"
+              data-src="./assets/music/radio_music/lofi_music.mp3">2. Lofi Chill <span
+                class="chip-freq">95.5</span></button>
+            <button class="station-chip" data-freq="99.9" data-title="Cô ơi, con fan cô!" data-subtitle="Drama Trà Đá"
+              data-src="./assets/music/radio_music/phuong_hang.mp3">3. Phương Hằng Radio <span
+                class="chip-freq">99.9</span></button>
+            <button class="station-chip" data-freq="104.2" data-title="Vẫn Ổn Mà" data-subtitle="Nhạc suy"
+              data-src="./assets/music/radio_music/van_on_ma.mp3">4. Vẫn ổn mà <span
+                class="chip-freq">104.2</span></button>
+          </div>
+        </div>
+
+        <div class="media-section">
+          <div class="sliders-row">
+            <div class="slider-group">
+              <label>Tempo</label>
+              <input type="range" class="mini-slider" value="50">
+            </div>
+            <div class="slider-group">
+              <label>Equalizer <i class="fa-solid fa-caret-right"></i></label>
+            </div>
+          </div>
+
+          <div class="media-controls">
+            <button class="media-btn" id="pr-prev"><i class="fa-solid fa-backward-step"></i></button>
+            <button class="media-btn"><i class="fa-solid fa-backward-fast"></i></button>
+            <button class="media-btn play-pause" id="pr-play"><i class="fa-solid fa-play"></i></button>
+            <button class="media-btn"><i class="fa-solid fa-forward-fast"></i></button>
+            <button class="media-btn" id="pr-next"><i class="fa-solid fa-forward-step"></i></button>
+
+            <div class="volume-knob-wrapper">
+              <span class="vol-minus">-</span>
+              <div class="volume-knob" id="pr-vol-knob">
+                <i class="fa-solid fa-volume-high"></i>
+                <div class="knob-indicator"></div>
+              </div>
+              <span class="vol-plus">+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="room-navigation">
+      <div class="section-content">
+        <div class="doors-grid">
+          <a href="attic.html" class="door-card door-down">
+            <div class="door-icon"><i class="fa-solid fa-arrow-down"></i></div>
+            <span>Trở xuống Gác Xép</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="./js/premium-radio.js"></script>
+  <script src="./js/cursor.js"></script>
+  <script src="./js/minimap.js"></script>
+</body>
+
+</html>

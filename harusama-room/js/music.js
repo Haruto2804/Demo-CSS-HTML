@@ -176,5 +176,19 @@ if (nowPlayingCard) {
   nowPlayingCard.addEventListener("dblclick", toggleAudio);
 }
 
-// Load sẵn bài đầu tiên nhưng chưa tự phát
-loadTrack(0, false);
+// Load sẵn bài đầu tiên và thử tự phát
+loadTrack(0, true);
+
+// Fallback: Nếu trình duyệt chặn autoplay, tự động phát khi người dùng tương tác lần đầu với trang
+const autoPlayFallback = () => {
+  if (audio.paused) {
+    playAudio();
+  }
+  document.removeEventListener("click", autoPlayFallback);
+  document.removeEventListener("keydown", autoPlayFallback);
+  document.removeEventListener("touchstart", autoPlayFallback);
+};
+
+document.addEventListener("click", autoPlayFallback);
+document.addEventListener("keydown", autoPlayFallback);
+document.addEventListener("touchstart", autoPlayFallback);

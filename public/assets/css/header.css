@@ -21,10 +21,23 @@
   backdrop-filter: blur(18px);
 
   z-index: 999;
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 
   box-shadow:
     0 10px 40px rgba(0, 0, 0, 0.25),
     inset 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+#header.header--scrolled {
+  top: 14px;
+  width: min(1050px, calc(100% - 30px));
+  background: rgba(8, 12, 28, 0.82);
+  border-color: rgba(0, 245, 255, 0.28);
+  box-shadow:
+    0 15px 45px rgba(0, 0, 0, 0.45),
+    0 0 25px rgba(0, 245, 255, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  padding: 12px 24px;
 }
 
 /* LEFT */
@@ -99,9 +112,11 @@
   transition: all 0.3s ease;
 }
 
-#nav-menu a:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.06);
+#nav-menu a:hover,
+#nav-menu a.active {
+  color: #00f5ff;
+  background: rgba(0, 245, 255, 0.12);
+  box-shadow: inset 0 0 12px rgba(0, 245, 255, 0.15);
 }
 
 #nav-menu a::after {
@@ -121,8 +136,10 @@
   transition: width 0.3s ease;
 }
 
-#nav-menu a:hover::after {
+#nav-menu a:hover::after,
+#nav-menu a.active::after {
   width: calc(100% - 36px);
+  box-shadow: 0 0 8px #00f5ff;
 }
 
 /* BUTTON */
