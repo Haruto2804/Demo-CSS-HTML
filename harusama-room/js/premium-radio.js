@@ -431,4 +431,57 @@ document.addEventListener('DOMContentLoaded', () => {
   if (stationData.length > 0) {
     setFrequency(stationData[0].freq);
   }
+
+  // --- MINIMIZE / EXPAND RADIO ---
+  const radioWrapper = document.getElementById('radio-wrapper');
+  const radioOverlay = document.getElementById('radio-overlay');
+  const minimizeBtn = document.getElementById('radio-minimize');
+  const miniPlayer = document.getElementById('mini-player');
+  const miniExpandBtn = document.getElementById('mini-expand');
+  const miniPlayBtn = document.getElementById('mini-play-btn');
+  const miniTitle = document.getElementById('mini-title');
+  const miniSub = document.getElementById('mini-sub');
+
+  let radioMinimized = false;
+
+  function updateMiniPlayer() {
+    const title = titleDisplay.textContent;
+    const area = areas[currentAreaIndex];
+    miniTitle.textContent = title;
+    miniSub.textContent = `${area} · ${currentFreq.toFixed(1)} MHz`;
+    const icon = miniPlayBtn.querySelector('i');
+    icon.className = isPlaying ? 'fa-solid fa-pause' : 'fa-solid fa-play';
+  }
+
+  function minimizeRadio() {
+    radioMinimized = true;
+    radioWrapper.classList.add('minimized');
+    radioOverlay.classList.add('hidden');
+    updateMiniPlayer();
+    setTimeout(() => { miniPlayer.classList.add('visible'); }, 200);
+  }
+
+  function expandRadio() {
+    radioMinimized = false;
+    miniPlayer.classList.remove('visible');
+    radioOverlay.classList.remove('hidden');
+    setTimeout(() => { radioWrapper.classList.remove('minimized'); }, 150);
+  }
+
+  minimizeBtn.addEventListener('click', minimizeRadio);
+  miniExpandBtn.addEventListener('click', expandRadio);
+
+  miniPlayBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    playBtn.click(); // Reuse existing play logic
+    setTimeout(updateMiniPlayer, 50);
+  });
+
+  // Keep mini-player in sync when station changes
+  const origApply = applyCrossfade;
+  const _origApply = applyCrossfade.bind(null);
+  // ponytail: simple MutationObserver on title text to sync mini-player
+  new MutationObserver(() => {
+    if (radioMinimized) updateMiniPlayer();
+  }).observe(titleDisplay, { childList: true, characterData: true, subtree: true });
 });
