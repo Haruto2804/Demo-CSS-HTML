@@ -1,0 +1,117 @@
+/* =========================
+   SERVICES SECTION (TEST.MP4 STYLE)
+========================= */
+#services-section {
+  position: relative;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+.services-title {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-8);
+}
+
+.accordion-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.accordion-item {
+  border-top: 1px solid var(--border-color);
+}
+
+.accordion-item:last-child {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.accordion-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-8) 0;
+  background: transparent;
+  border: none;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.accordion-header i {
+  font-size: var(--text-2xl);
+  color: var(--text-muted);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.accordion-header:hover {
+  opacity: 0.8;
+}
+
+.accordion-header:hover i {
+  color: var(--text-primary);
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), padding 0.5s ease;
+}
+
+.accordion-item.active .accordion-body {
+  max-height: 500px;
+  padding-bottom: var(--space-8);
+}
+
+.accordion-item.active .accordion-header i {
+  transform: rotate(45deg);
+  color: var(--text-primary);
+}
+
+.accordion-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  background: var(--text-primary); /* Dark card inside light mode */
+  color: var(--bg-primary);
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+}
+
+.accordion-content p {
+  color: var(--bg-tertiary);
+  font-size: var(--text-lg);
+  max-width: 500px;
+}
+
+.accordion-image {
+  flex-shrink: 0;
+}
+
+.placeholder-img {
+  width: 120px;
+  height: 120px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .accordion-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

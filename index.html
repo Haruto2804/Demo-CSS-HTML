@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="./public/assets/css/header.css" />
     <link rel="stylesheet" href="./public/assets/css/hero_section.css" />
     <link rel="stylesheet" href="./public/assets/css/about_section.css" />
-    <link rel="stylesheet" href="./public/assets/css/skills_section.css" />
+    <link rel="stylesheet" href="./public/assets/css/services_section.css" />
     <link rel="stylesheet" href="./public/assets/css/projects_section.css" />
     <link rel="stylesheet" href="./public/assets/css/testimonial_section.css" />
     <link rel="stylesheet" href="./public/assets/css/contact_section.css" />
@@ -27,7 +27,8 @@
   </head>
 
   <body>
-    <div id="scroll-progress"></div>
+    <div id="app-container">
+      <div id="scroll-progress"></div>
     <!-- HEADER SECTION -->
     <header id="header">
       <div id="left-header">
@@ -52,6 +53,10 @@
 
         <div>
           <a href="#skill-section">Skills</a>
+        </div>
+
+        <div>
+          <a href="#ai-section">AI Workflow</a>
         </div>
 
         <div>
@@ -85,273 +90,125 @@
     <div id="first-section"></div>
     <main>
       <!-- HERO SECTION -->
-      <section id="hero-section" class="overlay">
-        <div id="hero-section-left">
-          <div class="live-status-badge">
-            <span class="status-pulse"></span>
-            <span>AVAILABLE FOR WORK / FREELANCE</span>
+      <section id="hero-section">
+        <!-- Huge background text -->
+        <div class="hero-bg-text">
+          <span class="outline-text">HARU</span><span class="solid-text">TO</span>
+        </div>
+        
+        <!-- Center Portrait -->
+        <div class="hero-center-portrait">
+          <div class="portrait-placeholder">
+             <i class="fa-solid fa-user-astronaut"></i>
           </div>
+        </div>
 
-          <p id="hero-section-intro">
-            <span class="hero-section-title"> </span>
-          </p>
-          <p id="hero-section-info">Third-year IT Student • STU</p>
-          <p id="hero-section-subinfo">
-            I am passionate about building complete web applications:
-            <span id="hero-section-subinfo1">
-              from smooth, UI/UX-focused front-end interfaces
-            </span>
-            to
-            <span id="hero-section-subinfo2">
-              optimized and secure back-end systems.
-            </span>
-          </p>
-
-          <div id="exp_year">
-            <div class="exp-item">
-              <span class="exp_year-amount">1+</span>
-              <span class="exp_year-text">Projects</span>
+        <!-- Content Layout -->
+        <div class="hero-content-wrapper">
+          <div id="hero-section-left">
+            <div class="live-status-badge">
+              <span class="status-pulse"></span>
+              <span>Available for New Project</span>
             </div>
-            <div class="exp-item">
-              <span class="exp_year-amount">8+</span>
-              <span class="exp_year-text">Technologies</span>
+
+            <h1 class="hero-job-title">Fullstack Developer</h1>
+            
+            <p id="hero-section-subinfo">
+              Designing digital products that are clear, robust, and conversion focused.
+            </p>
+
+            <a href="#contact-section" class="hero-btn">
+              Let's collaborate <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+
+          <div id="hero-section-right">
+            <div class="hero-socials">
+              <a href="#"><i class="fa-brands fa-github"></i> GitHub</a>
+              <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+              <a href="#"><i class="fa-solid fa-envelope"></i> Email</a>
+              <a href="#"><i class="fa-brands fa-dribbble"></i> Dribbble</a>
             </div>
-          </div>
-
-          <div class="hero-tech-pills">
-            <span class="tech-pill"><i class="fa-brands fa-react"></i> React</span>
-            <span class="tech-pill"><i class="fa-brands fa-node-js"></i> Node.js</span>
-            <span class="tech-pill"><i class="fa-brands fa-js"></i> TypeScript</span>
-            <span class="tech-pill"><i class="fa-solid fa-database"></i> SQL / MongoDB</span>
-            <span class="tech-pill"><i class="fa-brands fa-css3-alt"></i> TailwindCSS</span>
-          </div>
-
-          <div id="scroll-down">
-            <i class="fa-solid fa-chevron-down"></i> Scroll Down
           </div>
         </div>
       </section>
       <!-- ABOUT SECTION -->
-      <section id="about-section" class="overlay">
+      <section id="about-section">
         <div class="about-container">
-          <span class="about-subtitle">About Me</span>
-
-          <h2 class="about-title">FULL-STACK WEB DEVELOPER IN PROGRESS</h2>
-
-          <p class="about-desc">
-            I am a third-year IT student at STU, focusing on full-stack web
-            development. I enjoy building responsive interfaces, smooth user
-            experiences, and practical web applications that solve real
-            problems.
-          </p>
+          <span class="about-subtitle">/EXPERIENCE</span>
 
           <div class="about-grid">
             <div class="about-card">
-              <i class="fa-solid fa-code"></i>
-              <h3>Clean Code</h3>
-              <p>Writing readable, organized, and maintainable code.</p>
+              <div>
+                <h3>STU University</h3>
+                <p>Third-year IT Student</p>
+              </div>
+              <p>2024 - Present</p>
             </div>
 
             <div class="about-card">
-              <i class="fa-solid fa-layer-group"></i>
-              <h3>Modern UI</h3>
-              <p>Creating responsive layouts with smooth visual experience.</p>
+              <div>
+                <h3>Clean Code & Modern UI</h3>
+                <p>Focusing on responsive design and smooth UX</p>
+              </div>
+              <p>Continuous Improvement</p>
             </div>
 
             <div class="about-card">
-              <i class="fa-solid fa-rocket"></i>
-              <h3>Real Projects</h3>
-              <p>
-                Learning through practical projects and continuous improvement.
-              </p>
+              <div>
+                <h3>Real World Projects</h3>
+                <p>Building practical web applications</p>
+              </div>
+              <p>1+ Projects Completed</p>
             </div>
           </div>
         </div>
       </section>
-      <!-- SKILLS SECTION -->
-      <section id="skill-section">
-        <div class="skill-section__left">
-          <h2 class="skill-section__title">TECHNICAL SKILLS</h2>
-          <p class="skill-section__desc">
-            Core technical skills and technologies refined through real-world
-            projects.
-          </p>
-
-          <div class="tech-stats">
-            <div class="tech-stats__item">
-              <span class="tech-stats__number">8+</span>
-              <span class="tech-stats__label">Technologies</span>
-            </div>
-            <div class="tech-stats__item">
-              <span class="tech-stats__number">1+</span>
-              <span class="tech-stats__label">Project</span>
-            </div>
-          </div>
-
-          <div class="skill-filter-pills" style="margin-top: 25px;">
-            <button class="skill-filter-btn active" data-filter="all">All Skills</button>
-            <button class="skill-filter-btn" data-filter="frontend">Frontend</button>
-            <button class="skill-filter-btn" data-filter="backend">Backend & Tools</button>
-          </div>
-        </div>
-
-        <div class="skill-section__right">
-          <!-- GROUP 1: FRONT-END DEVELOPMENT -->
-          <div class="skills-group">
-            <h3 class="skills-group__title">
-              <i class="fa-solid fa-laptop-code"></i> Front-end Development
-            </h3>
-            <div class="skills-grid">
-              <div class="skill-card">
-                <div class="skill-card__info">
-                  <span><i class="fa-brands fa-html5"></i> HTML5</span>
-                  <span class="skill-card__percent">90%</span>
-                </div>
-                <div class="skill-card__progress-bar">
-                  <div
-                    class="skill-card__progress-fill"
-                    style="width: 90%"
-                  ></div>
-                </div>
-              </div>
-
-              <div class="skill-card">
-                <div class="skill-card__info">
-                  <span><i class="fa-brands fa-css3-alt"></i> CSS3</span>
-                  <span class="skill-card__percent">85%</span>
-                </div>
-                <div class="skill-card__progress-bar">
-                  <div
-                    class="skill-card__progress-fill"
-                    style="width: 85%"
-                  ></div>
-                </div>
-              </div>
-
-              <div class="skill-card">
-                <div class="skill-card__info">
-                  <span><i class="fa-brands fa-js"></i> JavaScript</span>
-                  <span class="skill-card__percent">80%</span>
-                </div>
-                <div class="skill-card__progress-bar">
-                  <div
-                    class="skill-card__progress-fill"
-                    style="width: 80%"
-                  ></div>
-                </div>
-              </div>
-
-              <div class="skill-card">
-                <div class="skill-card__info">
-                  <span><i class="fa-brands fa-react"></i> React</span>
-                  <span class="skill-card__percent">75%</span>
-                </div>
-                <div class="skill-card__progress-bar">
-                  <div
-                    class="skill-card__progress-fill"
-                    style="width: 75%"
-                  ></div>
-                </div>
-              </div>
-
-              <div class="skill-card">
-                <div class="skill-card__info">
-                  <span><i class="fa-solid fa-cloud"></i> Vercel</span>
-                  <span class="skill-card__percent">80%</span>
-                </div>
-                <div class="skill-card__progress-bar">
-                  <div
-                    class="skill-card__progress-fill"
-                    style="width: 80%"
-                  ></div>
+      <!-- SERVICES SECTION -->
+      <section id="services-section">
+        <h2 class="services-title">/SERVICE</h2>
+        
+        <div class="accordion-list">
+          <!-- Accordion Item 1 -->
+          <div class="accordion-item">
+            <button class="accordion-header">
+              FRONT-END DEVELOPMENT <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-content">
+                <p>Creating responsive layouts with smooth visual experience using React, TailwindCSS, HTML5, and CSS3.</p>
+                <div class="accordion-image">
+                  <div class="placeholder-img"><i class="fa-solid fa-laptop-code"></i></div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- GROUP 2: BACK-END & TOOLS -->
-          <div class="skills-group">
-            <h3 class="skills-group__title">
-              <i class="fa-solid fa-server"></i> Back-end & Tools
-            </h3>
-            <div class="skills-grid">
-              <div class="skill-card">
-                <div class="skill-card__info">
-                  <span><i class="fa-brands fa-node-js"></i> Node.js</span>
-                  <span class="skill-card__percent">65%</span>
-                </div>
-                <div class="skill-card__progress-bar">
-                  <div
-                    class="skill-card__progress-fill"
-                    style="width: 65%"
-                  ></div>
+          <!-- Accordion Item 2 -->
+          <div class="accordion-item">
+            <button class="accordion-header">
+              BACK-END & TOOLS <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-content">
+                <p>Building secure, scalable APIs and managing databases using Node.js, SQL, MongoDB, and RESTful architectures.</p>
+                <div class="accordion-image">
+                  <div class="placeholder-img"><i class="fa-solid fa-server"></i></div>
                 </div>
               </div>
+            </div>
+          </div>
 
-              <div class="skill-card">
-                <div class="skill-card__info">
-                  <span>
-                    <i class="fa-solid fa-database"></i> SQL / MongoDB
-                  </span>
-                  <span class="skill-card__percent">80%</span>
-                </div>
-                <div class="skill-card__progress-bar">
-                  <div
-                    class="skill-card__progress-fill"
-                    style="width: 80%"
-                  ></div>
-                </div>
-              </div>
-
-              <div class="skill-card">
-                <div class="skill-card__info">
-                  <span><i class="fa-solid fa-gears"></i> RESTful API</span>
-                  <span class="skill-card__percent">85%</span>
-                </div>
-                <div class="skill-card__progress-bar">
-                  <div
-                    class="skill-card__progress-fill"
-                    style="width: 85%"
-                  ></div>
-                </div>
-              </div>
-
-              <div class="skill-card">
-                <div class="skill-card__info">
-                  <span><i class="fa-solid fa-rocket"></i> Postman</span>
-                  <span class="skill-card__percent">60%</span>
-                </div>
-                <div class="skill-card__progress-bar">
-                  <div
-                    class="skill-card__progress-fill"
-                    style="width: 60%"
-                  ></div>
-                </div>
-              </div>
-
-              <div class="skill-card">
-                <div class="skill-card__info">
-                  <span><i class="fa-solid fa-layer-group"></i> Render</span>
-                  <span class="skill-card__percent">70%</span>
-                </div>
-                <div class="skill-card__progress-bar">
-                  <div
-                    class="skill-card__progress-fill"
-                    style="width: 70%"
-                  ></div>
-                </div>
-              </div>
-
-              <div class="skill-card">
-                <div class="skill-card__info">
-                  <span><i class="fa-brands fa-git-alt"></i> Git</span>
-                  <span class="skill-card__percent">50%</span>
-                </div>
-                <div class="skill-card__progress-bar">
-                  <div
-                    class="skill-card__progress-fill"
-                    style="width: 50%"
-                  ></div>
+          <!-- Accordion Item 3 -->
+          <div class="accordion-item">
+            <button class="accordion-header">
+              AI-ASSISTED WORKFLOW <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-content">
+                <p>Leveraging advanced AI Agents for rapid prototyping, automated research, and lightning-fast coding.</p>
+                <div class="accordion-image">
+                  <div class="placeholder-img"><i class="fa-solid fa-robot"></i></div>
                 </div>
               </div>
             </div>
@@ -361,59 +218,35 @@
 
       <!-- PROJECTS SECTION -->
       <section id="project-section">
-        <h2 class="section-title">FEATURED PROJECTS</h2>
-
-        <div class="project-card">
-          <div class="project-card__content">
-            <span class="project-card__tag">Featured Project</span>
-
-            <h3 class="project-card__title">CINE STREAM</h3>
-
-            <p class="project-card__desc">
-              A high-performance Single Page Application (SPA) that allows users
-              to search, explore information, and watch trailers for global
-              movies in real time.
-            </p>
-
-            <div class="project-card__tech">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>TailwindCSS</span>
-              <span>JavaScript</span>
-              <span>Responsive</span>
-              <span>React</span>
-            </div>
-
-            <div class="project-card__buttons">
-              <a
-                href="https://movie-website-n5bv.vercel.app"
-                class="project-btn project-btn--demo"
-                target="_blank"
-              >
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                Live Demo
-              </a>
-
-              <a
-                href="https://github.com/Haruto2804/MovieWebsite"
-                class="project-btn project-btn--code"
-                target="_blank"
-              >
-                <i class="fa-brands fa-github"></i>
-                Source Code
-              </a>
-            </div>
+        <div class="project-header">
+          <div class="project-bg-text">PORTFOLIO</div>
+          <h2 class="project-title">/SELECTED WORK</h2>
+          
+          <div class="project-tabs">
+            <button class="project-tab active">All</button>
+            <button class="project-tab">Real Project</button>
+            <button class="project-tab">Exploration</button>
+            <a href="#" class="view-all-link">View All Work <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
           </div>
+        </div>
 
-          <div class="project-card__image">
-            <div class="project-preview">
-              <div class="project-preview__top">
-                <span></span>
-                <span></span>
-                <span></span>
+        <div class="project-grid">
+          <div class="project-card">
+            <div class="project-card__image">
+              <div class="project-preview">
+                <div class="project-preview__top">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="project-preview__body"></div>
               </div>
-
-              <div class="project-preview__body"></div>
+            </div>
+            
+            <div class="project-card__content">
+              <h3 class="project-card__title">CINE STREAM - Mental Health App Landing Page</h3>
+              <div class="project-card__buttons">
+                <a href="https://movie-website-n5bv.vercel.app" class="project-btn" target="_blank">Landing Page</a>
+                <span class="project-studio">Haruto Studio</span>
+              </div>
             </div>
           </div>
         </div>
@@ -581,8 +414,9 @@
       <div class="footer-bottom">
         <p>&copy; 2026 Haruto. All rights reserved.</p>
       </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/motion@latest/dist/motion.js"></script>
+    </div>
+    <!-- Motion One Library -->
+    <script src="https://cdn.jsdelivr.net/npm/motion@11.1.1/dist/motion.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="./public/assets/js/motionJS/motion.js"></script>
     <script src="./public/assets/js/motionJS/scoll.js"></script>

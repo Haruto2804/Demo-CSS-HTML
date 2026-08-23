@@ -1,260 +1,201 @@
-/* ===================================================
+/* =========================
    CONTACT SECTION
-   =================================================== */
-
+========================= */
 #contact-section {
-  padding: 80px 10%;
-  background-color: transparent;
-  color: #ffffff;
-}
-
-.contact-container {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  gap: 45px;
+  gap: var(--space-12);
   align-items: center;
 }
 
 .contact-subtitle {
   display: inline-block;
-  margin-bottom: 16px;
-  padding: 8px 15px;
-  border-radius: 999px;
-  background-color: rgba(9, 169, 209, 0.12);
-  color: #00c314;
-  font-size: 0.9rem;
+  margin-bottom: var(--space-4);
+  color: var(--accent-primary);
+  font-size: var(--text-sm);
   font-weight: 700;
-  border: 1px solid rgba(9, 169, 209, 0.25);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .contact-title {
-  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
   line-height: 1.1;
-  font-weight: 900;
-  margin-bottom: 20px;
-  max-width: 700px;
-}
-
-.contact-title span {
-  background: linear-gradient(135deg, #09a9d1 0%, #00c314 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+  margin-bottom: var(--space-6);
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
 }
 
 .contact-desc {
   max-width: 650px;
-  color: #94a3b8;
-  font-size: 1.05rem;
-  line-height: 1.8;
-  margin-bottom: 28px;
+  color: var(--text-secondary);
+  font-size: var(--text-lg);
+  line-height: 1.6;
+  margin-bottom: var(--space-8);
 }
 
 .contact-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  margin-bottom: 30px;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
 }
 
 .contact-links a {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
-  padding: 12px 17px;
-  border-radius: 12px;
-  background-color: rgba(5, 32, 58, 0.7);
-  color: #e2e8f0;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
   text-decoration: none;
-  font-weight: 700;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-weight: 600;
+  border: 1px solid var(--border-color);
   transition: all 0.3s ease;
 }
 
 .contact-links a i {
-  font-size: 1.2rem;
-  color: #09a9d1;
+  font-size: var(--text-lg);
+  color: var(--text-primary);
 }
 
 .contact-links a:hover {
   transform: translateY(-4px);
-  border-color: rgba(9, 169, 209, 0.45);
-  box-shadow: 0 10px 25px rgba(9, 169, 209, 0.16);
-  background-color: rgb(5, 32, 58);
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: var(--text-primary);
+  color: var(--text-primary);
 }
 
 .contact-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: var(--space-4);
 }
 
 .contact-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 14px 22px;
-  border-radius: 14px;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
   text-decoration: none;
-  font-weight: 800;
+  font-weight: 600;
   transition: all 0.3s ease;
+  font-size: var(--text-sm);
 }
 
 .contact-btn--primary {
-  color: #ffffff;
-  background: linear-gradient(135deg, #09a9d1 0%, #00c314 100%);
+  color: var(--bg-primary);
+  background: var(--text-primary);
+}
+
+.contact-btn--primary:hover {
+  background: var(--text-secondary);
 }
 
 .contact-btn--outline {
-  color: #ffffff;
+  color: var(--text-primary);
   background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid var(--border-color);
 }
 
-.contact-btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(9, 169, 209, 0.25);
+.contact-btn--outline:hover {
+  background-color: var(--bg-tertiary);
 }
-
-/* Contact card bên phải */
 
 .contact-card {
-  padding: 32px;
-  border-radius: 24px;
-  background-color: rgba(5, 32, 58, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
-  transition: all 0.35s ease;
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
 }
 
 .contact-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(9, 169, 209, 0.4);
-  box-shadow: 0 25px 70px rgba(9, 169, 209, 0.16);
+  border-color: var(--text-muted);
+  background-color: var(--bg-tertiary);
 }
 
 .contact-card__icon {
-  width: 65px;
-  height: 65px;
-  border-radius: 18px;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 22px;
-  background: linear-gradient(135deg, #09a9d1 0%, #00c314 100%);
+  margin-bottom: var(--space-6);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
 }
 
 .contact-card__icon i {
-  font-size: 1.8rem;
-  color: #ffffff;
+  font-size: var(--text-2xl);
+  color: var(--text-primary);
 }
 
 .contact-card h3 {
-  font-size: 1.6rem;
-  margin-bottom: 12px;
-  color: #ffffff;
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-3);
+  color: var(--text-primary);
 }
 
 .contact-card p {
-  color: #94a3b8;
-  line-height: 1.7;
-  margin-bottom: 24px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-6);
 }
 
 .contact-info {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: var(--space-4);
 }
 
 .contact-info div {
   display: flex;
   align-items: center;
-  gap: 12px;
-  color: #e2e8f0;
-  font-weight: 600;
+  gap: var(--space-3);
+  color: var(--text-primary);
+  font-weight: 500;
 }
 
 .contact-info i {
-  color: #00c314;
-  font-size: 1rem;
+  color: var(--text-muted);
+  font-size: var(--text-lg);
 }
 
-/* ===================================================
-   RESPONSIVE CONTACT SECTION
-   =================================================== */
-
-@media (max-width: 900px) {
-  #contact-section {
-    padding: 65px 6%;
-  }
-
-  .contact-container {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-title,
-  .contact-desc {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 600px) {
-  #contact-section {
-    padding: 55px 5%;
-  }
-
-  .contact-title {
-    font-size: 2.3rem;
-  }
-
-  .contact-desc {
-    font-size: 0.98rem;
-  }
-
-  .contact-links,
-  .contact-actions {
-    flex-direction: column;
-  }
-
-  .contact-links a,
-  .contact-btn {
-    width: 100%;
-  }
-
-  .contact-card {
-    padding: 25px;
-    border-radius: 20px;
-  }
-}
-
-/* ===================================================
-   ONE-CLICK COPY EMAIL BUTTON (PACKAGE 4 VIP)
-   =================================================== */
 #copy-email-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 18px;
-  border-radius: 12px;
-  background: rgba(0, 245, 255, 0.12);
-  border: 1px solid rgba(0, 245, 255, 0.35);
-  color: #00f5ff;
-  font-size: 13px;
-  font-weight: 700;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s ease;
 }
+
 #copy-email-btn:hover {
-  background: rgba(0, 245, 255, 0.25);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 245, 255, 0.25);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
 }
+
 #copy-email-btn.copied {
-  background: rgba(34, 197, 94, 0.25);
-  border-color: #22c55e;
-  color: #22c55e;
-  box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+  background: rgba(16, 185, 129, 0.1);
+  border-color: var(--accent-secondary);
+  color: var(--accent-secondary);
+}
+
+@media (max-width: 900px) {
+  #contact-section {
+    grid-template-columns: 1fr;
+  }
 }

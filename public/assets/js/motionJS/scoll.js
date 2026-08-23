@@ -2,45 +2,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const { inView, animate } = motion;
 
-  // 1. Hiệu ứng xuất hiện cho từng Section chính
-  inView("section", (element) => {
-    animate(
-      element,
-      { opacity: [0, 1], y: [40, 0] },
-      { duration: 0.8, easing: "ease-out" },
-    );
-
-    // Trả về một hàm clear nếu chỉ muốn chạy hiệu ứng 1 lần duy nhất khi cuộn xuống
-    // (Bỏ comment dòng dưới nếu muốn cuộn lên cuộn xuống hiệu ứng lặp lại)
-    return () => {};
-  });
-
-  // 2. Hiệu ứng mượt mà (Stagger) cho các thẻ Skill Card trong phần Kỹ năng
-  inView(".skills-group", (element) => {
-    const cards = element.querySelectorAll(".skill-card");
-    animate(
-      cards,
-      { opacity: [0, 1], scale: [0.9, 1] },
-      { delay: motion.stagger(0.1), duration: 0.5 },
-    );
-  });
-
-  // 3. Hiệu ứng trượt từ trái/phải cho Project Card
-  inView(".project-card", (element) => {
-    const content = element.querySelector(".project-card__content");
-    const image = element.querySelector(".project-card__image");
-
-    if (content) {
-      animate(content, { opacity: [0, 1], x: [-50, 0] }, { duration: 0.6 });
-    }
-    if (image) {
-      animate(
-        image,
-        { opacity: [0, 1], x: [50, 0] },
-        { duration: 0.6, delay: 0.2 },
-      );
-    }
-  });
+  // Removed generic section animations and old skill animations to avoid conflicts with motion.js
+  // Removed conflicting project card animations (moved to motion.js)
 
   // 4. Thanh tiến trình cuộn trang (Scroll Progress Bar) ở đầu trang
   const scrollProgress = document.getElementById("scroll-progress");
@@ -88,30 +51,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 6. Skill Filter Pills (PACKAGE 4 VIP)
-  const filterButtons = document.querySelectorAll(".skill-filter-btn");
-  const skillGroups = document.querySelectorAll(".skills-group");
-  filterButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      filterButtons.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
+  // 6. Services Accordion Logic
+  const accordionItems = document.querySelectorAll(".accordion-item");
+  accordionItems.forEach((item) => {
+    const header = item.querySelector(".accordion-header");
+    header.addEventListener("click", () => {
+      // Toggle current item
+      const isActive = item.classList.contains("active");
+      
+      // Close all items
+      accordionItems.forEach((i) => i.classList.remove("active"));
 
-      const filter = btn.getAttribute("data-filter");
-      skillGroups.forEach((group) => {
-        const titleText = group.querySelector(".skills-group__title")?.textContent.toLowerCase() || "";
-        if (filter === "all") {
-          group.style.display = "block";
-          animate(group, { opacity: [0, 1], scale: [0.97, 1] }, { duration: 0.35 });
-        } else if (filter === "frontend" && titleText.includes("front-end")) {
-          group.style.display = "block";
-          animate(group, { opacity: [0, 1], scale: [0.97, 1] }, { duration: 0.35 });
-        } else if (filter === "backend" && titleText.includes("back-end")) {
-          group.style.display = "block";
-          animate(group, { opacity: [0, 1], scale: [0.97, 1] }, { duration: 0.35 });
-        } else {
-          group.style.display = "none";
+      // If it wasn't active, open it
+      if (!isActive) {
+        item.classList.add("active");
+        const content = item.querySelector(".accordion-content");
+        if (content) {
+          animate(content, { opacity: [0, 1], y: [10, 0] }, { duration: 0.4 });
         }
-      });
+      }
     });
   });
 

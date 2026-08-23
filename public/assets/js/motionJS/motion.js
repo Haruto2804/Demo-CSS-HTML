@@ -1,192 +1,161 @@
-const { animate, inView, stagger } = Motion;
+const { animate, inView, stagger } = motion;
 
-/* HERO */
-animate(
-  "#hero-section-left > *",
-  { opacity: [0, 1], y: [40, 0] },
-  {
-    duration: 0.7,
-    delay: stagger(0.12),
-    easing: "ease-out",
-  },
-);
+const springEasing = [0.16, 1, 0.3, 1]; // Premium smooth ease-out
 
-/* ABOUT */
-inView(
-  "#about-section",
-  () => {
-    animate(
-      ".about-subtitle, .about-title, .about-desc",
-      { opacity: [0, 1], y: [35, 0] },
-      {
-        duration: 0.7,
-        delay: stagger(0.12),
-        easing: "ease-out",
-      },
-    );
+/* ===========================
+   HERO SECTION
+=========================== */
+inView("#hero-section", () => {
+  // Fade in the massive background text slowly
+  animate(
+    ".hero-bg-text",
+    { opacity: [0, 1], scale: [1.1, 1] },
+    { duration: 1.5, easing: springEasing }
+  );
 
-    animate(
-      ".about-card",
-      { opacity: [0, 1], y: [40, 0] },
-      {
-        duration: 0.7,
-        delay: stagger(0.12),
-        easing: "ease-out",
-      },
-    );
-  },
-  { amount: 0.3, once: true },
-);
+  // Fade up the portrait
+  animate(
+    ".hero-center-portrait",
+    { opacity: [0, 1], y: [50, 0] },
+    { duration: 1, delay: 0.3, easing: springEasing }
+  );
 
-/* SKILLS */
-inView(
-  "#skill-section",
-  () => {
-    animate(
-      ".skill-section__left > *",
-      { opacity: [0, 1], x: [-35, 0] },
-      {
-        duration: 0.7,
-        delay: stagger(0.12),
-        easing: "ease-out",
-      },
-    );
+  // Stagger left content (status badge, job title, desc, btn)
+  animate(
+    "#hero-section-left > *",
+    { opacity: [0, 1], x: [-30, 0] },
+    { duration: 0.8, delay: stagger(0.1, { start: 0.4 }), easing: springEasing }
+  );
 
-    animate(
-      ".skills-group",
-      { opacity: [0, 1], y: [40, 0] },
-      {
-        duration: 0.7,
-        delay: stagger(0.15),
-        easing: "ease-out",
-      },
-    );
+  // Stagger right content (social links)
+  animate(
+    ".hero-socials a",
+    { opacity: [0, 1], x: [30, 0] },
+    { duration: 0.8, delay: stagger(0.1, { start: 0.5 }), easing: springEasing }
+  );
+}, { once: true });
 
-    animate(
-      ".skill-card",
-      { opacity: [0, 1], y: [25, 0] },
-      {
-        duration: 0.5,
-        delay: stagger(0.06),
-        easing: "ease-out",
-      },
-    );
 
-    animate(
-      ".skill-card__progress-fill",
-      { scaleX: [0, 1] },
-      {
-        duration: 0.9,
-        delay: stagger(0.06),
-        easing: "ease-out",
-      },
-    );
-  },
-  { amount: 0.25, once: true },
-);
+/* ===========================
+   ABOUT / EXPERIENCE SECTION
+=========================== */
+inView("#about-section", () => {
+  // Container fade in
+  animate(
+    "#about-section",
+    { opacity: [0, 1], y: [40, 0] },
+    { duration: 1, easing: springEasing }
+  );
 
-/* PROJECT */
-inView(
-  "#project-section",
-  () => {
-    animate(
-      "#project-section .section-title",
-      { opacity: [0, 1], y: [35, 0] },
-      {
-        duration: 0.7,
-        easing: "ease-out",
-      },
-    );
+  // Stagger text and experience cards
+  animate(
+    ".about-subtitle, .about-title, .about-desc",
+    { opacity: [0, 1], y: [20, 0] },
+    { duration: 0.8, delay: stagger(0.1, { start: 0.2 }), easing: springEasing }
+  );
+  
+  animate(
+    ".about-card",
+    { opacity: [0, 1], y: [20, 0] },
+    { duration: 0.8, delay: stagger(0.1, { start: 0.5 }), easing: springEasing }
+  );
+}, { amount: 0.2, once: true });
 
-    animate(
-      ".project-card",
-      { opacity: [0, 1], y: [50, 0] },
-      {
-        duration: 0.8,
-        easing: "ease-out",
-      },
-    );
-  },
-  { amount: 0.3, once: true },
-);
 
-/* TESTIMONIAL */
-inView(
-  "#testimonial-section",
-  () => {
-    animate(
-      ".testimonial-subtitle, .testimonial-title, .testimonial-desc",
-      { opacity: [0, 1], y: [35, 0] },
-      {
-        duration: 0.7,
-        delay: stagger(0.12),
-        easing: "ease-out",
-      },
-    );
+/* ===========================
+   SERVICES SECTION (Accordion)
+=========================== */
+inView("#services-section", () => {
+  animate(
+    ".services-title",
+    { opacity: [0, 1], x: [-30, 0] },
+    { duration: 0.8, easing: springEasing }
+  );
 
-    animate(
-      ".testimonial-card",
-      { opacity: [0, 1], y: [40, 0] },
-      {
-        duration: 0.7,
-        delay: stagger(0.12),
-        easing: "ease-out",
-      },
-    );
-  },
-  { amount: 0.3, once: true },
-);
+  // Stagger accordion items
+  animate(
+    ".accordion-item",
+    { opacity: [0, 1], y: [30, 0] },
+    { duration: 0.8, delay: stagger(0.15, { start: 0.2 }), easing: springEasing }
+  );
+}, { amount: 0.2, once: true });
 
-/* CONTACT */
-inView(
-  "#contact-section",
-  () => {
-    animate(
-      ".contact-content > *",
-      { opacity: [0, 1], x: [-35, 0] },
-      {
-        duration: 0.7,
-        delay: stagger(0.1),
-        easing: "ease-out",
-      },
-    );
 
-    animate(
-      ".contact-card",
-      { opacity: [0, 1], x: [35, 0] },
-      {
-        duration: 0.7,
-        easing: "ease-out",
-      },
-    );
-  },
-  { amount: 0.3, once: true },
-);
+/* ===========================
+   PROJECTS SECTION
+=========================== */
+inView("#project-section", () => {
+  // Fade in massive background text
+  animate(
+    ".project-bg-text",
+    { opacity: [0, 1], scale: [0.95, 1] },
+    { duration: 1.5, easing: springEasing }
+  );
 
-/* FOOTER */
-inView(
-  "#footer",
-  () => {
-    animate(
-      ".footer-container > *, .footer-bottom",
-      { opacity: [0, 1], y: [25, 0] },
-      {
-        duration: 0.6,
-        delay: stagger(0.1),
-        easing: "ease-out",
-      },
-    );
-  },
-  { amount: 0.2, once: true },
-);
+  animate(
+    ".project-title, .project-tabs",
+    { opacity: [0, 1], y: [30, 0] },
+    { duration: 0.8, delay: stagger(0.1), easing: springEasing }
+  );
+
+  // Fade up project cards
+  animate(
+    ".project-card",
+    { opacity: [0, 1], y: [50, 0] },
+    { duration: 1, delay: stagger(0.2, { start: 0.4 }), easing: springEasing }
+  );
+}, { amount: 0.2, once: true });
+
+
+/* ===========================
+   TESTIMONIAL SECTION
+=========================== */
+inView("#testimonial-section", () => {
+  animate(
+    ".testimonial-subtitle, .testimonial-title, .testimonial-desc",
+    { opacity: [0, 1], y: [30, 0] },
+    { duration: 0.8, delay: stagger(0.1), easing: springEasing }
+  );
+  animate(
+    ".testimonial-card",
+    { opacity: [0, 1], y: [40, 0] },
+    { duration: 0.8, delay: stagger(0.1, { start: 0.3 }), easing: springEasing }
+  );
+}, { amount: 0.3, once: true });
+
+
+/* ===========================
+   CONTACT SECTION
+=========================== */
+inView("#contact-section", () => {
+  animate(
+    ".contact-subtitle, .contact-title, .contact-desc, .contact-links, .contact-actions",
+    { opacity: [0, 1], x: [-30, 0] },
+    { duration: 0.8, delay: stagger(0.1), easing: springEasing }
+  );
+  animate(
+    ".contact-card",
+    { opacity: [0, 1], scale: [0.95, 1] },
+    { duration: 1, easing: springEasing }
+  );
+}, { amount: 0.3, once: true });
+
+
+/* ===========================
+   FOOTER
+=========================== */
+inView("#footer", () => {
+  animate(
+    ".footer-container > *, .footer-bottom",
+    { opacity: [0, 1], y: [20, 0] },
+    { duration: 0.8, delay: stagger(0.1), easing: springEasing }
+  );
+}, { amount: 0.2, once: true });
+
 
 /* SCROLL DOWN FLOAT */
 animate(
   "#scroll-down",
   { y: [0, 8, 0] },
-  {
-    duration: 1.8,
-    repeat: Infinity,
-    easing: "ease-in-out",
-  },
+  { duration: 2, repeat: Infinity, easing: "ease-in-out" }
 );

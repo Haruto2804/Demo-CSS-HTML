@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/auth-bar.css" />
     <link rel="stylesheet" href="./css/gallery.css" />
+    <link rel="stylesheet" href="./css/photo-detail-split.css" />
   </head>
 
   <body class="gallery-page detail-page">
@@ -79,63 +80,140 @@
     <div class="vintage-cursor-glow"></div>
     <div class="page-texture"></div>
 
-    <main class="page-shell detail-shell">
-      <a href="./gallery.html" class="detail-back">← Quay về Gallery</a>
+    <main class="split-layout-shell">
+      <!-- Màn hình trái: Hiển thị hình ảnh -->
+      <section class="split-left-pane">
+        <a href="./gallery.html" class="detail-back floating-back">← Quay về</a>
+        <article id="photoDetailMedia" class="photo-detail-media-container">
+          <!-- SKELETON MEDIA -->
+          <div class="skeleton-photo" style="width: 100%; height: 100%; border-radius: 0;"></div>
+        </article>
+      </section>
 
-      <article id="photoDetail" class="photo-detail-card">
-        <figure class="photo-detail-media detail-image-wrap skeleton-photo" style="min-height: 500px; border-radius: 24px;"></figure>
-        <div class="photo-detail-content detail-info" style="display: flex; flex-direction: column; gap: 16px;">
-          <div class="skeleton-line small" style="width: 100px;"></div>
-          <div class="skeleton-line big" style="height: 48px; width: 60%;"></div>
-          <div class="skeleton-line" style="width: 40%;"></div>
-          
-          <div style="display: flex; gap: 24px; margin-top: 12px;">
-            <div class="skeleton-line" style="width: 120px;"></div>
-            <div class="skeleton-line" style="width: 150px;"></div>
+      <!-- Màn hình phải: Thông tin & Bình luận -->
+      <section class="split-right-pane">
+        
+        <!-- Top Bar cho Desktop/Tablet (Mobile ẩn đi) -->
+        <div class="split-top-bar">
+          <div class="author-info" id="photoAuthorInfo">
+            <img src="./assets/images/avatar.jpeg" class="author-avatar" alt="Author">
+            <span class="author-name">@HARUTO_2804</span>
           </div>
-          
-          <div style="margin-top: 12px;">
-            <div class="skeleton-line" style="width: 100%; margin-bottom: 8px;"></div>
-            <div class="skeleton-line" style="width: 90%; margin-bottom: 8px;"></div>
-            <div class="skeleton-line" style="width: 75%;"></div>
+          <div class="top-actions">
+            <button class="icon-btn"><i class="fa-solid fa-share-nodes"></i></button>
+            <button class="icon-btn"><i class="fa-solid fa-ellipsis"></i></button>
           </div>
         </div>
-      </article>
 
-      <section class="detail-comments">
-        <div class="comments-head">
-          <div>
-            <p class="chapter chapter-gold">comment room</p>
-            <h2>Bình luận</h2>
-          </div>
+        <div class="split-scroll-content">
+          <article id="photoDetailContent" class="photo-detail-info-container">
+            <!-- SKELETON INFO -->
+            <div style="display: flex; flex-direction: column; gap: 16px; padding: 24px;">
+              <div class="skeleton-line small" style="width: 100px;"></div>
+              <div class="skeleton-line big" style="height: 48px; width: 60%;"></div>
+              <div class="skeleton-line" style="width: 40%;"></div>
+              <div style="display: flex; gap: 24px; margin-top: 12px;">
+                <div class="skeleton-line" style="width: 120px;"></div>
+                <div class="skeleton-line" style="width: 150px;"></div>
+              </div>
+              <div style="margin-top: 12px;">
+                <div class="skeleton-line" style="width: 100%; margin-bottom: 8px;"></div>
+                <div class="skeleton-line" style="width: 90%; margin-bottom: 8px;"></div>
+                <div class="skeleton-line" style="width: 75%;"></div>
+              </div>
+            </div>
+          </article>
 
-          <button
-            id="detailLikeBtn"
-            class="archive-btn like-detail-btn"
-            type="button"
-          >
-            ♡ Thích
-          </button>
+          <section class="detail-comments split-comments">
+            <div class="comments-head">
+              <h2>Bình luận</h2>
+              <span class="comment-count-badge" id="detailCommentCountBadge">0</span>
+            </div>
+
+            <div id="commentList" class="comment-list">
+              <p class="empty-text">Chưa có bình luận.</p>
+            </div>
+          </section>
         </div>
 
-        <form id="commentForm" class="comment-form">
-          <textarea
-            id="commentInput"
-            rows="3"
-            maxlength="500"
-            placeholder="Viết một bình luận..."
-          ></textarea>
-
-          <button class="archive-btn primary" type="submit">
-            Gửi bình luận
-          </button>
-        </form>
-
-        <div id="commentList" class="comment-list">
-          <p class="empty-text">Chưa có bình luận.</p>
+        <!-- Bottom Action Bar (Cố định ở dưới) -->
+        <div class="split-bottom-bar">
+          <div class="bottom-actions-row">
+            <button id="detailLikeBtn" class="action-icon-btn" type="button">
+              <i class="fa-regular fa-heart"></i>
+              <span id="detailLikeCount" class="action-count">0</span>
+            </button>
+            <button class="action-icon-btn" type="button" onclick="document.getElementById('commentInput').focus()">
+              <i class="fa-regular fa-comment"></i>
+              <span id="detailCommentCount" class="action-count">0</span>
+            </button>
+            <button class="action-icon-btn bookmark-btn" type="button">
+              <i class="fa-regular fa-bookmark"></i>
+            </button>
+          </div>
+          
+          <form id="commentForm" class="quick-comment-form">
+            <img src="./assets/images/avatar.jpeg" class="quick-avatar" alt="User">
+            <div class="input-wrapper">
+              <input type="text" id="commentInput" maxlength="500" placeholder="Viết bình luận..." autocomplete="off">
+              <button class="send-btn" type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+          </form>
         </div>
       </section>
     </main>
+
+    <!-- Edit Photo Modal (Admin Only) -->
+    <div id="editPhotoModal" class="edit-modal-overlay">
+      <div class="edit-modal-content admin-form">
+        <div class="edit-modal-header">
+          <h3>Chỉnh sửa thông tin</h3>
+          <button type="button" class="close-modal-btn" id="closeEditModalBtn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <form id="editPhotoForm">
+          <div class="form-grid">
+            <label>
+              Tiêu đề:
+              <input type="text" id="editTitle" required>
+            </label>
+            <label>
+              Danh mục:
+              <select id="editCategory">
+                <option value="memory">Memory</option>
+                <option value="blog">Blog</option>
+                <option value="portrait">Portrait</option>
+                <option value="landscape">Landscape</option>
+                <option value="film">Film</option>
+              </select>
+            </label>
+            <label>
+              Phụ đề (Subtitle):
+              <input type="text" id="editSubtitle">
+            </label>
+            <label>
+              Ngày chụp:
+              <input type="text" id="editTakenAt" placeholder="Vd: 28/04/2005">
+            </label>
+            <label>
+              Địa điểm:
+              <input type="text" id="editLocation" placeholder="Vd: Hà Nội">
+            </label>
+            <label>
+              Tags (cách nhau bởi dấu phẩy):
+              <input type="text" id="editTags" placeholder="Vd: kỉ niệm, học sinh">
+            </label>
+          </div>
+          <label style="margin-top: 14px;">
+            Mô tả:
+            <textarea id="editDescription" rows="5"></textarea>
+          </label>
+          <div class="admin-actions">
+            <button type="submit" class="archive-btn primary">Lưu thay đổi</button>
+            <button type="button" class="archive-btn ghost" id="cancelEditBtn">Hủy</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <script src="./js/cursor.js"></script>
     <script type="module" src="./js/auth.js"></script>

@@ -1,0 +1,211 @@
+/* =========================================
+   READING ROOM - COZY DARK THEME
+========================================= */
+
+body.reading-page {
+  background: 
+    radial-gradient(circle at top right, rgba(217, 119, 6, 0.08), transparent 50%),
+    radial-gradient(circle at bottom left, rgba(124, 58, 237, 0.05), transparent 50%),
+    #0c0a09; /* Very dark, warm charcoal */
+  color: #f4f1ea;
+  font-family: 'Courier Prime', monospace;
+  line-height: 1.8;
+}
+
+/* Page Texture Overlay for paper feel */
+.reading-page .page-texture {
+  opacity: 0.12;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Central Column Layout */
+.reading-shell {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.reading-header {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.reading-header::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(217, 119, 6, 0.5), transparent);
+  margin: 40px auto 0;
+}
+
+.header-icon {
+  font-size: 2rem;
+  color: #d97706;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 15px rgba(217, 119, 6, 0.4));
+  animation: flicker 4s infinite alternate ease-in-out;
+}
+
+@keyframes flicker {
+  0% { opacity: 0.8; transform: scale(0.98); }
+  50% { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 0.9; transform: scale(1); }
+}
+
+.reading-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: #fde68a;
+  margin: 0 0 16px;
+  letter-spacing: 0.05em;
+  text-shadow: 0 4px 20px rgba(253, 230, 138, 0.15);
+}
+
+.reading-header p {
+  color: rgba(244, 241, 234, 0.6);
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+.room-memories {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(244, 241, 234, 0.7);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  margin-bottom: 30px;
+}
+
+.room-memories:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fde68a;
+  border-color: rgba(253, 230, 138, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Entries */
+.reading-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.dark-parchment-card {
+  position: relative;
+  background: 
+    linear-gradient(135deg, rgba(28, 25, 23, 0.95), rgba(28, 25, 23, 0.85));
+  border: 1px solid rgba(217, 119, 6, 0.15);
+  border-radius: 12px;
+  padding: 48px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark-parchment-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(217, 119, 6, 0.05),
+    inset 0 0 0 1px rgba(253, 230, 138, 0.08);
+}
+
+.dark-parchment-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #fde68a;
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+
+.date-stamp {
+  display: inline-block;
+  color: #d97706;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed rgba(217, 119, 6, 0.3);
+  width: 100%;
+}
+
+.dark-parchment-card p {
+  color: rgba(244, 241, 234, 0.85);
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.dark-parchment-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Special Text Styling */
+.highlight-gold {
+  color: #fde68a;
+  font-weight: 700;
+}
+
+.quote-block {
+  margin: 32px 0;
+  padding: 24px 32px;
+  border-left: 3px solid #d97706;
+  background: rgba(217, 119, 6, 0.05);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: rgba(244, 241, 234, 0.95);
+}
+
+/* Footer */
+.reading-footer {
+  margin-top: auto;
+  padding-top: 80px;
+  text-align: center;
+  color: rgba(244, 241, 234, 0.4);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .reading-shell {
+    padding: 60px 16px;
+  }
+  
+  .dark-parchment-card {
+    padding: 32px 24px;
+  }
+  
+  .dark-parchment-card h2 {
+    font-size: 1.6rem;
+  }
+  
+  .dark-parchment-card p {
+    font-size: 1rem;
+    text-align: left;
+  }
+  
+  .quote-block {
+    padding: 20px;
+    font-size: 1.1rem;
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "getlayers": {
+      "serverUrl": "https://mcp.getlayers.ai/mcp"
+    }
+  }
+}
