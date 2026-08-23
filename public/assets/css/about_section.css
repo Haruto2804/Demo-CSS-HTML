@@ -1,15 +1,27 @@
 /* =========================
-   ABOUT / EXPERIENCE SECTION (TEST.MP4 STYLE)
+   PREMIUM ABOUT / EXPERIENCE SECTION
 ========================= */
 #about-section {
   position: relative;
-  background: #1a1a1a; /* Dark inverted card */
-  border-radius: var(--radius-xl);
+  background: rgba(20, 20, 20, 0.4);
+  border: var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-2xl);
   margin: var(--space-8) 0;
   padding: var(--space-12) var(--space-8);
-  color: #f5f5f5;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
   overflow: hidden;
+}
+
+/* Add a subtle inner glow */
+#about-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 40px rgba(255,255,255,0.02);
+  pointer-events: none;
 }
 
 .about-container {
@@ -20,12 +32,15 @@
 
 .about-subtitle {
   display: inline-block;
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-8);
   font-size: var(--text-2xl);
-  font-weight: 800;
-  letter-spacing: 0.05em;
+  font-weight: 900;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #ffffff;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-muted) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .about-title {
@@ -34,12 +49,11 @@
   font-size: clamp(1.5rem, 3vw, 2.5rem);
   font-weight: 800;
   line-height: 1.2;
-  color: #f5f5f5;
 }
 
 .about-desc {
   max-width: 780px;
-  color: #a3a3a3;
+  color: var(--text-secondary);
   font-size: var(--text-lg);
   line-height: 1.8;
   margin-bottom: var(--space-8);
@@ -55,40 +69,75 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--space-6) 0;
-  border-top: 1px solid #333333;
-  transition: background 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
+  border-bottom: 1px solid var(--border-color);
+  transition: all 0.4s ease;
   cursor: pointer;
+  position: relative;
 }
 
-.about-card:last-child {
-  border-bottom: 1px solid #333333;
+/* Glowing border effect on hover */
+.about-card::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-primary);
+  box-shadow: 0 0 10px var(--accent-primary);
+  transition: width 0.4s ease;
+}
+
+.about-card:hover::after {
+  width: 100%;
 }
 
 .about-card:hover {
-  background: rgba(255,255,255,0.02);
+  background: rgba(255,255,255,0.03);
   padding-left: var(--space-4);
   padding-right: var(--space-4);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
 }
 
 .about-card h3 {
   font-size: var(--text-xl);
-  font-weight: 600;
-  color: #ffffff;
+  font-weight: 700;
+  transition: color 0.3s ease;
 }
 
-.about-card p {
-  color: #a3a3a3;
+.about-card:hover h3 {
+  color: var(--accent-primary);
+}
+
+.about-card div > p {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  margin-top: var(--space-1);
+}
+
+.about-card > p {
+  color: var(--text-secondary);
   font-size: var(--text-base);
+  font-weight: 500;
+  background: rgba(255,255,255,0.05);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
 }
 
 .about-card i {
-  display: none; /* Hide icons to mimic the clean text list in video */
+  display: none;
 }
 
 @media (max-width: 768px) {
   .about-card {
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--space-2);
+    gap: var(--space-4);
+  }
+  
+  .about-card:hover {
+    padding-left: var(--space-2);
+    padding-right: var(--space-2);
   }
 }

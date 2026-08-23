@@ -1,19 +1,24 @@
 /* =========================
-   SERVICES SECTION (TEST.MP4 STYLE)
+   PREMIUM SERVICES SECTION
 ========================= */
 #services-section {
   position: relative;
-  background: var(--bg-primary);
+  background: transparent;
   display: flex;
   flex-direction: column;
 }
 
 .services-title {
-  font-size: var(--text-2xl);
-  font-weight: 800;
-  color: var(--text-secondary);
-  letter-spacing: 0.05em;
+  display: inline-block;
   margin-bottom: var(--space-8);
+  font-size: var(--text-2xl);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-muted) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .accordion-list {
@@ -24,10 +29,15 @@
 
 .accordion-item {
   border-top: 1px solid var(--border-color);
+  transition: border-color 0.3s ease;
 }
 
 .accordion-item:last-child {
   border-bottom: 1px solid var(--border-color);
+}
+
+.accordion-item:hover {
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .accordion-header {
@@ -38,41 +48,46 @@
   padding: var(--space-8) 0;
   background: transparent;
   border: none;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 900;
   color: var(--text-primary);
   text-align: left;
   cursor: pointer;
-  transition: opacity 0.3s ease;
+  transition: all 0.4s ease;
 }
 
 .accordion-header i {
   font-size: var(--text-2xl);
   color: var(--text-muted);
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .accordion-header:hover {
-  opacity: 0.8;
+  padding-left: var(--space-4);
+  color: var(--accent-primary);
+  text-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
 }
 
 .accordion-header:hover i {
-  color: var(--text-primary);
+  color: var(--accent-primary);
+  transform: translateX(-10px);
 }
 
 .accordion-body {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), padding 0.5s ease;
+  transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1), padding 0.6s ease, opacity 0.6s ease;
+  opacity: 0;
 }
 
 .accordion-item.active .accordion-body {
-  max-height: 500px;
+  max-height: 600px;
   padding-bottom: var(--space-8);
+  opacity: 1;
 }
 
 .accordion-item.active .accordion-header i {
-  transform: rotate(45deg);
+  transform: rotate(180deg);
   color: var(--text-primary);
 }
 
@@ -81,16 +96,20 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-8);
-  background: var(--text-primary); /* Dark card inside light mode */
-  color: var(--bg-primary);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: var(--glass-border);
   padding: var(--space-8);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
+  box-shadow: inset 0 0 20px rgba(255,255,255,0.02);
 }
 
 .accordion-content p {
-  color: var(--bg-tertiary);
+  color: var(--text-secondary);
   font-size: var(--text-lg);
-  max-width: 500px;
+  line-height: 1.8;
+  max-width: 600px;
 }
 
 .accordion-image {
@@ -98,20 +117,36 @@
 }
 
 .placeholder-img {
-  width: 120px;
-  height: 120px;
-  background: var(--bg-secondary);
-  border-radius: var(--radius-md);
+  width: 140px;
+  height: 140px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.02) 100%);
+  border: var(--glass-border);
+  border-radius: var(--radius-2xl);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 50px;
-  color: var(--text-primary);
+  font-size: 60px;
+  color: var(--accent-primary);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 15px rgba(255,255,255,0.05);
+  transition: transform 0.3s ease;
+}
+
+.accordion-item.active .placeholder-img {
+  animation: float-icon 4s ease-in-out infinite;
+}
+
+@keyframes float-icon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 @media (max-width: 768px) {
   .accordion-content {
     flex-direction: column;
     align-items: flex-start;
+  }
+  
+  .accordion-header {
+    font-size: clamp(1.5rem, 6vw, 2rem);
   }
 }
