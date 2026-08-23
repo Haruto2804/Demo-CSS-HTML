@@ -272,29 +272,23 @@ function photoCard(photo, index, mode = "grid") {
   const tags = getTags(photo).slice(0, 3);
 
   if (mode === "bento") {
-    const sizeClass =
-      index === 0 ? "bento-wide" : index === 1 ? "bento-tall" : "bento-small";
+    const pos = index % 6;
+    let sizeClass = "bento-small";
+    if (pos === 0) sizeClass = "bento-wide";
+    else if (pos === 1) sizeClass = "bento-tall";
+    else if (pos === 4 || pos === 5) sizeClass = "bento-medium";
+
+    const memoryLabel = `memory ${String(index + 1).padStart(2, "0")}`;
 
     return `
       <article class="bento-item ${sizeClass}">
-        <a href="${href}" class="photo-link">
+        <a href="${href}" class="photo-link full-cover-link">
           <img src="${image}" alt="${title}" loading="lazy" />
-
+          <div class="bento-gradient-overlay"></div>
           <div class="bento-caption">
-            <span>memory ${String(index + 1).padStart(2, "0")}</span>
-            <h3>${title}</h3>
-            <p>${subtitle}</p>
+            <span class="bento-kicker">${memoryLabel}</span>
           </div>
         </a>
-
-        <div class="photo-mini-actions">
-          <button class="mini-action" type="button" data-like-photo="${photo.id}">
-            <i class="fa-regular fa-heart"></i><span>Thích</span>
-          </button>
-
-          <span><i class="fa-solid fa-heart"></i> <b data-like-count="${photo.id}">0</b></span>
-          <span><i class="fa-regular fa-comment"></i> <b data-comment-count="${photo.id}">0</b></span>
-        </div>
       </article>
     `;
   }
@@ -388,7 +382,7 @@ function renderGallery() {
     : `<p class="empty-text">Chưa có ảnh nổi bật.</p>`;
 
   photoGrid.innerHTML = filtered.length
-    ? filtered.map((photo, index) => photoCard(photo, index, "grid")).join("")
+    ? filtered.map((photo, index) => photoCard(photo, index, "bento")).join("")
     : `<p class="empty-text">Chưa có ảnh trong archive.</p>`;
 
   filtered.forEach((photo) => watchMeta(photo.id));
@@ -685,11 +679,14 @@ onAuthStateChanged(auth, (user) => {
   }
 
   if (galleryAuthStatus) {
-    galleryAuthStatus.textContent = user
-      ? isAdmin
-        ? `Admin mode: ${user.email}`
-        : `Đã đăng nhập: ${user.email}`
-      : "Guest mode: đăng nhập để like và bình luận";
+    if (!user) {
+      galleryAuthStatus.innerHTML = `<span class="auth-badge guest"><i class="fa-solid fa-user-secret"></i> Khách viếng thăm</span>`;
+    } else if (isAdmin) {
+      galleryAuthStatus.innerHTML = `<span class="auth-badge admin"><i class="fa-solid fa-crown"></i> Harusama Room</span>`;
+    } else {
+      const name = user.displayName || user.email.split('@')[0];
+      galleryAuthStatus.innerHTML = `<span class="auth-badge user"><i class="fa-solid fa-user-check"></i> ${name}</span>`;
+    }
   }
 
   renderGallery();

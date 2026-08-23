@@ -100,8 +100,8 @@
     });
   });
 
-  // Add click events to physical doors in the rooms
-  document.querySelectorAll('.door-card').forEach(door => {
+  // Add click events to physical doors/buttons in the rooms
+  document.querySelectorAll('.room-memories').forEach(door => {
     door.addEventListener('click', (e) => {
       const targetUrl = door.getAttribute('href');
       // Only apply if it's an internal link

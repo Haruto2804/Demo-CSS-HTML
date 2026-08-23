@@ -217,7 +217,10 @@
     <button class="mini-expand" id="mini-expand" title="Mở rộng"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
   </div>
 
-  <main class="page-shell">
+  <main class="page-shell" style="padding-top: 40px;">
+    <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 40px; flex-wrap: wrap;">
+      <a href="attic.html" class="room-memories" style="background: rgba(0,0,0,0.5); backdrop-filter: blur(8px);">↓ Trở xuống Gác Xép</a>
+    </div>
     <div class="premium-radio-wrapper" id="radio-wrapper" style="margin-bottom: 24px; align-self: center; position: relative; z-index: 5;">
       <button class="radio-minimize-btn" id="radio-minimize" title="Thu nhỏ"><i class="fa-solid fa-minus"></i></button>
       <!-- Left Panel: Tuning & Display -->
@@ -225,11 +228,11 @@
         <div class="radio-display-wrapper">
           <div class="led-display">
             <div class="led-top">
-              <span class="led-band" id="pr-band">AM 7</span>
+              <span class="led-band" id="pr-band">FM 1</span>
             </div>
             <div class="led-main">
               <span class="led-freq" id="pr-freq">97.2</span>
-              <span class="led-unit">KHz</span>
+              <span class="led-unit">MHz</span>
             </div>
           </div>
           <div class="display-info">
@@ -318,16 +321,7 @@
         </div>
       </div>
     </div>
-    <section class="room-navigation">
-      <div class="section-content">
-        <div class="doors-grid">
-          <a href="attic.html" class="door-card door-down">
-            <div class="door-icon"><i class="fa-solid fa-arrow-down"></i></div>
-            <span>Trở xuống Gác Xép</span>
-          </a>
-        </div>
-      </div>
-    </section>
+
   </main>
   <script src="./js/premium-radio.js"></script>
   <script src="./js/cursor.js"></script>

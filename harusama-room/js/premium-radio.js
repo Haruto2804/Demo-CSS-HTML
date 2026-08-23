@@ -227,12 +227,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function updateFrequencyDisplay() {
+    const bands = bandToggle.querySelectorAll('.band');
+    const isAM = bands[1].classList.contains('active');
+    
+    if (isAM) {
+      freqDisplay.textContent = (currentFreq * 10).toFixed(0);
+      freqDisplay.nextElementSibling.textContent = "KHz";
+    } else {
+      freqDisplay.textContent = currentFreq.toFixed(1);
+      freqDisplay.nextElementSibling.textContent = "MHz";
+    }
+    
+    // Update tuning scale labels
+    const scaleLabels = document.querySelectorAll('.scale-labels span');
+    if (scaleLabels.length === 4) {
+      scaleLabels[0].textContent = isAM ? "800" : "80";
+      scaleLabels[1].textContent = isAM ? "900" : "90";
+      scaleLabels[2].textContent = isAM ? "1000" : "100";
+      scaleLabels[3].textContent = isAM ? "1100" : "110";
+    }
+    
+    // Update all station chips
+    const chips = document.querySelectorAll('.station-chip');
+    chips.forEach(chip => {
+      const baseFreq = parseFloat(chip.dataset.freq);
+      const freqSpan = chip.querySelector('.chip-freq');
+      if (freqSpan && !isNaN(baseFreq)) {
+        freqSpan.textContent = isAM ? (baseFreq * 10).toFixed(0) : baseFreq.toFixed(1);
+      }
+    });
+  }
+
   function setFrequency(freq) {
     if (freq < MIN_FREQ) freq = MIN_FREQ;
     if (freq > MAX_FREQ) freq = MAX_FREQ;
 
     currentFreq = freq;
-    freqDisplay.textContent = currentFreq.toFixed(1);
+    updateFrequencyDisplay();
 
     const percent = ((currentFreq - MIN_FREQ) / (MAX_FREQ - MIN_FREQ)) * 80 + 10;
     needle.style.left = `${percent}%`;
@@ -252,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Move needle instantly but don't play yet
     currentFreq = freq;
-    freqDisplay.textContent = currentFreq.toFixed(1);
+    updateFrequencyDisplay();
     const percent = ((currentFreq - MIN_FREQ) / (MAX_FREQ - MIN_FREQ)) * 80 + 10;
     needle.style.left = `${percent}%`;
     
@@ -367,15 +399,13 @@ document.addEventListener('DOMContentLoaded', () => {
       bands[0].classList.remove('active');
       bands[1].classList.add('active');
       bandDisplay.textContent = "AM 7";
-      freqDisplay.textContent = (currentFreq * 10).toFixed(0);
-      freqDisplay.nextElementSibling.textContent = "KHz";
     } else {
       bands[1].classList.remove('active');
       bands[0].classList.add('active');
       bandDisplay.textContent = "FM 1";
-      freqDisplay.textContent = currentFreq.toFixed(1);
-      freqDisplay.nextElementSibling.textContent = "MHz";
     }
+    updateFrequencyDisplay();
+    if (radioMinimized) updateMiniPlayer();
   });
 
   areaBtn.addEventListener('click', () => {
@@ -447,8 +477,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateMiniPlayer() {
     const title = titleDisplay.textContent;
     const area = areas[currentAreaIndex];
+    
+    const bands = bandToggle.querySelectorAll('.band');
+    const isAM = bands[1].classList.contains('active');
+    const freqStr = isAM ? `${(currentFreq * 10).toFixed(0)} KHz` : `${currentFreq.toFixed(1)} MHz`;
+    
     miniTitle.textContent = title;
-    miniSub.textContent = `${area} · ${currentFreq.toFixed(1)} MHz`;
+    miniSub.textContent = `${area} · ${freqStr}`;
     const icon = miniPlayBtn.querySelector('i');
     icon.className = isPlaying ? 'fa-solid fa-pause' : 'fa-solid fa-play';
   }

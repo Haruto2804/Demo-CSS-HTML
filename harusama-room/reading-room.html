@@ -1,144 +1,154 @@
 <!doctype html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Phòng Đọc Sách | Harusama</title>
-    <meta name="description" content="Góc bình yên để đọc và viết." />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
-    
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/cursor.css" />
-    
-    <style>
-      body {
-        background: #f4f1ea;
-        color: #292524;
-        font-family: 'Courier Prime', monospace;
-      }
-      .page-texture {
-        opacity: 0.15;
-      }
-      .reading-header {
-        text-align: center;
-        padding: 40px 0;
-        border-bottom: 1px solid #d6d3d1;
-        margin-bottom: 40px;
-      }
-      .reading-header h1 {
-        font-family: var(--serif);
-        color: #292524;
-        font-size: 2.5rem;
-        margin: 0;
-      }
-      .reading-header p {
-        color: #78716c;
-        margin-top: 8px;
-      }
-      .paper-card {
-        background: #fff;
-        padding: 40px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-        border: 1px solid #e7e5e4;
-        border-radius: 4px;
-        margin-bottom: 40px;
-        line-height: 1.8;
-      }
-      .paper-card h2 {
-        font-family: var(--serif);
-        font-size: 1.8rem;
-        margin-top: 0;
-        border-bottom: 1px dashed #d6d3d1;
-        padding-bottom: 16px;
-      }
-      .date-stamp {
-        display: block;
-        color: #a8a29e;
-        font-size: 0.9rem;
-        margin-bottom: 24px;
-      }
-      
-      /* Override door colors for light theme */
-      .door-card {
-        background: #fff;
-        border-color: #d6d3d1;
-        color: #292524;
-      }
-      .door-card:hover {
-        border-color: #78716c;
-        background: #fafaf9;
-        color: #292524;
-      }
-      .door-icon {
-        background: #f4f1ea;
-        border-color: #d6d3d1;
-        color: #57534e;
-      }
-      .door-card:hover .door-icon {
-        background: #57534e;
-        color: #fff;
-      }
-      .chapter-gold {
-        color: #a8a29e;
-      }
-    </style>
-  </head>
 
-  <body>
-    <div class="vintage-cursor-glow" style="background: radial-gradient(circle at center, rgba(168, 162, 158, 0.4) 0%, transparent 60%);"></div>
-    <div class="page-texture"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phòng Đọc Sách | Harusama</title>
+  <meta name="description" content="Góc bình yên để đọc và viết." />
 
-    <main class="page-shell">
-      <header class="reading-header">
-        <h1>Phòng Đọc Sách</h1>
-        <p>những dòng chữ viết vội</p>
-      </header>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
 
-      <section class="section">
-        <div class="paper-card">
-          <h2>Entry #01: Tĩnh Lặng</h2>
-          <span class="date-stamp">12 Tháng 8, 2026</span>
-          <p>
-            Có những ngày mọi thứ ồn ào đến mức mình chỉ muốn tìm một góc nhỏ, úp mặt vào những trang sách cũ. Không gian này sinh ra là để dành cho những khoảnh khắc như thế.
-          </p>
-          <p>
-            Chữ nghĩa không bao giờ phản bội mình. Chúng nằm im lìm trên mặt giấy, đợi mình mở ra và lắng nghe.
-          </p>
-        </div>
-        
-        <div class="paper-card">
-          <h2>Entry #02: Khoảng Trống</h2>
-          <span class="date-stamp">Đang viết dở...</span>
-          <p>
-            (Phần này để dành cho bạn tự điền vào những dòng suy nghĩ của riêng mình).
-          </p>
-        </div>
-      </section>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/cursor.css" />
 
-      <section class="section room-navigation">
-        <div class="section-content">
-          <div class="section-heading" style="text-align: center;">
-            <p class="chapter chapter-gold">điều hướng</p>
-          </div>
-          <div class="doors-grid">
-            <a href="message.html" class="door-card door-left">
-              <div class="door-icon"><i class="fa-solid fa-arrow-left"></i></div>
-              <span>Hành lang quay lại Hộp Thư</span>
-            </a>
-          </div>
-        </div>
-      </section>
+  <style>
+    body {
+      background: #f4f1ea;
+      color: #292524;
+      font-family: 'Courier Prime', monospace;
+    }
 
-      <footer class="page-footer" style="color: #a8a29e;">
-        <p>EST. 2026 — DESIGNED FOR THE SILENT SOUL</p>
-      </footer>
-    </main>
+    .page-texture {
+      opacity: 0.15;
+    }
 
-    <script src="./js/cursor.js"></script>
-    <script src="./js/minimap.js"></script>
-  </body>
+    .reading-header {
+      text-align: center;
+      padding: 40px 0;
+      border-bottom: 1px solid #d6d3d1;
+      margin-bottom: 40px;
+    }
+
+    .reading-header h1 {
+      font-family: var(--serif);
+      color: #292524;
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .reading-header p {
+      color: #78716c;
+      margin-top: 8px;
+    }
+
+    .paper-card {
+      background: #fff;
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e7e5e4;
+      border-radius: 4px;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+
+    .paper-card h2 {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      margin-top: 0;
+      border-bottom: 1px dashed #d6d3d1;
+      padding-bottom: 16px;
+    }
+
+    .date-stamp {
+      display: block;
+      color: #a8a29e;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+
+    /* Override door colors for light theme */
+    .door-card {
+      background: #fff;
+      border-color: #d6d3d1;
+      color: #292524;
+    }
+
+    .door-card:hover {
+      border-color: #78716c;
+      background: #fafaf9;
+      color: #292524;
+    }
+
+    .door-icon {
+      background: #f4f1ea;
+      border-color: #d6d3d1;
+      color: #57534e;
+    }
+
+    .door-card:hover .door-icon {
+      background: #57534e;
+      color: #fff;
+    }
+
+    .chapter-gold {
+      color: #a8a29e;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="vintage-cursor-glow"
+    style="background: radial-gradient(circle at center, rgba(168, 162, 158, 0.4) 0%, transparent 60%);"></div>
+  <div class="page-texture"></div>
+
+  <main class="page-shell">
+    <header class="reading-header">
+      <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 32px; flex-wrap: wrap;">
+        <a href="message.html" class="room-memories"
+          style="background: rgba(255, 255, 255, 0.75); color: #292524; border-color: rgba(0,0,0,0.1);">↑ Quay lại Hộp
+          Thư</a>
+      </div>
+      <h1>PHÒNG ĐỌC SÁCH</h1>
+      <p>Góc bình yên để đọc và viết.</p>
+    </header>
+
+    <section class="section">
+      <div class="paper-card">
+        <h2>Entry #01: Tĩnh Lặng</h2>
+        <span class="date-stamp">12 Tháng 8, 2026</span>
+        <p>
+          Có những ngày mọi thứ ồn ào đến mức mình chỉ muốn tìm một góc nhỏ, úp mặt vào những trang sách cũ. Không gian
+          này sinh ra là để dành cho những khoảnh khắc như thế.
+        </p>
+        <p>
+          Chữ nghĩa không bao giờ phản bội mình. Chúng nằm im lìm trên mặt giấy, đợi mình mở ra và lắng nghe.
+        </p>
+      </div>
+
+      <div class="paper-card">
+        <h2>Entry #02: Khoảng Trống</h2>
+        <span class="date-stamp">Đang viết dở...</span>
+        <p>
+          (Phần này để dành cho bạn tự điền vào những dòng suy nghĩ của riêng mình).
+        </p>
+      </div>
+    </section>
+
+
+
+    <footer class="page-footer" style="color: #a8a29e;">
+      <p>EST. 2026 — DESIGNED FOR THE SILENT SOUL</p>
+    </footer>
+  </main>
+
+  <script src="./js/cursor.js"></script>
+  <script src="./js/minimap.js"></script>
+</body>
+
 </html>

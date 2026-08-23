@@ -392,25 +392,24 @@
 .login-back {
   width: fit-content;
   margin-top: 28px;
-
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-
-  color: rgba(232, 204, 150, 0.72);
-  font-size: 0.84rem;
-  font-weight: 750;
-  letter-spacing: 0.02em;
+  padding: 9px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(28, 27, 25, 0.75);
+  color: rgba(255, 255, 255, 0.4);
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   text-decoration: none;
-
-  transition:
-    transform 0.25s ease,
-    color 0.25s ease;
+  transition: all 0.3s ease;
 }
 
 .login-back:hover {
-  color: rgba(255, 248, 232, 0.96);
-  transform: translateX(-4px);
+  color: #c5a059;
+  border-color: rgba(198, 155, 123, 0.7);
+  transform: translateY(-2px);
 }
 
 .login-footer {

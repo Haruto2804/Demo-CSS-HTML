@@ -1,100 +1,678 @@
 <!doctype html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hộp Thư | Harusama</title>
-    <meta name="description" content="Nơi để lại một lời nhắn nhỏ." />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
-    
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/cursor.css" />
-    <link rel="stylesheet" href="./css/form-link-section.css" />
-    
-    <style>
-      body { background: #1a1a1a; }
-      .page-texture { opacity: 0.05; }
-      .message-header {
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hộp Thư | Harusama</title>
+  <meta name="description" content="Nơi để lại một lời nhắn nhỏ." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/cursor.css" />
+
+  <style>
+    body {
+      background: #1a1a1a;
+    }
+
+    .page-texture {
+      opacity: 0.05;
+    }
+
+    .message-header {
+      text-align: center;
+      padding-top: 40px;
+      margin-bottom: -40px;
+    }
+
+    .message-header h1 {
+      font-family: var(--serif);
+      color: var(--gold);
+      font-size: 2rem;
+    }
+
+    /* Silent Mailbox 3D Card */
+    .silent-mailbox-section {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 0;
+    }
+
+    .silent-mailbox-container {
+      perspective: 1500px;
+      width: 100%;
+      max-width: 520px;
+      aspect-ratio: 1.4;
+      margin: 0 auto;
+    }
+
+    .silent-mailbox-card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      cursor: grab;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .silent-mailbox-card:active {
+      cursor: grabbing;
+    }
+
+    .sm-front,
+    .sm-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      background: #111111;
+      color: var(--gold, #c5a059);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), inset 0 0 60px rgba(197, 160, 89, 0.1);
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      padding: 24px;
+      box-sizing: border-box;
+      display: flex;
+      font-family: var(--sans);
+      overflow: hidden;
+    }
+
+    /* Paper texture overlay */
+    .sm-front::before,
+    .sm-back::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .sm-front.is-hidden,
+    .sm-back.is-hidden {
+      pointer-events: none;
+    }
+
+    /* Front side specific */
+    .sm-front {
+      flex-direction: row;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .sm-stamp-area {
+      position: relative;
+      z-index: 1;
+      width: 150px;
+      height: 180px;
+      border: 3px dashed var(--gold, #c5a059);
+      padding: 6px;
+      border-radius: 8px;
+    }
+
+    .sm-stamp-border {
+      background: var(--gold, #c5a059);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+    }
+
+    .sm-stamp-text {
+      color: #111111;
+      font-family: var(--sans);
+      font-weight: 900;
+      font-size: 22px;
+      text-align: center;
+      line-height: 1.1;
+      letter-spacing: 1px;
+    }
+
+    .sm-info-area {
+      flex: 1;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .sm-title {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+      color: var(--gold, #c5a059);
+      opacity: 0.8;
+    }
+
+    .sm-subtitle {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      margin-bottom: 32px;
+    }
+
+    .sm-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+    }
+
+    .sm-line {
+      border-bottom: 1.5px solid rgba(197, 160, 89, 0.4);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding-bottom: 4px;
+      height: 28px;
+    }
+
+    .sm-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      opacity: 0.7;
+    }
+
+    .sm-val {
+      font-size: 15px;
+      font-weight: 700;
+      font-family: var(--serif);
+    }
+
+    /* Back side specific */
+    .sm-back {
+      transform: rotateY(180deg);
+      flex-direction: column;
+      position: relative;
+    }
+
+    .sm-back-title {
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-align: center;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+      border-bottom: 1.5px solid rgba(197, 160, 89, 0.4);
+      padding-bottom: 8px;
+    }
+
+    #sm-back-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 0 12px;
+      z-index: 10;
+    }
+
+    #sm-back-msg {
+      font-size: 13px;
+      line-height: 1.5;
+      text-align: center;
+      font-family: var(--serif);
+      color: var(--gold, #c5a059);
+      margin-bottom: 12px;
+      transition: opacity 0.3s;
+    }
+
+    #sm-form {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      position: relative;
+      z-index: 10;
+      margin-bottom: 12px;
+    }
+
+    #sm-form input,
+    #sm-form textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1.5px solid rgba(197, 160, 89, 0.4);
+      color: var(--gold, #c5a059);
+      font-family: var(--serif);
+      font-size: 14px;
+      padding: 6px 0;
+      outline: none;
+    }
+
+    #sm-form input::placeholder,
+    #sm-form textarea::placeholder {
+      color: rgba(197, 160, 89, 0.4);
+    }
+
+    #sm-form textarea {
+      resize: none;
+      height: 45px;
+    }
+
+    .sm-action-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--gold, #c5a059);
+      color: #111111;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+      position: relative;
+      z-index: 10;
+      border: 1px solid var(--gold, #c5a059);
+      width: max-content;
+      margin: 8px auto 0;
+      cursor: pointer;
+    }
+
+    .sm-action-btn:hover {
+      background: #111111;
+      color: var(--gold, #c5a059);
+      box-shadow: 0 8px 20px rgba(197, 160, 89, 0.2);
+    }
+
+    .sm-stamp-icon {
+      position: absolute;
+      bottom: 24px;
+      right: 32px;
+      font-size: 80px;
+      opacity: 0.05;
+      z-index: 0;
+      transform: rotate(-15deg);
+    }
+
+    /* Minimize / Expand buttons */
+    .sm-toggle-btn {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: transparent;
+      color: var(--gold, #c5a059);
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      z-index: 20;
+      opacity: 0.7;
+    }
+
+    .sm-toggle-btn:hover {
+      opacity: 1;
+      background: rgba(197, 160, 89, 0.1);
+    }
+
+    .sm-floating-btn {
+      position: fixed;
+      bottom: 32px;
+      left: 32px;
+      background: var(--gold, #c5a059);
+      color: #111111;
+      border: none;
+      border-radius: 24px;
+      padding: 12px 24px;
+      font-family: var(--sans);
+      font-weight: 800;
+      font-size: 14px;
+      cursor: pointer;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), 0 0 20px rgba(197, 160, 89, 0.2);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform: translateY(100px) scale(0.5);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .sm-floating-btn.visible {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .sm-floating-btn:hover {
+      background: #fff;
+      transform: translateY(-5px) scale(1.05);
+    }
+
+    /* Card minimize transition */
+    .silent-mailbox-container {
+      transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .silent-mailbox-container.minimized {
+      transform: scale(0.5) translateY(100px);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Floating messages */
+    #floating-messages-container {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .floating-msg {
+      position: absolute;
+      white-space: nowrap;
+      font-family: var(--serif);
+      color: rgba(212, 175, 55, 0.3);
+      font-size: 18px;
+      font-style: italic;
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+      pointer-events: auto;
+      cursor: default;
+      left: 0;
+      animation: floatLeft linear both;
+      transition: color 0.4s, text-shadow 0.4s, opacity 0.4s;
+    }
+
+    .floating-msg:hover {
+      color: rgba(212, 175, 55, 1);
+      text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+      animation-play-state: paused;
+      z-index: 100;
+    }
+
+    @keyframes floatLeft {
+      from {
+        transform: translateX(100vw);
+      }
+
+      to {
+        transform: translateX(-100vw);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .silent-mailbox-container {
+        aspect-ratio: 0.75;
+        width: 90%;
+      }
+
+      .sm-front,
+      .sm-back {
+        padding: 20px;
+      }
+
+      .sm-front {
+        flex-direction: column;
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .sm-stamp-area {
+        width: 90px;
+        height: 110px;
+        margin: 0 auto;
+      }
+
+      .sm-stamp-text {
+        font-size: 14px;
+      }
+
+      .sm-info-area {
+        margin-top: 0;
+        align-items: center;
+        width: 100%;
+      }
+
+      .sm-lines {
+        width: 100%;
+      }
+
+      .sm-title {
         text-align: center;
-        padding-top: 40px;
-        margin-bottom: -40px;
       }
-      .message-header h1 {
-        font-family: var(--serif);
-        color: var(--gold);
-        font-size: 2rem;
+
+      .sm-subtitle {
+        font-size: 16px;
+        margin-bottom: 12px;
+        text-align: center;
       }
-      .form-link-section {
-        min-height: 50vh;
+
+      #sm-back-msg {
+        font-size: 13px;
       }
-    </style>
-  </head>
 
-  <body>
-    <div class="vintage-cursor-glow"></div>
-    <div class="page-texture"></div>
+      #sm-form {
+        gap: 6px;
+        margin-bottom: 8px;
+      }
 
-    <main class="page-shell">
-      <header class="message-header">
-        <h1>Hộp Thư Tĩnh Lặng</h1>
-      </header>
+      #sm-form input,
+      #sm-form textarea {
+        font-size: 13px;
+        padding: 4px 0;
+      }
 
-      <section class="section form-link-section" id="message-form">
-        <div class="form-link-glow"></div>
+      #sm-form textarea {
+        height: 35px;
+      }
 
-        <div class="section-content">
-          <div class="form-link-card">
-            <div class="form-link-text">
-              <p class="chapter chapter-gold">TRẠM DỪNG CHÂN</p>
-              <h2>Để Lại Một Lời Nhắn</h2>
+      .sm-action-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+        margin-top: 4px;
+      }
 
-              <p>
-                Nếu bạn đã đi đến đây, có lẽ cũng có điều gì đó muốn gửi lại.
-                Một câu ngắn, một cảm xúc nhỏ, hoặc chỉ đơn giản là vài dòng bạn
-                muốn để trong khoảng lặng này.
-              </p>
+      .sm-stamp-icon {
+        font-size: 50px;
+        bottom: 16px;
+        right: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="vintage-cursor-glow"></div>
+  <div class="page-texture"></div>
+
+  <div id="floating-messages-container"></div>
+
+  <button id="sm-expand-btn" class="sm-floating-btn" title="Mở Hộp thư"><i class="fa-solid fa-envelope"></i> Mở Hộp
+    Thư</button>
+
+  <main class="page-shell">
+    <header class="message-header">
+      <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 32px; flex-wrap: wrap;">
+        <a href="tiktok-room.html" class="room-memories">↑ Phòng Chiếu Phim</a>
+        <a href="reading-room.html" class="room-memories">↓ Phòng Đọc Sách</a>
+      </div>
+      <h1>Hộp Thư Tĩnh Lặng</h1>
+    </header>
+
+    <section class="section silent-mailbox-section" id="message-form">
+      <div class="silent-mailbox-container">
+        <button id="sm-minimize-btn" class="sm-toggle-btn" title="Thu nhỏ Hộp thư"><i
+            class="fa-solid fa-compress"></i></button>
+        <div class="silent-mailbox-card" id="silent-mailbox">
+          <div class="sm-front">
+            <div class="sm-stamp-area">
+              <div class="sm-stamp-border">
+                <span class="sm-stamp-text">HỘP THƯ<br>TĨNH LẶNG</span>
+              </div>
             </div>
-
-            <a
-              class="form-link-button"
-              href="https://form.typeform.com/to/faLixy1S"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>Gửi một lời nhắn</span>
-              <i class="fa-solid fa-feather-pointed"></i>
-            </a>
+            <div class="sm-info-area">
+              <div class="sm-title">THÀNH VIÊN CHÍNH THỨC CỦA</div>
+              <div class="sm-subtitle">HỘP THƯ TĨNH LẶNG</div>
+              <div class="sm-lines">
+                <div class="sm-line"><span class="sm-label">TÊN</span> <span class="sm-val" id="sm-name">---</span>
+                </div>
+                <div class="sm-line"><span class="sm-label">NGÀY THAM GIA</span> <span class="sm-val"
+                    id="sm-date">---</span></div>
+                <div class="sm-line"><span class="sm-label">MÃ SỐ</span> <span class="sm-val" id="sm-id">---</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sm-back">
+            <div class="sm-back-title">TRẠM DỪNG CHÂN</div>
+            <div id="sm-back-content">
+              <p id="sm-back-msg">Đang tải hộp thư...</p>
+              <form id="sm-form" style="display: none;">
+                <input type="text" id="sm-input-name" placeholder="Họ và tên của bạn" required />
+                <textarea id="sm-input-message" placeholder="Một câu ngắn, một cảm xúc nhỏ..." maxlength="200"
+                  required></textarea>
+                <button type="submit" class="sm-action-btn">
+                  <span>Gửi một lời nhắn</span>
+                  <i class="fa-solid fa-feather-pointed"></i>
+                </button>
+              </form>
+            </div>
+            <div class="sm-stamp-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section room-navigation">
-        <div class="section-content">
-          <div class="doors-grid">
-            <a href="tiktok-room.html" class="door-card door-left">
-              <div class="door-icon"><i class="fa-solid fa-arrow-left"></i></div>
-              <span>Quay lại Phòng Chiếu Phim</span>
-            </a>
-            
-            <a href="reading-room.html" class="door-card door-right">
-              <div class="door-icon"><i class="fa-solid fa-book-open"></i></div>
-              <span>Hành lang đi tới Phòng Đọc Sách</span>
-            </a>
-          </div>
-        </div>
-      </section>
 
-      <footer class="page-footer">
-        <p>EST. 2026 — DESIGNED FOR THE SILENT SOUL</p>
-      </footer>
-    </main>
 
-    <script src="./js/cursor.js"></script>
-    <script src="./js/motion.js"></script>
+    <footer class="page-footer">
+      <p>EST. 2026 — DESIGNED FOR THE SILENT SOUL</p>
+    </footer>
+  </main>
+
+  <script src="./js/cursor.js"></script>
+  <script src="./js/motion.js"></script>
+
+  <script type="module" src="./js/message.js"></script>
+  <script>
+    const flipCard = document.getElementById('silent-mailbox');
+    let isDragging = false;
+    let startX = 0;
+    let currentRotateY = 0;
+    let targetRotateY = 0;
+
+    const updatePointerEvents = (angle) => {
+      const normalized = ((Math.round(angle) % 360) + 360) % 360;
+      const frontEl = document.querySelector('.sm-front');
+      const backEl = document.querySelector('.sm-back');
+      if (normalized === 180) {
+        frontEl.classList.add('is-hidden');
+        backEl.classList.remove('is-hidden');
+      } else {
+        frontEl.classList.remove('is-hidden');
+        backEl.classList.add('is-hidden');
+      }
+    };
+
+    window.flipCardToFront = () => {
+      currentRotateY = 0;
+      targetRotateY = 0;
+      flipCard.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+      flipCard.style.transform = 'rotateY(0deg)';
+      updatePointerEvents(0);
+    };
+
+    const startDrag = (e) => {
+      // Prevent drag if interacting with form elements
+      const targetTag = e.target.tagName.toLowerCase();
+      if (['input', 'textarea', 'button'].includes(targetTag) || e.target.closest('#sm-form') || e.target.closest('.sm-action-btn')) {
+        return;
+      }
+
+      isDragging = true;
+      startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+      flipCard.style.transition = 'none';
+    };
+
+    const drag = (e) => {
+      if (!isDragging) return;
+      if (e.cancelable) e.preventDefault();
+      const clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+      const deltaX = clientX - startX;
+      const rotateDelta = deltaX * 0.6;
+      flipCard.style.transform = `rotateY(${currentRotateY + rotateDelta}deg)`;
+    };
+
+    const stopDrag = (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      const clientX = e.type.includes('mouse') ? e.clientX : (e.changedTouches ? e.changedTouches[0].clientX : startX);
+      const deltaX = clientX - startX;
+      const rotateDelta = deltaX * 0.6;
+
+      currentRotateY += rotateDelta;
+
+      const snapTo = Math.round(currentRotateY / 180) * 180;
+
+      if (Math.abs(deltaX) < 5) {
+        targetRotateY = currentRotateY % 360 === 0 ? currentRotateY + 180 : currentRotateY - 180;
+        targetRotateY = Math.round(targetRotateY / 180) * 180;
+      } else {
+        targetRotateY = snapTo;
+      }
+
+      currentRotateY = targetRotateY;
+      flipCard.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+      flipCard.style.transform = `rotateY(${targetRotateY}deg)`;
+
+      updatePointerEvents(targetRotateY);
+    };
+
+    flipCard.addEventListener('mousedown', startDrag);
+    window.addEventListener('mousemove', drag, { passive: false });
+    window.addEventListener('mouseup', stopDrag);
+
+    flipCard.addEventListener('touchstart', startDrag, { passive: true });
+    window.addEventListener('touchmove', drag, { passive: false });
+    window.addEventListener('touchend', stopDrag);
+
+    // Initialize pointer events based on initial rotation
+    updatePointerEvents(0);
+
+    // Toggle Mailbox
+    const smMinimizeBtn = document.getElementById('sm-minimize-btn');
+    const smExpandBtn = document.getElementById('sm-expand-btn');
+    const smContainer = document.querySelector('.silent-mailbox-container');
+
+    smMinimizeBtn.addEventListener('click', () => {
+      smContainer.classList.add('minimized');
+      smExpandBtn.classList.add('visible');
+    });
+
+    smExpandBtn.addEventListener('click', () => {
+      smContainer.classList.remove('minimized');
+      smExpandBtn.classList.remove('visible');
+    });
+  </script>
     <script src="./js/minimap.js"></script>
   </body>
+
 </html>
